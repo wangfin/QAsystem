@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="3e93802e-90df-477b-b2f4-7d2673a57d95" name="question_generate" url="http://192.168.159.129">
+        <fileTransfer host="192.168.159.129" port="22" rootFolder="/home/wang/ques_generate" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

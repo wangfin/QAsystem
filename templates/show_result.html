@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>QA对数据展示</title>
+    <link href="/static/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <script src="/static/js/jquery-1.10.2.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h3 class="display-4">生成结果</h3>
+    <p class="lead">本次处理了{{ length }}个网页，分别为{% for file in files %}
+            {{ file }}
+        {% endfor %}</p>
+  </div>
+</div>
+
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <th scope="col">问题ID</th>
+            <th scope="col">问题</th>
+            <th scope="col">主题</th>
+            <th scope="col">答案</th>
+            <th scope="col">文件链接</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for result in result_list %}
+            <tr>
+                <th scope='row'>{{ forloop.counter }}</th>
+                <td>{{ result.question }}</td>
+                <td>{{ result.subject }}</td>
+                <td style="max-width: 450px;word-wrap:break-word;">{{ result.answer }}</td>
+                <td>{{ result.answer_link }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+</body>
+</html>

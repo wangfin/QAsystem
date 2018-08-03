@@ -1,0 +1,540 @@
+2018-07-30 20:26:20,853 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-07-30 20:26:21,172 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-07-30 20:28:32,959 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-07-30 20:28:36,151 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /search_all/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connection.py", line 171, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/util/connection.py", line 79, in create_connection
+    raise err
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/util/connection.py", line 69, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/connection/http_urllib3.py", line 171, in perform_request
+    response = self.pool.urlopen(method, url, body, retries=False, headers=request_headers, **kw)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/util/retry.py", line 343, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/packages/six.py", line 686, in reraise
+    raise value
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connectionpool.py", line 354, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/http/client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/http/client.py", line 1285, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/http/client.py", line 1234, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/http/client.py", line 1026, in _send_output
+    self.send(msg)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/http/client.py", line 964, in send
+    self.connect()
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connection.py", line 196, in connect
+    conn = self._new_conn()
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connection.py", line 176, in _new_conn
+    (self.host, self.timeout))
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPConnection object at 0x7f4b1775fc88>, 'Connection to 192.168.159.129 timed out. (connect timeout=10)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 94, in search_all
+    result = withweb.searchall(myindex)
+  File "/home/wang/QASystem/QAManagement/withweb.py", line 144, in searchall
+    return myelas.searchall(myindex)
+  File "/home/wang/QASystem/QAManagement/elas.py", line 127, in searchall
+    res = self.es.search(index=myindex, doc_type='user', size=10000,body={"query": {"match_all": {}}})
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/client/utils.py", line 76, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/client/__init__.py", line 655, in search
+    doc_type, '_search'), params=params, body=body)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/transport.py", line 318, in perform_request
+    status, headers_response, data = connection.perform_request(method, url, params, body, headers=headers, ignore=ignore, timeout=timeout)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/connection/http_urllib3.py", line 180, in perform_request
+    raise ConnectionError('N/A', str(e), e)
+elasticsearch.exceptions.ConnectionError: ConnectionError((<urllib3.connection.HTTPConnection object at 0x7f4b1775fc88>, 'Connection to 192.168.159.129 timed out. (connect timeout=10)')) caused by: ConnectTimeoutError((<urllib3.connection.HTTPConnection object at 0x7f4b1775fc88>, 'Connection to 192.168.159.129 timed out. (connect timeout=10)'))
+2018-07-30 20:28:56,378 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-07-30 20:28:58,558 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-07-30 20:29:49,402 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /search_all/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connection.py", line 171, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/util/connection.py", line 79, in create_connection
+    raise err
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/util/connection.py", line 69, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/connection/http_urllib3.py", line 171, in perform_request
+    response = self.pool.urlopen(method, url, body, retries=False, headers=request_headers, **kw)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/util/retry.py", line 343, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/packages/six.py", line 686, in reraise
+    raise value
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connectionpool.py", line 354, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/http/client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/http/client.py", line 1285, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/http/client.py", line 1234, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/http/client.py", line 1026, in _send_output
+    self.send(msg)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/http/client.py", line 964, in send
+    self.connect()
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connection.py", line 196, in connect
+    conn = self._new_conn()
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connection.py", line 176, in _new_conn
+    (self.host, self.timeout))
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPConnection object at 0x7f4b156cef28>, 'Connection to 192.168.159.129 timed out. (connect timeout=10)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 94, in search_all
+    result = withweb.searchall(myindex)
+  File "/home/wang/QASystem/QAManagement/withweb.py", line 144, in searchall
+    return myelas.searchall(myindex)
+  File "/home/wang/QASystem/QAManagement/elas.py", line 127, in searchall
+    res = self.es.search(index=myindex, doc_type='user', size=10000,body={"query": {"match_all": {}}})
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/client/utils.py", line 76, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/client/__init__.py", line 655, in search
+    doc_type, '_search'), params=params, body=body)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/transport.py", line 318, in perform_request
+    status, headers_response, data = connection.perform_request(method, url, params, body, headers=headers, ignore=ignore, timeout=timeout)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/connection/http_urllib3.py", line 180, in perform_request
+    raise ConnectionError('N/A', str(e), e)
+elasticsearch.exceptions.ConnectionError: ConnectionError((<urllib3.connection.HTTPConnection object at 0x7f4b156cef28>, 'Connection to 192.168.159.129 timed out. (connect timeout=10)')) caused by: ConnectTimeoutError((<urllib3.connection.HTTPConnection object at 0x7f4b156cef28>, 'Connection to 192.168.159.129 timed out. (connect timeout=10)'))
+2018-07-30 20:31:41,133 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-07-30 20:33:34,788 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /search_all/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connection.py", line 171, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/util/connection.py", line 79, in create_connection
+    raise err
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/util/connection.py", line 69, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/connection/http_urllib3.py", line 171, in perform_request
+    response = self.pool.urlopen(method, url, body, retries=False, headers=request_headers, **kw)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/util/retry.py", line 343, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/packages/six.py", line 686, in reraise
+    raise value
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connectionpool.py", line 354, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/http/client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/http/client.py", line 1285, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/http/client.py", line 1234, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/http/client.py", line 1026, in _send_output
+    self.send(msg)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/http/client.py", line 964, in send
+    self.connect()
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connection.py", line 196, in connect
+    conn = self._new_conn()
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connection.py", line 176, in _new_conn
+    (self.host, self.timeout))
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPConnection object at 0x7f4b156c9cf8>, 'Connection to 192.168.159.129 timed out. (connect timeout=10)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 94, in search_all
+    result = withweb.searchall(myindex)
+  File "/home/wang/QASystem/QAManagement/withweb.py", line 144, in searchall
+    return myelas.searchall(myindex)
+  File "/home/wang/QASystem/QAManagement/elas.py", line 127, in searchall
+    res = self.es.search(index=myindex, doc_type='user', size=10000,body={"query": {"match_all": {}}})
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/client/utils.py", line 76, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/client/__init__.py", line 655, in search
+    doc_type, '_search'), params=params, body=body)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/transport.py", line 318, in perform_request
+    status, headers_response, data = connection.perform_request(method, url, params, body, headers=headers, ignore=ignore, timeout=timeout)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/connection/http_urllib3.py", line 180, in perform_request
+    raise ConnectionError('N/A', str(e), e)
+elasticsearch.exceptions.ConnectionError: ConnectionError((<urllib3.connection.HTTPConnection object at 0x7f4b156c9cf8>, 'Connection to 192.168.159.129 timed out. (connect timeout=10)')) caused by: ConnectTimeoutError((<urllib3.connection.HTTPConnection object at 0x7f4b156c9cf8>, 'Connection to 192.168.159.129 timed out. (connect timeout=10)'))
+2018-07-30 20:59:51,599 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /Doexe/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 503, in Doexe
+    jsonpath = myextract.inserthtml(onehtml, jsonpath, mylink)  ######此处写入的是变量
+  File "/home/wang/QASystem/QAManagement/webextract/hauwei_extractor.py", line 245, in inserthtml
+    with open(json_filename, 'w', encoding='utf-8') as json_file:
+FileNotFoundError: [Errno 2] No such file or directory: '/home/wang/QASystem/QAManagement/static/json/什么是节点任务？_ 数据湖工厂_常见问题.json'
+2018-07-30 21:07:04,282 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-07-30 21:38:27,325 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-07-30 21:50:06,407 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-07-30 22:00:59,092 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-07-30 22:01:00,996 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-07-30 22:01:02,875 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /accurate_search/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 418, in accurate_search
+    logger.info(user_question + answer)
+TypeError: must be str, not NoneType
+2018-07-30 22:01:03,534 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /accurate_search/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 418, in accurate_search
+    logger.info(user_question + answer)
+TypeError: must be str, not NoneType
+2018-07-30 22:01:04,049 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /accurate_search/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 418, in accurate_search
+    logger.info(user_question + answer)
+TypeError: must be str, not NoneType
+2018-07-30 22:01:04,432 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /accurate_search/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 418, in accurate_search
+    logger.info(user_question + answer)
+TypeError: must be str, not NoneType
+2018-07-30 22:01:09,783 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /enter_search/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 406, in enter_search
+    logger.info(user_question + result_json)
+UnboundLocalError: local variable 'result_json' referenced before assignment
+2018-07-30 22:02:38,825 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-07-30 22:04:17,587 [django.request:93] [base:get_response] [WARNING]- Not Found: /userPage/register.html
+2018-07-30 22:04:21,605 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /accurate_search/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 418, in accurate_search
+    logger.info(user_question + answer)
+TypeError: must be str, not NoneType
+2018-07-30 22:04:21,637 [django.request:93] [base:get_response] [WARNING]- Not Found: /userPage/contact.html
+2018-07-30 22:04:36,459 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /enter_search/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 406, in enter_search
+    logger.info(user_question + result_json)
+UnboundLocalError: local variable 'result_json' referenced before assignment
+2018-07-30 22:21:28,199 [django.request:93] [base:get_response] [WARNING]- Not Found: /QAManage/public_sys-resources/icon-note.gif
+2018-07-30 22:21:54,316 [django.request:93] [base:get_response] [WARNING]- Not Found: /QAManage/public_sys-resources/icon-note.gif
+2018-07-30 22:21:59,698 [django.request:93] [base:get_response] [WARNING]- Not Found: /QAManage/public_sys-resources/icon-note.gif
+2018-07-30 22:33:54,496 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-07-30 22:39:04,194 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /Doexe/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 504, in Doexe
+    jsonpath = myextract.inserthtml(onehtml, jsonpath, mylink)  ######此处写入的是变量
+  File "/home/wang/QASystem/QAManagement/webextract/hauwei_extractor.py", line 245, in inserthtml
+    with open(json_filename, 'w', encoding='utf-8') as json_file:
+FileNotFoundError: [Errno 2] No such file or directory: '/home/wang/QASystem/QAManagement/static/json/什么是节点任务？_ 数据湖工厂_常见问题.json'
+2018-07-30 22:44:25,670 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /Doexe/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 504, in Doexe
+    jsonpath = myextract.inserthtml(onehtml, jsonpath, mylink)  ######此处写入的是变量
+  File "/home/wang/QASystem/QAManagement/webextract/hauwei_extractor.py", line 245, in inserthtml
+    with open(json_filename, 'w', encoding='utf-8') as json_file:
+FileNotFoundError: [Errno 2] No such file or directory: '/home/wang/QASystem/QAManagement/static/json/什么是节点任务？_ 数据湖工厂_常见问题.json'
+2018-07-30 22:58:43,327 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /Doexe/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 504, in Doexe
+    jsonpath = myextract.inserthtml(onehtml, jsonpath, mylink)  ######此处写入的是变量
+  File "/home/wang/QASystem/QAManagement/webextract/hauwei_extractor.py", line 245, in inserthtml
+    with open(json_filename, 'w', encoding='utf-8') as json_file:
+FileNotFoundError: [Errno 2] No such file or directory: '/home/wang/QASystem/QAManagement/static/json/什么是节点任务？_ 数据湖工厂_常见问题.json'
+2018-07-30 23:05:53,325 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /Doexe/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 504, in Doexe
+    jsonpath = myextract.inserthtml(onehtml, jsonpath, mylink)  ######此处写入的是变量
+  File "/home/wang/QASystem/QAManagement/webextract/hauwei_extractor.py", line 245, in inserthtml
+    with open(json_filename, 'w', encoding='utf-8') as json_file:
+FileNotFoundError: [Errno 2] No such file or directory: '/home/wang/QASystem/QAManagement/static/json/什么是节点任务？_ 数据湖工厂_常见问题.json'
+2018-07-30 23:22:04,601 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /Doexe/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 504, in Doexe
+    jsonpath = myextract.inserthtml(onehtml, jsonpath, mylink)  ######此处写入的是变量
+  File "/home/wang/QASystem/QAManagement/webextract/hauwei_extractor.py", line 245, in inserthtml
+    with open(json_filename, 'w', encoding='utf-8') as json_file:
+FileNotFoundError: [Errno 2] No such file or directory: '/home/wang/QASystem/QAManagement/static/json/数据表管理_ 数据湖工厂_用户指南.json'
+2018-07-31 00:33:42,169 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-07-31 01:05:34,026 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /create_model/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 585, in create_model
+    begintitle = data["begintitle"]
+TypeError: string indices must be integers
+2018-07-31 01:06:19,520 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /create_model/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 585, in create_model
+    begintitle = data["begintitle"]
+TypeError: string indices must be integers
+2018-07-31 01:13:43,269 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /create_model/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 586, in create_model
+    begintitle = data["begintitle"]
+TypeError: string indices must be integers
+2018-07-31 01:17:42,456 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /create_model/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 654, in create_model
+    saveines.main(myindex, result)
+  File "/home/wang/QASystem/QAManagement/ques_generate/QA_save.py", line 24, in main
+    if qa_list['question'] not in questions:
+TypeError: list indices must be integers or slices, not str
+2018-07-31 01:18:39,863 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /create_model/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 654, in create_model
+    saveines.main(myindex, result)
+  File "/home/wang/QASystem/QAManagement/ques_generate/QA_save.py", line 24, in main
+    if qa_list['question'] not in questions:
+TypeError: list indices must be integers or slices, not str
+2018-07-31 01:21:35,222 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /create_model/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 654, in create_model
+    saveines.main(myindex, result)
+  File "/home/wang/QASystem/QAManagement/ques_generate/QA_save.py", line 24, in main
+    if qa_list['question'] not in questions:
+TypeError: list indices must be integers or slices, not str
+2018-07-31 01:22:25,545 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /create_model/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 654, in create_model
+    saveines.main(myindex, result)
+  File "/home/wang/QASystem/QAManagement/ques_generate/QA_save.py", line 24, in main
+    if qa_list['question'] not in questions:
+TypeError: list indices must be integers or slices, not str
+2018-07-31 06:27:06,299 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-07-31 08:53:42,896 [django.request:93] [base:get_response] [WARNING]- Not Found: /133.130.126.119:43
+2018-07-31 09:37:26,580 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-07-31 09:41:31,227 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-07-31 09:43:33,900 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-07-31 09:44:30,104 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-07-31 10:48:03,694 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-07-31 10:50:27,912 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-07-31 10:50:31,141 [django.request:93] [base:get_response] [WARNING]- Not Found: /Userpage/
+2018-07-31 10:51:47,370 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /enter_search/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 406, in enter_search
+    logger.info(user_question + result_json)
+UnboundLocalError: local variable 'result_json' referenced before assignment
+2018-07-31 21:03:14,738 [django.request:93] [base:get_response] [WARNING]- Not Found: /133.130.126.119:43
+2018-07-31 23:35:23,844 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-01 01:15:37,650 [django.request:93] [base:get_response] [WARNING]- Not Found: /userPage/contact.html
+2018-08-01 01:16:15,593 [django.request:93] [base:get_response] [WARNING]- Not Found: /userPage/contact.html
+2018-08-01 01:22:40,140 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-01 08:23:02,849 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-01 10:21:55,638 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-01 10:43:20,722 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-01 12:46:48,422 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-01 12:47:41,461 [django.request:93] [base:get_response] [WARNING]- Not Found: /userpage/
+2018-08-01 12:47:42,362 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-01 12:48:32,634 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-01 12:49:33,515 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-01 12:49:43,631 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-01 13:30:32,914 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-01 13:32:47,594 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-01 13:34:27,642 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-01 13:35:42,153 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /accurate_search/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 419, in accurate_search
+    logger.info(user_question + answer)
+TypeError: must be str, not NoneType
+2018-08-01 13:35:49,881 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /accurate_search/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 139, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view QAManagement.views.accurate_search didn't return an HttpResponse object. It returned None instead.
+2018-08-01 13:36:15,918 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /accurate_search/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 419, in accurate_search
+    logger.info(user_question + answer)
+TypeError: must be str, not NoneType
+2018-08-01 13:36:23,834 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /accurate_search/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 139, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view QAManagement.views.accurate_search didn't return an HttpResponse object. It returned None instead.
+2018-08-01 13:56:37,337 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-01 13:57:16,591 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-01 14:17:00,234 [django.request:93] [base:get_response] [WARNING]- Not Found: /userpage
+2018-08-01 14:21:47,409 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-01 14:34:31,741 [django.request:93] [base:get_response] [WARNING]- Not Found: /userpage
+2018-08-01 23:42:34,881 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-01 23:42:35,381 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-02 00:48:07,531 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/180.163.113.82/check_proxy
+2018-08-02 05:26:46,302 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-02 05:57:29,030 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-02 07:57:37,695 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-02 09:57:26,634 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-02 10:55:45,823 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico

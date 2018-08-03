@@ -1,0 +1,1810 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>QA管理系统模块</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- basic styles -->
+
+		<link href="/static/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="/static/css/font-awesome.min.css" />
+
+
+
+		<!-- page specific plugin styles -->
+
+		<!-- fonts -->
+
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />
+
+		<!-- ace styles -->
+
+		<link rel="stylesheet" href="/static/css/ace.min.css" />
+		<link rel="stylesheet" href="/static/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="/static/css/ace-skins.min.css" />
+
+
+		<!-- inline styles related to this page -->
+
+		<!-- ace settings handler -->
+
+		<script src="/static/js/ace-extra.min.js"></script>
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- Custom CSS -->
+        <!--<link href="/static/css/style.css" rel='stylesheet' type='text/css' />-->
+        <!-- Graph CSS -->
+        <link href="/static/css/font-awesome.css" rel="stylesheet">
+        <!-- jQuery -->
+        <link href='https://fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'/>
+        <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+        <!-- lined-icons -->
+        <link rel="stylesheet" href="/static/css/icon-font.min.css" type='text/css' />
+        <script src="/static/js/jquery-1.10.2.min.js"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+	</head>
+
+	<body>
+        <!--/content-inner-->
+        <div class="left-content">
+            <div class="inner-content">
+                <!-- header-starts -->
+                <div class="header-section">
+                    <!-- top_bg -->
+                    <div class="top_bg">
+
+                        <div class="header_top">
+                            <div class="top_right">
+                                <ul>
+                                    <li><a href="#">help</a></li>
+                                    |
+                                    <li><a href="#">Contact</a></li>
+                                    |
+                                    <li><a href="#">Delivery information</a></li>
+                                </ul>
+                            </div>
+                            <div class="top_left">
+                                <h2><span></span> Call us : 032 2352 782</h2>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+                    </div>
+                    <div class="clearfix"></div>
+                    <!-- /top_bg -->
+                </div>
+                <!--/header_bg-->
+
+
+
+            </div>
+            <!--/sidebar-menu-->
+                            <!--内容-->
+
+            <div class="sidebar-menu">
+                <header class="logo1">
+                    <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a>
+                </header>
+                <div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
+                <div class="menu">
+                    <ul id="menu">
+                        <li><a href="#"><i class="fa fa-tachometer"></i> <span>Home</span></a></li>
+                        <li id="menu-academico"><a href="/QAManagement"><i class="fa fa-table"></i>
+                            <span> QA management</span></a>
+                        </li>
+                        <li id="menu-academico"><a href="#"><i class="lnr lnr-layers"></i> <span>Tabs & Calender</span>
+                            <span class="fa fa-angle-right" style="float: right"></span></a>
+                            <ul id="menu-academico-sub">
+                                <li id="menu-academico-avaliacoes"><a href="#">Tabs</a></li>
+                                <li id="menu-academico-boletim"><a href="#">Calender</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><i class="lnr lnr-chart-bars"></i> <span>Forms</span> <span
+                                class="fa fa-angle-right" style="float: right"></span></a>
+                            <ul>
+                                <li><a href="#"> Input</a></li>
+                                <li><a href="#">Validation</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3 class="header smaller lighter blue">QA dataTables</h3>
+                    <div class="table-header">
+                        下面是所有的QA对
+                    </div>
+
+                    <div class="table-responsive">
+                        <table id="sample-table-2" class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="center">问题编号</th>
+                                    <th>标准问题</th>
+                                    <th>主题</th>
+                                    <th>答案</th>
+                                    <th>答案链接</th>
+                                    <th>扩展问题</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                                    <td class="center">
+                                                        1
+                                                    </td>
+
+                                                    <td>
+                                                        机器学习服务可以做什么？
+                                                    </td>
+                                                    <td>机器学习服务</td>
+                                                    <td style="max-width: 600px;word-wrap:break-word;">机器学习服务应用于海量数据挖掘分析场景。市场分析商场从顾客消费记录中找出某类顾客群的共有特征（兴趣、收入水平和消费习惯等），分析出什么样的顾客买什么产品，从而调整市场策略。定向推荐银行从客户的个人财务状况信息中分析客户特征，定向推荐合适的产品（贷款项目、理财产品），以小代价获取大收益。欺骗检测保险公司分析投保人的历史行为数据，建立欺骗行为模型，识别出假造事故骗取保险赔偿的投保人。</td>
+                                                    <td style="max-width: 300px;word-wrap:break-word;">support.huaweicloud.com_mls_faq_zh-cn_topic_0052971409.html</td>
+
+                                                    <td>
+                                                        <a>扩展问题</a>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                            <a class="green" href="#" onclick="modify(this)">
+                                                                <i class="icon-pencil bigger-130"></i>
+                                                            </a>
+
+                                                            <a class="red" href="#" onclick="delete(this)">
+                                                                <i class="icon-trash bigger-130"></i>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                            <div class="inline position-relative">
+                                                                <button class="btn btn-minier btn-yellow dropdown-toggle"
+                                                                        data-toggle="dropdown">
+                                                                    <i class="icon-caret-down icon-only bigger-120"></i>
+                                                                </button>
+
+                                                                <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-info" data-rel="tooltip"
+                                                                           title="View">
+                                                                                        <span class="blue">
+                                                                                            <i class="icon-zoom-in bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-success" data-rel="tooltip"
+                                                                           title="Edit">
+                                                                                        <span class="green">
+                                                                                            <i class="icon-edit bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-error" data-rel="tooltip"
+                                                                           title="Delete">
+                                                                                        <span class="red">
+                                                                                            <i class="icon-trash bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+
+                            <tr>
+                                                    <td class="center">
+                                                        1
+                                                    </td>
+
+                                                    <td>
+                                                        机器学习服务可以做什么？
+                                                    </td>
+                                                    <td>机器学习服务</td>
+                                                    <td style="max-width: 600px;word-wrap:break-word;">机器学习服务应用于海量数据挖掘分析场景。市场分析商场从顾客消费记录中找出某类顾客群的共有特征（兴趣、收入水平和消费习惯等），分析出什么样的顾客买什么产品，从而调整市场策略。定向推荐银行从客户的个人财务状况信息中分析客户特征，定向推荐合适的产品（贷款项目、理财产品），以小代价获取大收益。欺骗检测保险公司分析投保人的历史行为数据，建立欺骗行为模型，识别出假造事故骗取保险赔偿的投保人。</td>
+                                                    <td style="max-width: 300px;word-wrap:break-word;">support.huaweicloud.com_mls_faq_zh-cn_topic_0052971409.html</td>
+
+                                                    <td>
+                                                        <a>扩展问题</a>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                            <a class="green" href="#" onclick="modify(this)">
+                                                                <i class="icon-pencil bigger-130"></i>
+                                                            </a>
+
+                                                            <a class="red" href="#" onclick="delete(this)">
+                                                                <i class="icon-trash bigger-130"></i>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                            <div class="inline position-relative">
+                                                                <button class="btn btn-minier btn-yellow dropdown-toggle"
+                                                                        data-toggle="dropdown">
+                                                                    <i class="icon-caret-down icon-only bigger-120"></i>
+                                                                </button>
+
+                                                                <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-info" data-rel="tooltip"
+                                                                           title="View">
+                                                                                        <span class="blue">
+                                                                                            <i class="icon-zoom-in bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-success" data-rel="tooltip"
+                                                                           title="Edit">
+                                                                                        <span class="green">
+                                                                                            <i class="icon-edit bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-error" data-rel="tooltip"
+                                                                           title="Delete">
+                                                                                        <span class="red">
+                                                                                            <i class="icon-trash bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                            <tr>
+                                                    <td class="center">
+                                                        1
+                                                    </td>
+
+                                                    <td>
+                                                        机器学习服务可以做什么？
+                                                    </td>
+                                                    <td>机器学习服务</td>
+                                                    <td style="max-width: 600px;word-wrap:break-word;">机器学习服务应用于海量数据挖掘分析场景。市场分析商场从顾客消费记录中找出某类顾客群的共有特征（兴趣、收入水平和消费习惯等），分析出什么样的顾客买什么产品，从而调整市场策略。定向推荐银行从客户的个人财务状况信息中分析客户特征，定向推荐合适的产品（贷款项目、理财产品），以小代价获取大收益。欺骗检测保险公司分析投保人的历史行为数据，建立欺骗行为模型，识别出假造事故骗取保险赔偿的投保人。</td>
+                                                    <td style="max-width: 300px;word-wrap:break-word;">support.huaweicloud.com_mls_faq_zh-cn_topic_0052971409.html</td>
+
+                                                    <td>
+                                                        <a>扩展问题</a>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                            <a class="green" href="#" onclick="modify(this)">
+                                                                <i class="icon-pencil bigger-130"></i>
+                                                            </a>
+
+                                                            <a class="red" href="#" onclick="delete(this)">
+                                                                <i class="icon-trash bigger-130"></i>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                            <div class="inline position-relative">
+                                                                <button class="btn btn-minier btn-yellow dropdown-toggle"
+                                                                        data-toggle="dropdown">
+                                                                    <i class="icon-caret-down icon-only bigger-120"></i>
+                                                                </button>
+
+                                                                <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-info" data-rel="tooltip"
+                                                                           title="View">
+                                                                                        <span class="blue">
+                                                                                            <i class="icon-zoom-in bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-success" data-rel="tooltip"
+                                                                           title="Edit">
+                                                                                        <span class="green">
+                                                                                            <i class="icon-edit bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-error" data-rel="tooltip"
+                                                                           title="Delete">
+                                                                                        <span class="red">
+                                                                                            <i class="icon-trash bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                            <tr>
+                                                    <td class="center">
+                                                        1
+                                                    </td>
+
+                                                    <td>
+                                                        机器学习服务可以做什么？
+                                                    </td>
+                                                    <td>机器学习服务</td>
+                                                    <td style="max-width: 600px;word-wrap:break-word;">机器学习服务应用于海量数据挖掘分析场景。市场分析商场从顾客消费记录中找出某类顾客群的共有特征（兴趣、收入水平和消费习惯等），分析出什么样的顾客买什么产品，从而调整市场策略。定向推荐银行从客户的个人财务状况信息中分析客户特征，定向推荐合适的产品（贷款项目、理财产品），以小代价获取大收益。欺骗检测保险公司分析投保人的历史行为数据，建立欺骗行为模型，识别出假造事故骗取保险赔偿的投保人。</td>
+                                                    <td style="max-width: 300px;word-wrap:break-word;">support.huaweicloud.com_mls_faq_zh-cn_topic_0052971409.html</td>
+
+                                                    <td>
+                                                        <a>扩展问题</a>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                            <a class="green" href="#" onclick="modify(this)">
+                                                                <i class="icon-pencil bigger-130"></i>
+                                                            </a>
+
+                                                            <a class="red" href="#" onclick="delete(this)">
+                                                                <i class="icon-trash bigger-130"></i>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                            <div class="inline position-relative">
+                                                                <button class="btn btn-minier btn-yellow dropdown-toggle"
+                                                                        data-toggle="dropdown">
+                                                                    <i class="icon-caret-down icon-only bigger-120"></i>
+                                                                </button>
+
+                                                                <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-info" data-rel="tooltip"
+                                                                           title="View">
+                                                                                        <span class="blue">
+                                                                                            <i class="icon-zoom-in bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-success" data-rel="tooltip"
+                                                                           title="Edit">
+                                                                                        <span class="green">
+                                                                                            <i class="icon-edit bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-error" data-rel="tooltip"
+                                                                           title="Delete">
+                                                                                        <span class="red">
+                                                                                            <i class="icon-trash bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                            <tr>
+                                                    <td class="center">
+                                                        1
+                                                    </td>
+
+                                                    <td>
+                                                        机器学习服务可以做什么？
+                                                    </td>
+                                                    <td>机器学习服务</td>
+                                                    <td style="max-width: 600px;word-wrap:break-word;">机器学习服务应用于海量数据挖掘分析场景。市场分析商场从顾客消费记录中找出某类顾客群的共有特征（兴趣、收入水平和消费习惯等），分析出什么样的顾客买什么产品，从而调整市场策略。定向推荐银行从客户的个人财务状况信息中分析客户特征，定向推荐合适的产品（贷款项目、理财产品），以小代价获取大收益。欺骗检测保险公司分析投保人的历史行为数据，建立欺骗行为模型，识别出假造事故骗取保险赔偿的投保人。</td>
+                                                    <td style="max-width: 300px;word-wrap:break-word;">support.huaweicloud.com_mls_faq_zh-cn_topic_0052971409.html</td>
+
+                                                    <td>
+                                                        <a>扩展问题</a>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                            <a class="green" href="#" onclick="modify(this)">
+                                                                <i class="icon-pencil bigger-130"></i>
+                                                            </a>
+
+                                                            <a class="red" href="#" onclick="delete(this)">
+                                                                <i class="icon-trash bigger-130"></i>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                            <div class="inline position-relative">
+                                                                <button class="btn btn-minier btn-yellow dropdown-toggle"
+                                                                        data-toggle="dropdown">
+                                                                    <i class="icon-caret-down icon-only bigger-120"></i>
+                                                                </button>
+
+                                                                <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-info" data-rel="tooltip"
+                                                                           title="View">
+                                                                                        <span class="blue">
+                                                                                            <i class="icon-zoom-in bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-success" data-rel="tooltip"
+                                                                           title="Edit">
+                                                                                        <span class="green">
+                                                                                            <i class="icon-edit bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-error" data-rel="tooltip"
+                                                                           title="Delete">
+                                                                                        <span class="red">
+                                                                                            <i class="icon-trash bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                            <tr>
+                                                    <td class="center">
+                                                        1
+                                                    </td>
+
+                                                    <td>
+                                                        机器学习服务可以做什么？
+                                                    </td>
+                                                    <td>机器学习服务</td>
+                                                    <td style="max-width: 600px;word-wrap:break-word;">机器学习服务应用于海量数据挖掘分析场景。市场分析商场从顾客消费记录中找出某类顾客群的共有特征（兴趣、收入水平和消费习惯等），分析出什么样的顾客买什么产品，从而调整市场策略。定向推荐银行从客户的个人财务状况信息中分析客户特征，定向推荐合适的产品（贷款项目、理财产品），以小代价获取大收益。欺骗检测保险公司分析投保人的历史行为数据，建立欺骗行为模型，识别出假造事故骗取保险赔偿的投保人。</td>
+                                                    <td style="max-width: 300px;word-wrap:break-word;">support.huaweicloud.com_mls_faq_zh-cn_topic_0052971409.html</td>
+
+                                                    <td>
+                                                        <a>扩展问题</a>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                            <a class="green" href="#" onclick="modify(this)">
+                                                                <i class="icon-pencil bigger-130"></i>
+                                                            </a>
+
+                                                            <a class="red" href="#" onclick="delete(this)">
+                                                                <i class="icon-trash bigger-130"></i>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                            <div class="inline position-relative">
+                                                                <button class="btn btn-minier btn-yellow dropdown-toggle"
+                                                                        data-toggle="dropdown">
+                                                                    <i class="icon-caret-down icon-only bigger-120"></i>
+                                                                </button>
+
+                                                                <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-info" data-rel="tooltip"
+                                                                           title="View">
+                                                                                        <span class="blue">
+                                                                                            <i class="icon-zoom-in bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-success" data-rel="tooltip"
+                                                                           title="Edit">
+                                                                                        <span class="green">
+                                                                                            <i class="icon-edit bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-error" data-rel="tooltip"
+                                                                           title="Delete">
+                                                                                        <span class="red">
+                                                                                            <i class="icon-trash bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                            <tr>
+                                                    <td class="center">
+                                                        1
+                                                    </td>
+
+                                                    <td>
+                                                        机器学习服务可以做什么？
+                                                    </td>
+                                                    <td>机器学习服务</td>
+                                                    <td style="max-width: 600px;word-wrap:break-word;">机器学习服务应用于海量数据挖掘分析场景。市场分析商场从顾客消费记录中找出某类顾客群的共有特征（兴趣、收入水平和消费习惯等），分析出什么样的顾客买什么产品，从而调整市场策略。定向推荐银行从客户的个人财务状况信息中分析客户特征，定向推荐合适的产品（贷款项目、理财产品），以小代价获取大收益。欺骗检测保险公司分析投保人的历史行为数据，建立欺骗行为模型，识别出假造事故骗取保险赔偿的投保人。</td>
+                                                    <td style="max-width: 300px;word-wrap:break-word;">support.huaweicloud.com_mls_faq_zh-cn_topic_0052971409.html</td>
+
+                                                    <td>
+                                                        <a>扩展问题</a>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                            <a class="green" href="#" onclick="modify(this)">
+                                                                <i class="icon-pencil bigger-130"></i>
+                                                            </a>
+
+                                                            <a class="red" href="#" onclick="delete(this)">
+                                                                <i class="icon-trash bigger-130"></i>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                            <div class="inline position-relative">
+                                                                <button class="btn btn-minier btn-yellow dropdown-toggle"
+                                                                        data-toggle="dropdown">
+                                                                    <i class="icon-caret-down icon-only bigger-120"></i>
+                                                                </button>
+
+                                                                <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-info" data-rel="tooltip"
+                                                                           title="View">
+                                                                                        <span class="blue">
+                                                                                            <i class="icon-zoom-in bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-success" data-rel="tooltip"
+                                                                           title="Edit">
+                                                                                        <span class="green">
+                                                                                            <i class="icon-edit bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-error" data-rel="tooltip"
+                                                                           title="Delete">
+                                                                                        <span class="red">
+                                                                                            <i class="icon-trash bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                            <tr>
+                                                    <td class="center">
+                                                        1
+                                                    </td>
+
+                                                    <td>
+                                                        机器学习服务可以做什么？
+                                                    </td>
+                                                    <td>机器学习服务</td>
+                                                    <td style="max-width: 600px;word-wrap:break-word;">机器学习服务应用于海量数据挖掘分析场景。市场分析商场从顾客消费记录中找出某类顾客群的共有特征（兴趣、收入水平和消费习惯等），分析出什么样的顾客买什么产品，从而调整市场策略。定向推荐银行从客户的个人财务状况信息中分析客户特征，定向推荐合适的产品（贷款项目、理财产品），以小代价获取大收益。欺骗检测保险公司分析投保人的历史行为数据，建立欺骗行为模型，识别出假造事故骗取保险赔偿的投保人。</td>
+                                                    <td style="max-width: 300px;word-wrap:break-word;">support.huaweicloud.com_mls_faq_zh-cn_topic_0052971409.html</td>
+
+                                                    <td>
+                                                        <a>扩展问题</a>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                            <a class="green" href="#" onclick="modify(this)">
+                                                                <i class="icon-pencil bigger-130"></i>
+                                                            </a>
+
+                                                            <a class="red" href="#" onclick="delete(this)">
+                                                                <i class="icon-trash bigger-130"></i>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                            <div class="inline position-relative">
+                                                                <button class="btn btn-minier btn-yellow dropdown-toggle"
+                                                                        data-toggle="dropdown">
+                                                                    <i class="icon-caret-down icon-only bigger-120"></i>
+                                                                </button>
+
+                                                                <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-info" data-rel="tooltip"
+                                                                           title="View">
+                                                                                        <span class="blue">
+                                                                                            <i class="icon-zoom-in bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-success" data-rel="tooltip"
+                                                                           title="Edit">
+                                                                                        <span class="green">
+                                                                                            <i class="icon-edit bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-error" data-rel="tooltip"
+                                                                           title="Delete">
+                                                                                        <span class="red">
+                                                                                            <i class="icon-trash bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                            <tr>
+                                                    <td class="center">
+                                                        1
+                                                    </td>
+
+                                                    <td>
+                                                        机器学习服务可以做什么？
+                                                    </td>
+                                                    <td>机器学习服务</td>
+                                                    <td style="max-width: 600px;word-wrap:break-word;">机器学习服务应用于海量数据挖掘分析场景。市场分析商场从顾客消费记录中找出某类顾客群的共有特征（兴趣、收入水平和消费习惯等），分析出什么样的顾客买什么产品，从而调整市场策略。定向推荐银行从客户的个人财务状况信息中分析客户特征，定向推荐合适的产品（贷款项目、理财产品），以小代价获取大收益。欺骗检测保险公司分析投保人的历史行为数据，建立欺骗行为模型，识别出假造事故骗取保险赔偿的投保人。</td>
+                                                    <td style="max-width: 300px;word-wrap:break-word;">support.huaweicloud.com_mls_faq_zh-cn_topic_0052971409.html</td>
+
+                                                    <td>
+                                                        <a>扩展问题</a>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                            <a class="green" href="#" onclick="modify(this)">
+                                                                <i class="icon-pencil bigger-130"></i>
+                                                            </a>
+
+                                                            <a class="red" href="#" onclick="delete(this)">
+                                                                <i class="icon-trash bigger-130"></i>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                            <div class="inline position-relative">
+                                                                <button class="btn btn-minier btn-yellow dropdown-toggle"
+                                                                        data-toggle="dropdown">
+                                                                    <i class="icon-caret-down icon-only bigger-120"></i>
+                                                                </button>
+
+                                                                <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-info" data-rel="tooltip"
+                                                                           title="View">
+                                                                                        <span class="blue">
+                                                                                            <i class="icon-zoom-in bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-success" data-rel="tooltip"
+                                                                           title="Edit">
+                                                                                        <span class="green">
+                                                                                            <i class="icon-edit bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-error" data-rel="tooltip"
+                                                                           title="Delete">
+                                                                                        <span class="red">
+                                                                                            <i class="icon-trash bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                            <tr>
+                                                    <td class="center">
+                                                        1
+                                                    </td>
+
+                                                    <td>
+                                                        机器学习服务可以做什么？
+                                                    </td>
+                                                    <td>机器学习服务</td>
+                                                    <td style="max-width: 600px;word-wrap:break-word;">机器学习服务应用于海量数据挖掘分析场景。市场分析商场从顾客消费记录中找出某类顾客群的共有特征（兴趣、收入水平和消费习惯等），分析出什么样的顾客买什么产品，从而调整市场策略。定向推荐银行从客户的个人财务状况信息中分析客户特征，定向推荐合适的产品（贷款项目、理财产品），以小代价获取大收益。欺骗检测保险公司分析投保人的历史行为数据，建立欺骗行为模型，识别出假造事故骗取保险赔偿的投保人。</td>
+                                                    <td style="max-width: 300px;word-wrap:break-word;">support.huaweicloud.com_mls_faq_zh-cn_topic_0052971409.html</td>
+
+                                                    <td>
+                                                        <a>扩展问题</a>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                            <a class="green" href="#" onclick="modify(this)">
+                                                                <i class="icon-pencil bigger-130"></i>
+                                                            </a>
+
+                                                            <a class="red" href="#" onclick="delete(this)">
+                                                                <i class="icon-trash bigger-130"></i>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                            <div class="inline position-relative">
+                                                                <button class="btn btn-minier btn-yellow dropdown-toggle"
+                                                                        data-toggle="dropdown">
+                                                                    <i class="icon-caret-down icon-only bigger-120"></i>
+                                                                </button>
+
+                                                                <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-info" data-rel="tooltip"
+                                                                           title="View">
+                                                                                        <span class="blue">
+                                                                                            <i class="icon-zoom-in bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-success" data-rel="tooltip"
+                                                                           title="Edit">
+                                                                                        <span class="green">
+                                                                                            <i class="icon-edit bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-error" data-rel="tooltip"
+                                                                           title="Delete">
+                                                                                        <span class="red">
+                                                                                            <i class="icon-trash bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                            <tr>
+                                                    <td class="center">
+                                                        1
+                                                    </td>
+
+                                                    <td>
+                                                        机器学习服务可以做什么？
+                                                    </td>
+                                                    <td>机器学习服务</td>
+                                                    <td style="max-width: 600px;word-wrap:break-word;">机器学习服务应用于海量数据挖掘分析场景。市场分析商场从顾客消费记录中找出某类顾客群的共有特征（兴趣、收入水平和消费习惯等），分析出什么样的顾客买什么产品，从而调整市场策略。定向推荐银行从客户的个人财务状况信息中分析客户特征，定向推荐合适的产品（贷款项目、理财产品），以小代价获取大收益。欺骗检测保险公司分析投保人的历史行为数据，建立欺骗行为模型，识别出假造事故骗取保险赔偿的投保人。</td>
+                                                    <td style="max-width: 300px;word-wrap:break-word;">support.huaweicloud.com_mls_faq_zh-cn_topic_0052971409.html</td>
+
+                                                    <td>
+                                                        <a>扩展问题</a>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                            <a class="green" href="#" onclick="modify(this)">
+                                                                <i class="icon-pencil bigger-130"></i>
+                                                            </a>
+
+                                                            <a class="red" href="#" onclick="delete(this)">
+                                                                <i class="icon-trash bigger-130"></i>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                            <div class="inline position-relative">
+                                                                <button class="btn btn-minier btn-yellow dropdown-toggle"
+                                                                        data-toggle="dropdown">
+                                                                    <i class="icon-caret-down icon-only bigger-120"></i>
+                                                                </button>
+
+                                                                <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-info" data-rel="tooltip"
+                                                                           title="View">
+                                                                                        <span class="blue">
+                                                                                            <i class="icon-zoom-in bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-success" data-rel="tooltip"
+                                                                           title="Edit">
+                                                                                        <span class="green">
+                                                                                            <i class="icon-edit bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-error" data-rel="tooltip"
+                                                                           title="Delete">
+                                                                                        <span class="red">
+                                                                                            <i class="icon-trash bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                            <tr>
+                                                    <td class="center">
+                                                        1
+                                                    </td>
+
+                                                    <td>
+                                                        机器学习服务可以做什么？
+                                                    </td>
+                                                    <td>机器学习服务</td>
+                                                    <td style="max-width: 600px;word-wrap:break-word;">机器学习服务应用于海量数据挖掘分析场景。市场分析商场从顾客消费记录中找出某类顾客群的共有特征（兴趣、收入水平和消费习惯等），分析出什么样的顾客买什么产品，从而调整市场策略。定向推荐银行从客户的个人财务状况信息中分析客户特征，定向推荐合适的产品（贷款项目、理财产品），以小代价获取大收益。欺骗检测保险公司分析投保人的历史行为数据，建立欺骗行为模型，识别出假造事故骗取保险赔偿的投保人。</td>
+                                                    <td style="max-width: 300px;word-wrap:break-word;">support.huaweicloud.com_mls_faq_zh-cn_topic_0052971409.html</td>
+
+                                                    <td>
+                                                        <a>扩展问题</a>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                            <a class="green" href="#" onclick="modify(this)">
+                                                                <i class="icon-pencil bigger-130"></i>
+                                                            </a>
+
+                                                            <a class="red" href="#" onclick="delete(this)">
+                                                                <i class="icon-trash bigger-130"></i>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                            <div class="inline position-relative">
+                                                                <button class="btn btn-minier btn-yellow dropdown-toggle"
+                                                                        data-toggle="dropdown">
+                                                                    <i class="icon-caret-down icon-only bigger-120"></i>
+                                                                </button>
+
+                                                                <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-info" data-rel="tooltip"
+                                                                           title="View">
+                                                                                        <span class="blue">
+                                                                                            <i class="icon-zoom-in bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-success" data-rel="tooltip"
+                                                                           title="Edit">
+                                                                                        <span class="green">
+                                                                                            <i class="icon-edit bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-error" data-rel="tooltip"
+                                                                           title="Delete">
+                                                                                        <span class="red">
+                                                                                            <i class="icon-trash bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                            <tr>
+                                                    <td class="center">
+                                                        1
+                                                    </td>
+
+                                                    <td>
+                                                        机器学习服务可以做什么？
+                                                    </td>
+                                                    <td>机器学习服务</td>
+                                                    <td style="max-width: 600px;word-wrap:break-word;">机器学习服务应用于海量数据挖掘分析场景。市场分析商场从顾客消费记录中找出某类顾客群的共有特征（兴趣、收入水平和消费习惯等），分析出什么样的顾客买什么产品，从而调整市场策略。定向推荐银行从客户的个人财务状况信息中分析客户特征，定向推荐合适的产品（贷款项目、理财产品），以小代价获取大收益。欺骗检测保险公司分析投保人的历史行为数据，建立欺骗行为模型，识别出假造事故骗取保险赔偿的投保人。</td>
+                                                    <td style="max-width: 300px;word-wrap:break-word;">support.huaweicloud.com_mls_faq_zh-cn_topic_0052971409.html</td>
+
+                                                    <td>
+                                                        <a>扩展问题</a>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                            <a class="green" href="#" onclick="modify(this)">
+                                                                <i class="icon-pencil bigger-130"></i>
+                                                            </a>
+
+                                                            <a class="red" href="#" onclick="delete(this)">
+                                                                <i class="icon-trash bigger-130"></i>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                            <div class="inline position-relative">
+                                                                <button class="btn btn-minier btn-yellow dropdown-toggle"
+                                                                        data-toggle="dropdown">
+                                                                    <i class="icon-caret-down icon-only bigger-120"></i>
+                                                                </button>
+
+                                                                <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-info" data-rel="tooltip"
+                                                                           title="View">
+                                                                                        <span class="blue">
+                                                                                            <i class="icon-zoom-in bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-success" data-rel="tooltip"
+                                                                           title="Edit">
+                                                                                        <span class="green">
+                                                                                            <i class="icon-edit bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-error" data-rel="tooltip"
+                                                                           title="Delete">
+                                                                                        <span class="red">
+                                                                                            <i class="icon-trash bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                            <tr>
+                                                    <td class="center">
+                                                        1
+                                                    </td>
+
+                                                    <td>
+                                                        机器学习服务可以做什么？
+                                                    </td>
+                                                    <td>机器学习服务</td>
+                                                    <td style="max-width: 600px;word-wrap:break-word;">机器学习服务应用于海量数据挖掘分析场景。市场分析商场从顾客消费记录中找出某类顾客群的共有特征（兴趣、收入水平和消费习惯等），分析出什么样的顾客买什么产品，从而调整市场策略。定向推荐银行从客户的个人财务状况信息中分析客户特征，定向推荐合适的产品（贷款项目、理财产品），以小代价获取大收益。欺骗检测保险公司分析投保人的历史行为数据，建立欺骗行为模型，识别出假造事故骗取保险赔偿的投保人。</td>
+                                                    <td style="max-width: 300px;word-wrap:break-word;">support.huaweicloud.com_mls_faq_zh-cn_topic_0052971409.html</td>
+
+                                                    <td>
+                                                        <a>扩展问题</a>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                            <a class="green" href="#" onclick="modify(this)">
+                                                                <i class="icon-pencil bigger-130"></i>
+                                                            </a>
+
+                                                            <a class="red" href="#" onclick="delete(this)">
+                                                                <i class="icon-trash bigger-130"></i>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                            <div class="inline position-relative">
+                                                                <button class="btn btn-minier btn-yellow dropdown-toggle"
+                                                                        data-toggle="dropdown">
+                                                                    <i class="icon-caret-down icon-only bigger-120"></i>
+                                                                </button>
+
+                                                                <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-info" data-rel="tooltip"
+                                                                           title="View">
+                                                                                        <span class="blue">
+                                                                                            <i class="icon-zoom-in bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-success" data-rel="tooltip"
+                                                                           title="Edit">
+                                                                                        <span class="green">
+                                                                                            <i class="icon-edit bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-error" data-rel="tooltip"
+                                                                           title="Delete">
+                                                                                        <span class="red">
+                                                                                            <i class="icon-trash bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                            <tr>
+                                                    <td class="center">
+                                                        1
+                                                    </td>
+
+                                                    <td>
+                                                        机器学习服务可以做什么？
+                                                    </td>
+                                                    <td>机器学习服务</td>
+                                                    <td style="max-width: 600px;word-wrap:break-word;">机器学习服务应用于海量数据挖掘分析场景。市场分析商场从顾客消费记录中找出某类顾客群的共有特征（兴趣、收入水平和消费习惯等），分析出什么样的顾客买什么产品，从而调整市场策略。定向推荐银行从客户的个人财务状况信息中分析客户特征，定向推荐合适的产品（贷款项目、理财产品），以小代价获取大收益。欺骗检测保险公司分析投保人的历史行为数据，建立欺骗行为模型，识别出假造事故骗取保险赔偿的投保人。</td>
+                                                    <td style="max-width: 300px;word-wrap:break-word;">support.huaweicloud.com_mls_faq_zh-cn_topic_0052971409.html</td>
+
+                                                    <td>
+                                                        <a>扩展问题</a>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                            <a class="green" href="#" onclick="modify(this)">
+                                                                <i class="icon-pencil bigger-130"></i>
+                                                            </a>
+
+                                                            <a class="red" href="#" onclick="delete(this)">
+                                                                <i class="icon-trash bigger-130"></i>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                            <div class="inline position-relative">
+                                                                <button class="btn btn-minier btn-yellow dropdown-toggle"
+                                                                        data-toggle="dropdown">
+                                                                    <i class="icon-caret-down icon-only bigger-120"></i>
+                                                                </button>
+
+                                                                <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-info" data-rel="tooltip"
+                                                                           title="View">
+                                                                                        <span class="blue">
+                                                                                            <i class="icon-zoom-in bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-success" data-rel="tooltip"
+                                                                           title="Edit">
+                                                                                        <span class="green">
+                                                                                            <i class="icon-edit bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-error" data-rel="tooltip"
+                                                                           title="Delete">
+                                                                                        <span class="red">
+                                                                                            <i class="icon-trash bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                            <tr>
+                                                    <td class="center">
+                                                        1
+                                                    </td>
+
+                                                    <td>
+                                                        机器学习服务可以做什么？
+                                                    </td>
+                                                    <td>机器学习服务</td>
+                                                    <td style="max-width: 600px;word-wrap:break-word;">机器学习服务应用于海量数据挖掘分析场景。市场分析商场从顾客消费记录中找出某类顾客群的共有特征（兴趣、收入水平和消费习惯等），分析出什么样的顾客买什么产品，从而调整市场策略。定向推荐银行从客户的个人财务状况信息中分析客户特征，定向推荐合适的产品（贷款项目、理财产品），以小代价获取大收益。欺骗检测保险公司分析投保人的历史行为数据，建立欺骗行为模型，识别出假造事故骗取保险赔偿的投保人。</td>
+                                                    <td style="max-width: 300px;word-wrap:break-word;">support.huaweicloud.com_mls_faq_zh-cn_topic_0052971409.html</td>
+
+                                                    <td>
+                                                        <a>扩展问题</a>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                            <a class="green" href="#" onclick="modify(this)">
+                                                                <i class="icon-pencil bigger-130"></i>
+                                                            </a>
+
+                                                            <a class="red" href="#" onclick="delete(this)">
+                                                                <i class="icon-trash bigger-130"></i>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                            <div class="inline position-relative">
+                                                                <button class="btn btn-minier btn-yellow dropdown-toggle"
+                                                                        data-toggle="dropdown">
+                                                                    <i class="icon-caret-down icon-only bigger-120"></i>
+                                                                </button>
+
+                                                                <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-info" data-rel="tooltip"
+                                                                           title="View">
+                                                                                        <span class="blue">
+                                                                                            <i class="icon-zoom-in bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-success" data-rel="tooltip"
+                                                                           title="Edit">
+                                                                                        <span class="green">
+                                                                                            <i class="icon-edit bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-error" data-rel="tooltip"
+                                                                           title="Delete">
+                                                                                        <span class="red">
+                                                                                            <i class="icon-trash bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                            <tr>
+                                                    <td class="center">
+                                                        1
+                                                    </td>
+
+                                                    <td>
+                                                        机器学习服务可以做什么？
+                                                    </td>
+                                                    <td>机器学习服务</td>
+                                                    <td style="max-width: 600px;word-wrap:break-word;">机器学习服务应用于海量数据挖掘分析场景。市场分析商场从顾客消费记录中找出某类顾客群的共有特征（兴趣、收入水平和消费习惯等），分析出什么样的顾客买什么产品，从而调整市场策略。定向推荐银行从客户的个人财务状况信息中分析客户特征，定向推荐合适的产品（贷款项目、理财产品），以小代价获取大收益。欺骗检测保险公司分析投保人的历史行为数据，建立欺骗行为模型，识别出假造事故骗取保险赔偿的投保人。</td>
+                                                    <td style="max-width: 300px;word-wrap:break-word;">support.huaweicloud.com_mls_faq_zh-cn_topic_0052971409.html</td>
+
+                                                    <td>
+                                                        <a>扩展问题</a>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                            <a class="green" href="#" onclick="modify(this)">
+                                                                <i class="icon-pencil bigger-130"></i>
+                                                            </a>
+
+                                                            <a class="red" href="#" onclick="delete(this)">
+                                                                <i class="icon-trash bigger-130"></i>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                            <div class="inline position-relative">
+                                                                <button class="btn btn-minier btn-yellow dropdown-toggle"
+                                                                        data-toggle="dropdown">
+                                                                    <i class="icon-caret-down icon-only bigger-120"></i>
+                                                                </button>
+
+                                                                <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-info" data-rel="tooltip"
+                                                                           title="View">
+                                                                                        <span class="blue">
+                                                                                            <i class="icon-zoom-in bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-success" data-rel="tooltip"
+                                                                           title="Edit">
+                                                                                        <span class="green">
+                                                                                            <i class="icon-edit bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-error" data-rel="tooltip"
+                                                                           title="Delete">
+                                                                                        <span class="red">
+                                                                                            <i class="icon-trash bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                            <tr>
+                                                    <td class="center">
+                                                        1
+                                                    </td>
+
+                                                    <td>
+                                                        机器学习服务可以做什么？
+                                                    </td>
+                                                    <td>机器学习服务</td>
+                                                    <td style="max-width: 600px;word-wrap:break-word;">机器学习服务应用于海量数据挖掘分析场景。市场分析商场从顾客消费记录中找出某类顾客群的共有特征（兴趣、收入水平和消费习惯等），分析出什么样的顾客买什么产品，从而调整市场策略。定向推荐银行从客户的个人财务状况信息中分析客户特征，定向推荐合适的产品（贷款项目、理财产品），以小代价获取大收益。欺骗检测保险公司分析投保人的历史行为数据，建立欺骗行为模型，识别出假造事故骗取保险赔偿的投保人。</td>
+                                                    <td style="max-width: 300px;word-wrap:break-word;">support.huaweicloud.com_mls_faq_zh-cn_topic_0052971409.html</td>
+
+                                                    <td>
+                                                        <a>扩展问题</a>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                            <a class="green" href="#" onclick="modify(this)">
+                                                                <i class="icon-pencil bigger-130"></i>
+                                                            </a>
+
+                                                            <a class="red" href="#" onclick="delete(this)">
+                                                                <i class="icon-trash bigger-130"></i>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                            <div class="inline position-relative">
+                                                                <button class="btn btn-minier btn-yellow dropdown-toggle"
+                                                                        data-toggle="dropdown">
+                                                                    <i class="icon-caret-down icon-only bigger-120"></i>
+                                                                </button>
+
+                                                                <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-info" data-rel="tooltip"
+                                                                           title="View">
+                                                                                        <span class="blue">
+                                                                                            <i class="icon-zoom-in bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-success" data-rel="tooltip"
+                                                                           title="Edit">
+                                                                                        <span class="green">
+                                                                                            <i class="icon-edit bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-error" data-rel="tooltip"
+                                                                           title="Delete">
+                                                                                        <span class="red">
+                                                                                            <i class="icon-trash bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                            <tr>
+                                                    <td class="center">
+                                                        1
+                                                    </td>
+
+                                                    <td>
+                                                        机器学习服务可以做什么？
+                                                    </td>
+                                                    <td>机器学习服务</td>
+                                                    <td style="max-width: 600px;word-wrap:break-word;">机器学习服务应用于海量数据挖掘分析场景。市场分析商场从顾客消费记录中找出某类顾客群的共有特征（兴趣、收入水平和消费习惯等），分析出什么样的顾客买什么产品，从而调整市场策略。定向推荐银行从客户的个人财务状况信息中分析客户特征，定向推荐合适的产品（贷款项目、理财产品），以小代价获取大收益。欺骗检测保险公司分析投保人的历史行为数据，建立欺骗行为模型，识别出假造事故骗取保险赔偿的投保人。</td>
+                                                    <td style="max-width: 300px;word-wrap:break-word;">support.huaweicloud.com_mls_faq_zh-cn_topic_0052971409.html</td>
+
+                                                    <td>
+                                                        <a>扩展问题</a>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                            <a class="green" href="#" onclick="modify(this)">
+                                                                <i class="icon-pencil bigger-130"></i>
+                                                            </a>
+
+                                                            <a class="red" href="#" onclick="delete(this)">
+                                                                <i class="icon-trash bigger-130"></i>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                            <div class="inline position-relative">
+                                                                <button class="btn btn-minier btn-yellow dropdown-toggle"
+                                                                        data-toggle="dropdown">
+                                                                    <i class="icon-caret-down icon-only bigger-120"></i>
+                                                                </button>
+
+                                                                <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-info" data-rel="tooltip"
+                                                                           title="View">
+                                                                                        <span class="blue">
+                                                                                            <i class="icon-zoom-in bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-success" data-rel="tooltip"
+                                                                           title="Edit">
+                                                                                        <span class="green">
+                                                                                            <i class="icon-edit bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-error" data-rel="tooltip"
+                                                                           title="Delete">
+                                                                                        <span class="red">
+                                                                                            <i class="icon-trash bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                            <tr>
+                                                    <td class="center">
+                                                        1
+                                                    </td>
+
+                                                    <td>
+                                                        机器学习服务可以做什么？
+                                                    </td>
+                                                    <td>机器学习服务</td>
+                                                    <td style="max-width: 600px;word-wrap:break-word;">机器学习服务应用于海量数据挖掘分析场景。市场分析商场从顾客消费记录中找出某类顾客群的共有特征（兴趣、收入水平和消费习惯等），分析出什么样的顾客买什么产品，从而调整市场策略。定向推荐银行从客户的个人财务状况信息中分析客户特征，定向推荐合适的产品（贷款项目、理财产品），以小代价获取大收益。欺骗检测保险公司分析投保人的历史行为数据，建立欺骗行为模型，识别出假造事故骗取保险赔偿的投保人。</td>
+                                                    <td style="max-width: 300px;word-wrap:break-word;">support.huaweicloud.com_mls_faq_zh-cn_topic_0052971409.html</td>
+
+                                                    <td>
+                                                        <a>扩展问题</a>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                            <a class="green" href="#" onclick="modify(this)">
+                                                                <i class="icon-pencil bigger-130"></i>
+                                                            </a>
+
+                                                            <a class="red" href="#" onclick="delete(this)">
+                                                                <i class="icon-trash bigger-130"></i>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                            <div class="inline position-relative">
+                                                                <button class="btn btn-minier btn-yellow dropdown-toggle"
+                                                                        data-toggle="dropdown">
+                                                                    <i class="icon-caret-down icon-only bigger-120"></i>
+                                                                </button>
+
+                                                                <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-info" data-rel="tooltip"
+                                                                           title="View">
+                                                                                        <span class="blue">
+                                                                                            <i class="icon-zoom-in bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-success" data-rel="tooltip"
+                                                                           title="Edit">
+                                                                                        <span class="green">
+                                                                                            <i class="icon-edit bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-error" data-rel="tooltip"
+                                                                           title="Delete">
+                                                                                        <span class="red">
+                                                                                            <i class="icon-trash bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                            <tr>
+                                                    <td class="center">
+                                                        1
+                                                    </td>
+
+                                                    <td>
+                                                        机器学习服务可以做什么？
+                                                    </td>
+                                                    <td>机器学习服务</td>
+                                                    <td style="max-width: 600px;word-wrap:break-word;">机器学习服务应用于海量数据挖掘分析场景。市场分析商场从顾客消费记录中找出某类顾客群的共有特征（兴趣、收入水平和消费习惯等），分析出什么样的顾客买什么产品，从而调整市场策略。定向推荐银行从客户的个人财务状况信息中分析客户特征，定向推荐合适的产品（贷款项目、理财产品），以小代价获取大收益。欺骗检测保险公司分析投保人的历史行为数据，建立欺骗行为模型，识别出假造事故骗取保险赔偿的投保人。</td>
+                                                    <td style="max-width: 300px;word-wrap:break-word;">support.huaweicloud.com_mls_faq_zh-cn_topic_0052971409.html</td>
+
+                                                    <td>
+                                                        <a>扩展问题</a>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                            <a class="green" href="#" onclick="modify(this)">
+                                                                <i class="icon-pencil bigger-130"></i>
+                                                            </a>
+
+                                                            <a class="red" href="#" onclick="delete(this)">
+                                                                <i class="icon-trash bigger-130"></i>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                            <div class="inline position-relative">
+                                                                <button class="btn btn-minier btn-yellow dropdown-toggle"
+                                                                        data-toggle="dropdown">
+                                                                    <i class="icon-caret-down icon-only bigger-120"></i>
+                                                                </button>
+
+                                                                <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-info" data-rel="tooltip"
+                                                                           title="View">
+                                                                                        <span class="blue">
+                                                                                            <i class="icon-zoom-in bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-success" data-rel="tooltip"
+                                                                           title="Edit">
+                                                                                        <span class="green">
+                                                                                            <i class="icon-edit bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-error" data-rel="tooltip"
+                                                                           title="Delete">
+                                                                                        <span class="red">
+                                                                                            <i class="icon-trash bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                            <tr>
+                                                    <td class="center">
+                                                        1
+                                                    </td>
+
+                                                    <td>
+                                                        机器学习服务可以做什么？
+                                                    </td>
+                                                    <td>机器学习服务</td>
+                                                    <td style="max-width: 600px;word-wrap:break-word;">机器学习服务应用于海量数据挖掘分析场景。市场分析商场从顾客消费记录中找出某类顾客群的共有特征（兴趣、收入水平和消费习惯等），分析出什么样的顾客买什么产品，从而调整市场策略。定向推荐银行从客户的个人财务状况信息中分析客户特征，定向推荐合适的产品（贷款项目、理财产品），以小代价获取大收益。欺骗检测保险公司分析投保人的历史行为数据，建立欺骗行为模型，识别出假造事故骗取保险赔偿的投保人。</td>
+                                                    <td style="max-width: 300px;word-wrap:break-word;">support.huaweicloud.com_mls_faq_zh-cn_topic_0052971409.html</td>
+
+                                                    <td>
+                                                        <a>扩展问题</a>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                            <a class="green" href="#" onclick="modify(this)">
+                                                                <i class="icon-pencil bigger-130"></i>
+                                                            </a>
+
+                                                            <a class="red" href="#" onclick="delete(this)">
+                                                                <i class="icon-trash bigger-130"></i>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                            <div class="inline position-relative">
+                                                                <button class="btn btn-minier btn-yellow dropdown-toggle"
+                                                                        data-toggle="dropdown">
+                                                                    <i class="icon-caret-down icon-only bigger-120"></i>
+                                                                </button>
+
+                                                                <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-info" data-rel="tooltip"
+                                                                           title="View">
+                                                                                        <span class="blue">
+                                                                                            <i class="icon-zoom-in bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-success" data-rel="tooltip"
+                                                                           title="Edit">
+                                                                                        <span class="green">
+                                                                                            <i class="icon-edit bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="#" class="tooltip-error" data-rel="tooltip"
+                                                                           title="Delete">
+                                                                                        <span class="red">
+                                                                                            <i class="icon-trash bigger-120"></i>
+                                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+    <div id="modal-table" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header no-padding">
+                    <div class="table-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            <span class="white">&times;</span>
+                        </button>
+                        Results for "Latest Registered Domains
+                    </div>
+                </div>
+
+                <div class="modal-body no-padding">
+                    <table class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
+                        <thead>
+                        <tr>
+                            <th>Domain</th>
+                            <th>Price</th>
+                            <th>Clicks</th>
+
+                            <th>
+                                <i class="icon-time bigger-110"></i>
+                                Update
+                            </th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr>
+                            <td>
+                                <a href="#">ace.com</a>
+                            </td>
+                            <td>$45</td>
+                            <td>3,330</td>
+                            <td>Feb 12</td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <a href="#">base.com</a>
+                            </td>
+                            <td>$35</td>
+                            <td>2,595</td>
+                            <td>Feb 18</td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <a href="#">max.com</a>
+                            </td>
+                            <td>$60</td>
+                            <td>4,400</td>
+                            <td>Mar 11</td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <a href="#">best.com</a>
+                            </td>
+                            <td>$75</td>
+                            <td>6,500</td>
+                            <td>Apr 03</td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <a href="#">pro.com</a>
+                            </td>
+                            <td>$55</td>
+                            <td>4,250</td>
+                            <td>Jan 21</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="modal-footer no-margin-top">
+                    <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
+                        <i class="icon-remove"></i>
+                        Close
+                    </button>
+
+                    <ul class="pagination pull-right no-margin">
+                        <li class="prev disabled">
+                            <a href="#">
+                                <i class="icon-double-angle-left"></i>
+                            </a>
+                        </li>
+
+                        <li class="active">
+                            <a href="#">1</a>
+                        </li>
+
+                        <li>
+                            <a href="#">2</a>
+                        </li>
+
+                        <li>
+                            <a href="#">3</a>
+                        </li>
+
+                        <li class="next">
+                            <a href="#">
+                                <i class="icon-double-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- PAGE CONTENT ENDS -->
+    </div><!-- /.col -->
+    </div><!-- /.row -->
+    </div><!-- /.page-content -->
+    </div><!-- /.main-content -->
+
+			</div><!-- /.main-container-inner -->
+
+		</div><!-- /.main-container -->
+
+		<!-- basic scripts -->
+
+
+
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='/static/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+		</script>
+
+		<!-- <![endif]-->
+
+
+
+		<script type="text/javascript">
+			if("ontouchend" in document) document.write("<script src='/static/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="/static/js/typeahead-bs2.min.js"></script>
+
+		<!-- page specific plugin scripts -->
+
+		<script src="/static/js/jquery.dataTables.min.js"></script>
+		<script src="/static/js/jquery.dataTables.bootstrap.js"></script>
+
+		<!-- ace scripts -->
+
+		<script src="/static/js/ace-elements.min.js"></script>
+		<script src="/static/js/ace.min.js"></script>
+
+		<!-- inline scripts related to this page -->
+
+		<script type="text/javascript">
+			jQuery(function($) {
+
+				var oTable1 = $('#sample-table-2').dataTable( {
+				"aoColumns": [
+			        null,
+			        { "bSortable": false },
+                    null,
+                    { "bSortable": false },
+                    { "bSortable": false },
+                    { "bSortable": false },
+				    { "bSortable": false }
+				] } );
+
+
+				$('table th input:checkbox').on('click' , function(){
+					var that = this;
+					$(this).closest('table').find('tr > td:first-child input:checkbox')
+					.each(function(){
+						this.checked = that.checked;
+						$(this).closest('tr').toggleClass('selected');
+					});
+
+				});
+
+
+				$('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
+				function tooltip_placement(context, source) {
+					var $source = $(source);
+					var $parent = $source.closest('table')
+					var off1 = $parent.offset();
+					var w1 = $parent.width();
+
+					var off2 = $source.offset();
+					var w2 = $source.width();
+
+					if( parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2) ) return 'right';
+					return 'left';
+				}
+			})
+		</script>
+	</body>
+</html>

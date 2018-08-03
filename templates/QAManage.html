@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>QA管理界面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- basic styles -->
+
+    <!--<link href="/static/css/bootstrap.min.css" rel="stylesheet"/>-->
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css"/>
+
+
+    <!-- page specific plugin styles -->
+
+    <!-- fonts -->
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300"/>
+
+    <!-- ace styles -->
+
+    <!--<link rel="stylesheet" href="/static/css/ace.min.css"/>-->
+    <!--<link rel="stylesheet" href="/static/css/ace-rtl.min.css"/>-->
+    <!--<link rel="stylesheet" href="/static/css/ace-skins.min.css"/>-->
+
+
+    <!-- inline styles related to this page -->
+
+    <!-- ace settings handler -->
+
+    <script src="/static/js/ace-extra.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    {% load static %}
+    <!--<link href="/static/css/bootstrap.min.css" rel='stylesheet' type='text/css'/>-->
+    <!-- Custom CSS -->
+    <link href="/static/css/style.css" rel='stylesheet' type='text/css'/>
+    <!-- Graph CSS -->
+    <link href="/static/css/font-awesome.css" rel="stylesheet">
+    <!-- jQuery -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet'
+          type='text/css'/>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!-- lined-icons -->
+    <link rel="stylesheet" href="{% static 'css/icon-font.min.css' %}" type='text/css'/>
+    <!-- //lined-icons -->
+
+    <!--bootstraptab-->
+    <!-- 引入bootstrap样式 -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入bootstrap-table样式 -->
+    <link href="/static/css/bootstrap-table.min.css" rel="stylesheet">
+
+    <!-- jquery -->
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+
+    <!-- bootstrap-table.min.js -->
+    <script src="/static/js/bootstrap-table.min.js"></script>
+    <!-- 引入中文语言包 -->
+    <script src="/static/js/bootstrap-table-zh-CN.min.js"></script>
+    <script src="/static/js/index.js"></script>
+    <!--行内修改组件-->
+
+    <link href="/static/css/bootstrap-editable.css" rel="stylesheet"/>
+    <script src="/static/js/bootstrap-editable.js"></script>
+    <script src="/static/js/bootstrap-table-editable.js"></script>
+
+
+</head>
+
+<body>
+<div class="page-container">
+    <!--/content-inner-->
+    <div class="left-content">
+        <div class="inner-content">
+            <!-- header-starts -->
+            <div class="header-section">
+                <!-- top_bg -->
+                <div class="top_bg">
+
+                    <div class="header_top">
+                        <div class="top_right">
+                            <ul>
+                                <li><a href="#">help</a></li>
+                                |
+                                <li><a href="#">Contact</a></li>
+                                |
+                                <li><a href="#">Delivery information</a></li>
+                            </ul>
+                        </div>
+                        <div class="top_left">
+                            <h2><span></span> Call us : 032 2352 782</h2>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                </div>
+                <div class="clearfix"></div>
+                <!-- /top_bg -->
+            </div>
+        </div>
+
+            <!--content-->
+            <div class="main-container" id="main-container">
+                <script type="text/javascript">
+                    try {
+                        ace.settings.check('main-container', 'fixed')
+                    } catch (e) {
+                    }
+                </script>
+
+                <div class="main-container-inner">
+                    <a class="menu-toggler" id="menu-toggler" href="#">
+                        <span class="menu-text"></span>
+                    </a>
+
+
+                    <div class="page-content">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                查询条件
+                            </div>
+                            <div class="panel-body form-group" style="margin-bottom:0px;">
+                                <label class="col-sm-1 control-label"
+                                       style="text-align: right; margin-top:5px">id</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" name="Name" id="search_name"/>
+                                </div>
+                                <label class="col-sm-1 control-label"
+                                       style="text-align: right; margin-top:5px">具体问题</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" name="Name" id="search_tel"/>
+                                </div>
+                                <div class="col-sm-1 col-sm-offset-4">
+                                    <button class="btn btn-primary" id="search_btn">查询</button>
+                                </div>
+                            </div>
+                        </div>
+                        <table id="mytab" class="table table-hover" style="table-layout:fixed!important;"></table>
+                        <div id="toolbar" class="btn-group pull-right" style="margin-right: 20px;">
+                            <button id="btn_edit" type="button" class="btn btn-default"
+                                    style="display: none; border-radius: 0">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>修改
+                            </button>
+                            <button id="btn_delete" type="button" class="btn btn-default" onclick="del(this)">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除
+                            </button>
+                            <button id="btn_add" type="button" class="btn btn-default">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
+                            </button>
+                        </div>
+                    </div><!-- /.page-content -->
+        </div><!-- /.main-content -->
+
+
+    </div><!-- /.main-container-inner -->
+
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+        <i class="icon-double-angle-up icon-only bigger-110"></i>
+    </a>
+</div><!-- /.main-container -->
+
+<!--Model-->
+<div class="modal fade" id="xiugaiModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">请认真填写以下内容</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="modify_question">标准问题</label>
+                        <input type="text" class="form-control" id="modify_question" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="modify_subject">主题</label>
+                        <input type="text" class="form-control" id="modify_subject" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="modify_answer">答案</label>
+                        <input type="text" class="form-control" id="modify_answer" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="modify_link">答案链接</label>
+                        <input type="text" class="form-control" id="modify_link" placeholder="">
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary save" data-dismiss="modal">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--删除的modal-->
+<div class="modal fade" id="shanchuModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title">确认要删除该信息吗?</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default quxiao-shanchu" data-dismiss="modal">取消
+                </button>
+                <button type="button" class="btn btn-primary sure-shanchu" data-dismiss="modal">确认
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--添加的modal-->
+<div class="modal fade" id="tianjiaModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title">请认真填写以下内容</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="add_id">标准问题ID</label>
+                        <input type="number" class="form-control" id="add_id" placeholder="输入标准问题ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="add_question">标准问题</label>
+                        <input type="text" class="form-control" id="add_question" placeholder="标准问题">
+                    </div>
+                    <div class="form-group">
+                        <label for="add_subject">主题</label>
+                        <input type="tel" class="form-control" id="add_subject" placeholder="主题">
+                    </div>
+                    <div class="form-group">
+                        <label for="add_answer">答案</label>
+                        <input type="email" class="form-control" id="add_answer" placeholder="答案">
+                    </div>
+                    <div class="form-group">
+                        <label for="add_link">答案链接</label>
+                        <input type="text" class="form-control" id="add_link" placeholder="答案链接">
+                    </div>
+                    <!--<div class="form-group">-->
+                        <!--<label for="add_extern_question">扩展问题</label>-->
+                        <!--<input type="text" class="form-control" id="add_extern_question"-->
+                               <!--placeholder="扩展问题">-->
+                    <!--</div>-->
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default quxiao-tianjia" data-dismiss="modal">取消
+                </button>
+                <button type="button" class="btn btn-primary save-tianjia" data-dismiss="modal">保存
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+    <!--查询的Modal-->
+    <!--<div class="modal fade" id="tianjiaModal" tabindex="-1" role="dialog" aria-hidden="true">-->
+    <!--<div class="modal-dialog">-->
+        <!--<div class="modal-content">-->
+            <!--<div class="modal-header">-->
+                <!--<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span-->
+                        <!--class="sr-only">Close</span></button>-->
+                <!--<h4 class="modal-title">查询结果为</h4>-->
+            <!--</div>-->
+            <!--<div class="modal-body">-->
+                <!--<form role="form">-->
+                    <!--<div class="form-group">-->
+                        <!--<label for="add_id">标准问题ID</label>-->
+                        <!--<input type="number" class="form-control" id="add_id" placeholder="输入标准问题ID">-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label for="add_question">标准问题</label>-->
+                        <!--<input type="text" class="form-control" id="add_question" placeholder="标准问题">-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label for="add_subject">主题</label>-->
+                        <!--<input type="tel" class="form-control" id="add_subject" placeholder="主题">-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label for="add_answer">答案</label>-->
+                        <!--<input type="email" class="form-control" id="add_answer" placeholder="答案">-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label for="add_link">答案链接</label>-->
+                        <!--<input type="text" class="form-control" id="add_link" placeholder="答案链接">-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label for="add_extern_question">扩展问题</label>-->
+                        <!--<input type="text" class="form-control" id="add_extern_question"-->
+                               <!--placeholder="扩展问题">-->
+                    <!--</div>-->
+                <!--</form>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--/sidebar-menu-->
+<div class="sidebar-menu">
+    <header class="logo1">
+        <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a>
+    </header>
+    <div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
+    <div class="menu">
+        <ul id="menu">
+            <li><a href="../index/"><i class="fa fa-tachometer"></i> <span>Home</span></a></li>
+            <li id="menu-academico"><a href="#"><i class="fa fa-table"></i>
+                <span> QA management</span></a>
+            </li>
+            <!--<li id="menu-academico" ><a href="#"><i class="lnr lnr-layers"></i> <span>Tabs & Calender</span> <span class="fa fa-angle-right" style="float: right"></span></a>-->
+                <!--<ul id="menu-academico-sub" >-->
+                    <!--<li id="menu-academico-avaliacoes" ><a href="#">Tabs</a></li>-->
+                    <!--<li id="menu-academico-boletim" ><a href="#">Calender</a></li>-->
+                <!--</ul>-->
+            <!--</li>-->
+            <li><a href="http://47.97.209.48:5601" target="_blank"><i class="lnr lnr-chart-bars"></i>
+                <span>Forms</span> </a>
+                <!--<ul>-->
+                <!--<li><a href="#"> Input</a></li>-->
+                <!--<li><a href="#">Validation</a></li>-->
+                <!--</ul>-->
+        </ul>
+    </div>
+</div>
+<div class="clearfix"></div>
+        <script>
+            //根据窗口调整表格高度
+            $(window).resize(function () {
+                $('#mytab').bootstrapTable('resetView', {
+                    height: tableHeight()
+                })
+
+            });
+            function initTable(urll) {
+
+                $("#mytab").bootstrapTable('destroy');
+                //生成用户数据
+                $('#mytab').bootstrapTable({
+                    method: 'post',
+                    contentType: "application/x-www-form-urlencoded",//必须要有！！！！
+                    url: urll,//要请求数据的文件路径
+                    dataType: "json",
+                    height: tableHeight(),//高度调整
+                    toolbar: '#toolbar',//指定工具栏
+                    striped: true, //是否显示行间隔色
+                    dataField: "data",//bootstrap table 可以前端分页也可以后端分页，这里
+                    //我们使用的是后端分页，后端分页时需返回含有total：总记录数,这个键值好像是固定的
+                    //rows： 记录集合 键值可以修改  dataField 自己定义成自己想要的就好
+                    pageNumber: 1, //初始化加载第一页，默认第一页
+                    pagination: true,//是否分页
+                    queryParamsType: 'limit',//查询参数组织方式
+                    queryParams: function queryParams(params) { //设置查询参数
+                        var param = {
+                            pageSize: params.limit, //每一页的数据行数，默认是上面设置的10(pageSize)
+                            pageIndex: params.offset / params.limit + 1, //当前页面,默认是上面设置的1(pageNumber)
+                            search_id:$("#search_name").val(),
+                            search_question:$("#search_tel").val()
+                        };
+                        return param;
+                    },//请求服务器时所传的参数
+                    sidePagination: 'server',//指定服务器端分页
+                    pageSize: 10,//单页记录数
+                    pageList: [5, 10, 20, 30],//分页步进值
+                    showRefresh: true,//刷新按钮
+                    showColumns: true,
+                    clickToSelect: true,//是否启用点击选中行
+                    toolbarAlign: 'right',//工具栏对齐方式
+                    buttonsAlign: 'right',//按钮对齐方式
+                    toolbar: '#toolbar',//指定工作栏
+                    columns: [
+                        {
+                            title: '全选',
+                            field: 'select',
+                            //复选框
+                            checkbox: true,
+                            width: 25,
+                            align: 'center',
+                            valign: 'middle',
+
+                        },
+                        {
+                            title: '问题编号',
+                            field: 'id',
+                            visible: true
+
+
+                        },
+                        {
+                            title: '具体问题',
+                            field: 'question',
+                            sortable: true,
+                            // editable: {
+                            //     type: 'text',
+                            //     title: '用户名',
+                            //     validate: function (v) {
+                            //         if (!v) return '用户名不能为空';
+                            //
+                            //     }
+                            // }
+                        },
+                        {
+                            title: '主题',
+                            field: 'subject',
+                            sortable: true
+                        },
+                        {
+                            title: '答案',
+                            field: 'answer'
+                        },
+                        {
+                            title: '答案链接',
+                            field: 'link'
+                            /*style:'word-wrap:break-word;'*/
+                        },
+                        // {
+                        //     title: '扩展问题',
+                        //     field: 'extraquestion',
+                        //     sortable: true
+                        //
+                        // },
+                        {
+                            title: '操作',
+                            field: 'Attribute',
+                            align: 'center',
+                            //列数据格式化
+                            formatter: actionFormatter
+                        }
+                    ],
+                    locale: 'zh-CN',//中文支持,
+                    responseHandler: function (res) {
+                        //如果没有错误则返回数据，渲染表格
+                        console.log(res)
+                        return {
+                            total: res.total, //总页数,前面的key必须为"total"
+                            data: res.rows //行数据，前面的key要与之前设置的dataField的值一致.
+                        };
+                    },
+                    onEditableSave: function (field, row, oldValue, $el) {
+                        $('#mytab').bootstrapTable('resetView');
+                        row = dataWarp(row, field);// 编辑时重新包装数据 可写可不写
+                        console.log(row);
+                        $.ajax({
+                            type: "post",
+                            url: '/modify/',
+                            data: row,//行内修改后的数据
+                            dataType: 'JSON',
+                            success: function (data, status) {
+                                if (status == "success") {
+                                    alert("编辑成功")
+                                }
+                            },
+                            error: function () {
+
+                                    alert("编辑失败！");
+
+                                $('#id').bootstrapTable('refresh');// 数据加载成功后刷新
+
+                            },
+                            complete: function () {
+
+                            }
+
+                        });
+                    }
+                });
+
+                //三个参数，value代表该列的值
+                function actionFormatter(value, row, index) {
+                    var id = value;
+                    var result = "";
+                    result += "<a href='javascript:;' class='btn btn-xs blue' onclick='modify(this)' title='编辑'><span class='glyphicon glyphicon-pencil'></span></a>";
+                    return result;
+                }
+
+            }
+            $(document).ready(function () {
+                initTable("/search_all/");
+            })
+
+
+            //查询按钮事件
+            $('#search_btn').click(function () {
+                initTable("/search/");
+                // console.log($("#search_name").val());
+                // var search_key = {};
+                // search_key["search_id"] =$("#search_name").val();
+                // search_key["search_question"] = $("#search_tel").val();
+                // $("#mytab").bootstrapTable('refresh',{url: '/search/',data:{'searchkey':JSON.stringify(search_key)}});
+                // $.ajax({
+                //     type: "post",
+                //     url:"/search/",
+                //     dataType:'json',
+                //     data:{searchkey:JSON.stringify(search_key)},
+                //     success:function (data) {
+                //         $("#mytab").bootstrapTable('destroy');
+                //         $("#mytab").bootstrapTable('load',msg);
+                //
+                //        $("#mytab").bootstrapTable('refresh',{url: '/search/',data:{searchkey:JSON.stringify(search_key)}});
+                //         //initTable("/search/");
+                //         //$('#mytab').bootstrapTable('refresh', {url: '../index.php/admin/index/userManagement'});
+                //     }
+                //
+                // })
+            });
+
+            //tableHeight函数
+            function tableHeight() {
+                //可以根据自己页面情况进行调整
+                return $(window).height() - 200;
+            }
+
+        </script>
+    <!--<script>-->
+        <!--$(function() {-->
+    <!--//初始化-->
+            <!--operate.operateInit();-->
+        <!--});-->
+        <!--// 操作-->
+        <!--var operate = {-->
+            <!--// 初始化按钮事件-->
+            <!--operateInit: function () {-->
+                <!--this.operateAdd();-->
+                <!--this.operateUpdate();-->
+                <!--this.operateDelete();-->
+                <!--this.DepartmentModel = {-->
+                    <!--id: ko.observable(),  //和标签中的data-bind  对应-->
+                    <!--Name: ko.observable(),-->
+                    <!--Level: ko.observable(),-->
+                    <!--Des: ko.observable(),-->
+                    <!--CreateTime: ko.observable()-->
+                <!--};-->
+            <!--},-->
+            <!--// 新增-->
+            <!--operateAdd: function () {-->
+                <!--$('#btn_add').on(-->
+                    <!--"click",-->
+                    <!--function () {-->
+                        <!--$("#tianjiaModal").modal().on(-->
+                            <!--"shown.bs.modal",-->
+                            <!--function () {-->
+                                <!--var oEmptyModel = {-->
+                                    <!--id: ko.observable(),-->
+                                    <!--Name: ko.observable(),-->
+                                    <!--Level: ko.observable(),-->
+                                    <!--Des: ko.observable(),-->
+                                    <!--CreateTime: ko.observable()-->
+                                <!--};-->
+                                <!--ko.utils.extend(operate.DepartmentModel,-->
+                                    <!--oEmptyModel);-->
+                                <!--ko.applyBindings(operate.DepartmentModel,-->
+                                    <!--document.getElementById("myModal"));-->
+                                <!--operate.operateSave();-->
+                            <!--}).on('hidden.bs.modal', function () {-->
+                            <!--ko.cleanNode(document.getElementById("myModal"));-->
+                        <!--});-->
+                    <!--});-->
+            <!--},-->
+        <!--}-->
+    <!--</script>-->
+
+
+
+<!-- page specific plugin scripts -->
+
+</body>
+</html>

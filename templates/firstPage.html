@@ -1,0 +1,138 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- Bootstrap Core CSS -->
+<link href="/static/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<!-- Custom CSS -->
+<link href="/static/css/style.css" rel='stylesheet' type='text/css' />
+<!-- Graph CSS -->
+<link href="/static/css/font-awesome.css" rel="stylesheet"> 
+<!-- jQuery -->
+<link href='https://fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'/>
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<!-- lined-icons -->
+<link rel="stylesheet" href="/static/css/icon-font.min.css" type='text/css' />
+<!-- <script src="/static/js/amcharts.js"></script>	
+<script src="/static/js/serial.js"></script>	
+<script src="/static/js/light.js"></script>	 -->
+<!-- //lined-icons -->
+<script src="/static/js/jquery-1.10.2.min.js"></script>
+<style>
+.left-content{
+	width: 100%;
+}
+.loginForm{
+	content: '';
+	position: absolute;
+	right: 25px;
+	top: -10px;
+	border-left:10px solid rgba(0, 0, 0, 0);
+	border-right:10px solid rgba(0, 0, 0, 0);
+	border-bottom: 10px solid #f0f0f0;
+
+}
+</style>
+</head> 
+<body>
+   <div class="page-container">
+   <!--/content-inner-->
+		<!-- header-starts -->
+			<div class="header-section">
+			<!-- top_bg -->
+						<div class="top_bg">
+							
+								<div class="header_top">
+									<div class="top_right">
+										<ul>
+											<li><a href="#">help</a></li>|
+											<li><a href="#" onclick="login()">LOGIN</a></li>|
+											<li><a href="/Register">REGISTER</a></li>
+										</ul>
+									</div>
+									<div class="top_left">
+										<h2><span></span> 联系我们: 帅气无敌的开发小组</h2>
+									</div>
+										<div class="clearfix"> </div>
+								</div>
+							
+						</div>
+					<div class="clearfix"></div>
+				<!-- /top_bg -->
+				</div>
+				<!--header_bg-->
+				<div class="header_bg">
+						
+							<div class="header">
+								<div class="head-t">
+									<div class="logo">
+										<a href="index.html"><img src="/static/img/logo.png" class="img-responsive" alt=""> </a>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</div>
+						</div>
+				<!--/header_bg-->
+				<!--content-->
+				<div id="content" style="height:500px;background:url(/static/img/QA.png) no-repeat center">
+					<div id="loginBox" style="display:none">                
+						<form id="loginForm" action="/index">
+							<fieldset id="body">
+								<fieldset>
+									<label for="username">Username</label>
+									<input type="text" name="username" id="username">
+								</fieldset>
+								<fieldset>
+									<label for="password">Password</label>
+									<input type="password" name="password" id="password">
+								</fieldset>
+								<input type="submit" id="login" value="Sign in">
+								<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
+							</fieldset>
+							<span><a href="#">Forgot your password?</a></span>
+						</form>
+					</div>
+				</div>
+</div>
+			<!--/sidebar-menu-->
+   </div>
+   <script>
+       var toggle = true;
+
+       $(".sidebar-icon").click(function () {
+           if (toggle) {
+               $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+               $("#menu span").css({"position": "absolute"});
+           }
+           else {
+               $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+               setTimeout(function () {
+                   $("#menu span").css({"position": "relative"});
+               }, 400);
+           }
+
+           toggle = !toggle;
+       });
+
+       function login() {
+           $("#loginBox").show();
+
+       }
+
+   </script>
+<!--js -->
+<!-- <script src="/static/js/jquery.nicescroll.js"></script>
+<script src="/static/js/scripts.js"></script> -->
+<!-- Bootstrap Core JavaScript -->
+<script src="/static/js/bootstrap.min.js"></script>
+   <!-- /Bootstrap Core JavaScript -->
+   <!-- real-time -->
+<!-- <script language="javascript" type="text/javascript" src="/static/js/jquery.flot.js"></script> -->
+<!-- /real-time -->
+<!-- <script src="/static/js/jquery.fn.gantt.js"></script>
+<script src="/static/js/menu_jquery.js"></script> -->
+</body>
+</html>
