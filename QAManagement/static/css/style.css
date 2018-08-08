@@ -3631,7 +3631,7 @@ input[type=date], input[type=time], input[type=datetime-local], input[type=month
 @media (max-width:1600px){
 	.left-content {
 		float: right;
-		width: 86%;
+		width: 83%;
 	}
 	.page-container.sidebar-collapsed-back .left-content {
 		float: right;
