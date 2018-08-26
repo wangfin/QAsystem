@@ -60,11 +60,11 @@
     <!-- 引入中文语言包 -->
     <script src="/static/js/bootstrap-table-zh-CN.min.js"></script>
     <script src="/static/js/index.js"></script>
-    <!--行内修改组件-->
-
-    <link href="/static/css/bootstrap-editable.css" rel="stylesheet"/>
-    <script src="/static/js/bootstrap-editable.js"></script>
-    <script src="/static/js/bootstrap-table-editable.js"></script>
+{#    <!--行内修改组件-->#}
+{##}
+{#    <link href="/static/css/bootstrap-editable.css" rel="stylesheet"/>#}
+{#    <script src="/static/js/bootstrap-editable.js"></script>#}
+{#    <script src="/static/js/bootstrap-table-editable.js"></script>#}
 
 
 </head>
@@ -80,17 +80,8 @@
                 <div class="top_bg">
 
                     <div class="header_top">
-                        <div class="top_right">
-                            <ul>
-                                <li><a href="#">help</a></li>
-                                |
-                                <li><a href="#">Contact</a></li>
-                                |
-                                <li><a href="#">Delivery information</a></li>
-                            </ul>
-                        </div>
-                        <div class="top_left">
-                            <h2><span></span> Call us : 032 2352 782</h2>
+                        <div class="top_left" style="margin-bottom:1% ">
+                            <h2><span></span> Call us : 帅气无敌的开发小组</h2>
                         </div>
                         <div class="clearfix"></div>
                     </div>
@@ -102,7 +93,7 @@
         </div>
 
             <!--content-->
-            <div class="main-container" id="main-container">
+            <div class="main-container" id="main-container" style="width: 98%;float: right;">
                 <script type="text/javascript">
                     try {
                         ace.settings.check('main-container', 'fixed')
@@ -314,22 +305,27 @@
     <div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
     <div class="menu">
         <ul id="menu">
-            <li><a href="../index/"><i class="fa fa-tachometer"></i> <span>Home</span></a></li>
-            <li id="menu-academico"><a href="#"><i class="fa fa-table"></i>
-                <span> QA management</span></a>
+            <li><a href="../index/"><i class="lnr lnr-cloud-upload"></i> <span>文件上传</span></a></li>
+            <li id="menu-academico" ><a href="/Task"><i class="lnr lnr-layers"></i> <span>QA对生成</span></a></li>
+            <li id="menu-academico"><a href="/QAManage"><i class="fa fa-table"></i>
+                <span> QA对管理</span></a>
             </li>
             <!--<li id="menu-academico" ><a href="#"><i class="lnr lnr-layers"></i> <span>Tabs & Calender</span> <span class="fa fa-angle-right" style="float: right"></span></a>-->
-                <!--<ul id="menu-academico-sub" >-->
-                    <!--<li id="menu-academico-avaliacoes" ><a href="#">Tabs</a></li>-->
-                    <!--<li id="menu-academico-boletim" ><a href="#">Calender</a></li>-->
-                <!--</ul>-->
+            <!--<ul id="menu-academico-sub" >-->
+            <!--<li id="menu-academico-avaliacoes" ><a href="#">Tabs</a></li>-->
+            <!--<li id="menu-academico-boletim" ><a href="#">Calender</a></li>-->
+            <!--</ul>-->
             <!--</li>-->
             <li><a href="http://47.97.209.48:5601" target="_blank"><i class="lnr lnr-chart-bars"></i>
-                <span>Forms</span> </a>
-                <!--<ul>-->
-                <!--<li><a href="#"> Input</a></li>-->
-                <!--<li><a href="#">Validation</a></li>-->
-                <!--</ul>-->
+                <span>数据可视化</span> </a>
+            </li>
+            <li><a href="/userMining"><i class="lnr lnr-user"></i>
+                <span>用户信息</span> </a>
+            </li>
+            <!--<ul>-->
+            <!--<li><a href="#"> Input</a></li>-->
+            <!--<li><a href="#">Validation</a></li>-->
+            <!--</ul>-->
         </ul>
     </div>
 </div>
@@ -440,7 +436,7 @@
                     locale: 'zh-CN',//中文支持,
                     responseHandler: function (res) {
                         //如果没有错误则返回数据，渲染表格
-                        console.log(res)
+                        console.log(res);
                         return {
                             total: res.total, //总页数,前面的key必须为"total"
                             data: res.rows //行数据，前面的key要与之前设置的dataField的值一致.
@@ -486,7 +482,7 @@
             }
             $(document).ready(function () {
                 initTable("/search_all/");
-            })
+            });
 
 
             //查询按钮事件
@@ -521,6 +517,24 @@
             }
 
         </script>
+    <script>
+        var toggle = true;
+
+        $(".sidebar-icon").click(function () {
+            if (toggle) {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                $("#menu span").css({"position": "absolute"});
+            }
+            else {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function () {
+                    $("#menu span").css({"position": "relative"});
+                }, 400);
+            }
+
+            toggle = !toggle;
+        });
+    </script>
     <!--<script>-->
         <!--$(function() {-->
     <!--//初始化-->

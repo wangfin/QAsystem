@@ -5,9 +5,9 @@
 
 # 用来连接es，保存QA的
 
-from QAManagement.withweb import Withweb
+from QAManagement.withweb_all import Withweb_all
 class SaveInEs():
-    withweb = Withweb()
+    withweb = Withweb_all()
     '''
         保存类的主函数
         输入：datatable 要存入的表名
@@ -22,8 +22,10 @@ class SaveInEs():
         a = 1
         # 查看是否有重复
         if qa_list['question'] not in questions:
+            sim_ques1 = ''
+            sim_ques2 = ''
             SaveInEs.withweb.webinsert(datatable, qa_list['question'], qa_list['question'], qa_list['answer'], qa_list['answer_link'],
-                                   qa_list['subject'], num+a)
+                                   qa_list['subject'], num+a,sim_ques1,sim_ques2)
             a += 1
 
 

@@ -1,0 +1,766 @@
+<html>
+<head>
+    <title>用户画像</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- basic styles -->
+
+    <!--<link href="/static/css/bootstrap.min.css" rel="stylesheet"/>-->
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css"/>
+
+
+    <!-- page specific plugin styles -->
+
+    <!-- fonts -->
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300"/>
+
+    <!-- ace styles -->
+
+    <!--<link rel="stylesheet" href="/static/css/ace.min.css"/>-->
+    <!--<link rel="stylesheet" href="/static/css/ace-rtl.min.css"/>-->
+    <!--<link rel="stylesheet" href="/static/css/ace-skins.min.css"/>-->
+
+
+    <!-- inline styles related to this page -->
+
+    <!-- ace settings handler -->
+
+    <script src="/static/js/ace-extra.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    {% load static %}
+    <!--<link href="/static/css/bootstrap.min.css" rel='stylesheet' type='text/css'/>-->
+    <!-- Custom CSS -->
+    <link href="/static/css/style.css" rel='stylesheet' type='text/css'/>
+    <!-- Graph CSS -->
+    <link href="/static/css/font-awesome.css" rel="stylesheet">
+    <!-- jQuery -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet'
+          type='text/css'/>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!-- lined-icons -->
+    <link rel="stylesheet" href="{% static 'css/icon-font.min.css' %}" type='text/css'/>
+    <!-- //lined-icons -->
+
+    <!--bootstraptab-->
+    <!-- 引入bootstrap样式 -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入bootstrap-table样式 -->
+    <link href="/static/css/bootstrap-table.min.css" rel="stylesheet">
+
+    <!-- jquery -->
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+
+    <!-- bootstrap-table.min.js -->
+    <script src="/static/js/bootstrap-table.min.js"></script>
+    <!-- 引入中文语言包 -->
+    <script src="/static/js/bootstrap-table-zh-CN.min.js"></script>
+    <script src="/static/js/index.js"></script>
+    <!--引入EChart-->
+    <script src="/static/js/echarts.common.min.js"></script>
+    {#    <!--行内修改组件-->#}
+    {##}
+    {#    <link href="/static/css/bootstrap-editable.css" rel="stylesheet"/>#}
+    {#    <script src="/static/js/bootstrap-editable.js"></script>#}
+    {#    <script src="/static/js/bootstrap-table-editable.js"></script>#}
+    <style>
+        .pie{
+            width: 400px;
+            height: 400px;
+        }
+        .scatter{
+            width: 900px;
+            height: 400px;
+            float: left;
+        }
+    </style>
+
+
+</head>
+<body>
+<div class="page-container">
+    <!--/content-inner-->
+    <div class="left-content">
+        <div class="inner-content">
+            <!-- header-starts -->
+            <div class="header-section">
+                <!-- top_bg -->
+                <div class="top_bg">
+
+                    <div class="header_top">
+                        <div class="top_left" style="margin-bottom:1% ">
+                            <h2><span></span> Call us : 帅气无敌的开发小组</h2>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+
+                </div>
+                <div class="clearfix"></div>
+                <!-- /top_bg -->
+            </div>
+            <!--header_bg-->
+            <div class="header_bg">
+                <div class="header">
+                    <div class="head-t">
+                        <div class="logo">
+                            <a href="/index" style="float: left;"><img src="{% static 'img/IPlogo.png' %}" class="img-responsive" alt=""> </a>
+                            <h2 style="float: left;margin-top: 10%">&nbsp;&nbsp;IP:&nbsp;&nbsp;<span id="ip">{{ userip }}</span></h2>
+                        </div>
+                        <!-- start header_right -->
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+            </div>
+            <!--/header_bg-->
+            <!--content-->
+            <div id="content" style="height:500px;width: 93%;float: right">
+{#                <h4>最感兴趣的主题为：</h4>#}
+                <div id="Pie1" class="pie" style="float: left;"></div>
+                <div id="Pie2" class="pie" style="float: left"></div>
+                <div id="Scatter" class="scatter"></div>
+                <div id="usertab">
+                    <script type="text/javascript">
+                        try {
+                            ace.settings.check('main-container', 'fixed')
+                        } catch (e) {
+                        }
+                    </script>
+
+                    <div class="main-container-inner">
+                        <a class="menu-toggler" id="menu-toggler" href="#">
+                            <span class="menu-text"></span>
+                        </a>
+                        <div class="page-content" style="width: 98%;float: right">
+                            <table id="mytab" class="table table-hover" style="table-layout:fixed!important;"></table>
+                        </div><!-- /.page-content -->
+                    </div><!-- /.main-content -->
+
+
+                </div><!-- /.main-container-inner -->
+            </div>
+        </div>
+    </div>
+    <!--/sidebar-menu-->
+    <div class="sidebar-menu">
+        <header class="logo1">
+            <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a>
+        </header>
+        <div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
+        <div class="menu">
+            <ul id="menu">
+                <li><a href="../index/"><i class="lnr lnr-cloud-upload"></i> <span>文件上传</span></a></li>
+                <li id="menu-academico" ><a href="/Task"><i class="lnr lnr-layers"></i> <span>QA对生成</span></a></li>
+                <li id="menu-academico"><a href="/QAManage"><i class="fa fa-table"></i>
+                    <span> QA对管理</span></a>
+                </li>
+                <li><a href="http://47.97.209.48:5601" target="_blank"><i class="lnr lnr-chart-bars"></i>
+                    <span>数据可视化</span> </a>
+                </li>
+                <li><a href="/userMining"><i class="lnr lnr-user"></i>
+                    <span>用户信息</span> </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+</div>
+</body>
+<script>
+    //根据窗口调整表格高度
+    $(window).resize(function () {
+        $('#mytab').bootstrapTable('resetView', {
+            height: tableHeight(),
+            width:$(window).width()-400
+        })
+
+    });
+    function initTable(urll) {
+
+        $("#mytab").bootstrapTable('destroy');
+        //生成用户数据
+        $('#mytab').bootstrapTable({
+            method: 'post',
+            contentType: "application/x-www-form-urlencoded",//必须要有！！！！
+            url: urll,//要请求数据的文件路径
+            dataType: "json",
+            height: tableHeight(),//高度调整
+            toolbar: '#toolbar',//指定工具栏
+            striped: true, //是否显示行间隔色
+            dataField: "data",//bootstrap table 可以前端分页也可以后端分页，这里
+            //我们使用的是后端分页，后端分页时需返回含有total：总记录数,这个键值好像是固定的
+            //rows： 记录集合 键值可以修改  dataField 自己定义成自己想要的就好
+            pageNumber: 1, //初始化加载第一页，默认第一页
+            pagination: true,//是否分页
+            queryParamsType: 'limit',//查询参数组织方式
+            queryParams: function queryParams(params) { //设置查询参数
+                var param = {
+                    pageSize: params.limit, //每一页的数据行数，默认是上面设置的10(pageSize)
+                    pageIndex: params.offset / params.limit + 1, //当前页面,默认是上面设置的1(pageNumber)
+                    search_id:$("#search_name").val(),
+                    search_question:$("#search_tel").val(),
+                    userip:$("#ip").text()
+                };
+                return param;
+            },//请求服务器时所传的参数
+            sidePagination: 'server',//指定服务器端分页
+            pageSize: 10,//单页记录数
+            pageList: [5, 10, 20, 30],//分页步进值
+            showRefresh: false,//刷新按钮
+            showColumns: true,
+            clickToSelect: true,//是否启用点击选中行
+            toolbarAlign: 'right',//工具栏对齐方式
+            buttonsAlign: 'right',//按钮对齐方式
+            toolbar: '#toolbar',//指定工作栏
+            columns: [
+                {
+                    title: '用户问题',
+                    field: 'userquestion',
+                    sortable: true,
+                },
+                {
+                    title: '主题',
+                    field: 'usersub',
+                    sortable: true
+                },
+                {
+                    title: '用户倾向',
+                    field: 'userattention'
+                },
+                {
+                    title: '是否收藏',
+                    field: 'usercollect'
+                    /*style:'word-wrap:break-word;'*/
+                },
+                {
+                    title: '喜爱程度',
+                    field: 'userlike'
+                    /*style:'word-wrap:break-word;'*/
+                },
+                {
+                    title: '提问时间',
+                    field: 'times'
+                    /*style:'word-wrap:break-word;'*/
+                }
+            ],
+            locale: 'zh-CN',//中文支持,
+            responseHandler: function (res) {
+                //如果没有错误则返回数据，渲染表格
+                console.log(res);
+                return {
+                    total: res.total, //总页数,前面的key必须为"total"
+                    data: res.rows //行数据，前面的key要与之前设置的dataField的值一致.
+                };
+            },
+        });
+
+
+    }
+    $(document).ready(function () {
+        initTable("/search_single_user/");
+    });
+
+
+    //tableHeight函数
+    function tableHeight() {
+        //可以根据自己页面情况进行调整
+        return $(window).height() - 200;
+    }
+
+</script>
+<script>
+    var Pie1 = echarts.init(document.getElementById("Pie1"));
+    option1 = {
+        title : {
+        text: '用户感兴趣的主题分布表',
+    },
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b}: {c} ({d}%)"
+        },
+        legend: {
+            type:'scroll',
+            orient: 'vertical',
+            x: 'right',
+            data:['主题一','主题二','主题三','主题四','其他'],
+        },
+        series: [
+            {
+                name:'主题',
+                type:'pie',
+                radius: ['50%', '70%'],
+                avoidLabelOverlap: false,
+                label: {
+                    normal: {
+                        show: false,
+                        position: 'center'
+                    },
+                    emphasis: {
+                        show: true,
+                        textStyle: {
+                            fontSize: '18',
+                            fontWeight: 'bold'
+                        }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        show: false
+                    }
+                },
+                data:[
+                    {value:335, name:'主题一'},
+                    {value:310, name:'主题二'},
+                    {value:234, name:'主题三'},
+                    {value:135, name:'主题四'},
+                    {value:1548, name:'其他'}
+                ]
+            }
+        ]
+    };
+    Pie1.setOption(option1);
+    console.log(document.getElementById("Pie2").nodeName);
+    var Pie2 = echarts.init(document.getElementById("Pie2"));
+    option2 = {
+        title : {
+        text: '用户意向分布表',
+    },
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b}: {c} ({d}%)"
+        },
+        legend: {
+            orient: 'vertical',
+            x: 'right',
+            data:['闲聊','提问']
+        },
+        series: [
+            {
+                name:'主题',
+                type:'pie',
+                radius: ['50%', '70%'],
+                avoidLabelOverlap: false,
+                label: {
+                    normal: {
+                        show: false,
+                        position: 'center'
+                    },
+                    emphasis: {
+                        show: true,
+                        textStyle: {
+                            fontSize: '18',
+                            fontWeight: 'bold'
+                        }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        show: false
+                    }
+                },
+                data:[
+                    {value:335, name:'闲聊'},
+                    {value:310, name:'提问'}
+                ]
+            }
+        ]
+    };
+    Pie2.setOption(option2);
+
+    var scatter = echarts.init(document.getElementById("Scatter"));
+    var xdata = []; //x轴
+    var ydata = []; //y轴
+    scatteroption = {
+        title : {
+        text: '问题数量按时间分布表',
+    },
+        xAxis: {
+            data:xdata,
+            //刻度与刻度值对齐
+            axisTick:{
+                alignWithLabel:true
+            },
+            boundaryGap:false,
+
+        },
+
+        yAxis: {data:ydata},
+        legend: {
+            right: 10,
+            data: ['近一月',"近一周","近一天"],
+            //选中状态
+            selected:{
+                '近一月':false,
+                '近一周':false,
+                '近一天':false
+            }
+        },
+        series: [{
+            name:"近一月",
+            symbolSize: 20,//应该是坐标点的大小
+            data: [
+                [10.0, 8.04],
+                [8.0, 6.95],
+                [13.0, 7.58],
+                [9.0, 8.81],
+                [11.0, 8.33],
+                [14.0, 9.96],
+                [6.0, 7.24],
+                [4.0, 4.26],
+                [12.0, 10.84],
+                [7.0, 4.82],
+                [5.0, 5.68]
+            ],
+            type: 'scatter'
+        },
+            {
+                name:"近一周",
+                symbolSize: 20,
+                data: [
+                    ["周一", 8.04],
+                    [8.0, 6.95],
+                    [13.0, 7.58],
+                    [9.0, 8.81],
+                    [11.0, 8.33],
+                    [14.0, 9.96],
+                    [6.0, 7.24],
+                    [4.0, 4.26],
+                    [12.0, 10.84],
+                    [7.0, 4.82],
+                    [5.0, 5.68]
+                ],
+                type: 'scatter'
+            },
+            {
+                name:"近一天",
+                symbolSize: 20,
+                data: [
+                    [10.0, 8.04],
+                    [8.0, 6.95],
+                    [13.0, 7.58],
+                    [9.0, 8.81],
+                    [11.0, 8.33],
+                    [14.0, 9.96],
+                    [6.0, 7.24],
+                    [4.0, 4.26],
+                    [12.0, 10.84],
+                    [7.0, 4.82],
+                    [5.0, 5.68]
+                ],
+                type: 'scatter'
+            }]
+    };
+    scatter.setOption(scatteroption);
+    //给legend添加点击事件
+    scatter.on('legendselectchanged', function(obj) {
+        var selected = obj.selected;
+        var legend = obj.name;
+        // 获取用户IP
+        userip = document.getElementById('ip').innerHTML;
+        // 使用 legendToggleSelect Action 会重新触发 legendselectchanged Event，导致本函数重复运行
+        // 使得 无 selected 对象
+        if (selected != undefined) {
+            console.log(selected[legend]);
+            //近一周的问题总量
+
+            if(legend=="近一周"&&selected[legend]==true){
+                //折线图动态传输
+                $.ajax({
+                    url:"/questionnum/",
+                    type:'POST',
+                    data:{Numtype:"week",userip:userip},
+                    success:function (data) {
+                        data = JSON.parse(data);
+                        //传送过来的数据格式data{“maxnum”：87，"minmun":10,“datanum”：[["周一"，34]，["周二",87]]},要传一个条数最大值与最小值好划分纵坐标
+                        scatter.setOption({
+                            series:[{
+                                name:"近一周",
+                                data:data["datanum"],
+                                smooth:true,   //关键点，为true是不支持虚线的，实线就用true
+                                itemStyle:{
+                                    normal:{
+                                        lineStyle:{
+                                            width:2,
+                                            type:'solid'  //'dotted'虚线 'solid'实线
+                                        }
+                                    }
+                                }
+                            }],
+                            tooltip: {
+                                trigger: 'axis'
+                            },
+                            //设置Y坐标最大值最小值，应该会均匀划分，如果不能设置ydata
+                            //yAxis:[{
+                            //    min:data["minnum"],
+                            //    max:data["maxnum"],
+                                //data:ydata
+                            //}],
+                            yAxis : [
+                                {
+                                    type : 'value',
+                                    axisLabel : {
+                                        formatter: '{value} 个'
+                                    },
+                                    minInterval: 1 // 最小分割为1
+                                }
+                            ],
+                            xAxis:[{
+                                type : 'category',
+                                data:data["date"],
+                            }],
+                            legend:{
+                                selected:{
+                                    '近一月':false,
+                                    '近一周':true,
+                                    '近一天':false
+                                }
+                            }
+                        })
+
+                        
+                    }
+                });
+                // xdata = ["0","周一","周二","周三","周四","周五","周六","周日"];
+                // scatter.setOption({
+
+                // })
+                //表格动态传输
+            }
+            else if(legend=="近一月"&&selected[legend]==true) {
+                                //折线图动态传输
+                $.ajax({
+                    url:"/questionnum/",
+                    type:'POST',
+                    data:{Numtype:"month",userip:userip},
+                    success:function (data) {
+                        data = JSON.parse(data);
+                        //传送过来的数据格式data{“maxnum”：87，"minmun":10,“datanum”：[["周一"，34]，["周二",87]]},要传一个条数最大值与最小值好划分纵坐标
+                        scatter.setOption({
+                            series:[{
+                                name:"近一月",
+                                data:data["datanum"],
+                                smooth:true,   //关键点，为true是不支持虚线的，实线就用true
+                                itemStyle:{
+                                    normal:{
+                                        lineStyle:{
+                                            width:2,
+                                            type:'solid'  //'dotted'虚线 'solid'实线
+                                        }
+                                    }
+                                }
+                            }],
+                            tooltip: {
+                                trigger: 'axis'
+                            },
+                            //设置Y坐标最大值最小值，应该会均匀划分，如果不能设置ydata
+                            //yAxis:[{
+                            //    min:data["minnum"],
+                            //    max:data["maxnum"],
+                                //data:ydata
+                            //}],
+                            yAxis : [
+                                {
+                                    type : 'value',
+                                    axisLabel : {
+                                        formatter: '{value} 个'
+                                    },
+                                    minInterval: 1
+                                }
+                            ],
+                            xAxis:[{
+                                type : 'category',
+                                data:data["date"],
+                                interval: 0,
+                                formatter : function(params){
+                                    var newParamsName = "";// 最终拼接成的字符串
+                                    var paramsNameNumber = params.length;// 实际标签的个数
+                                    var provideNumber = 4;// 每行能显示的字的个数
+                                    var rowNumber = Math.ceil(paramsNameNumber / provideNumber);// 换行的话，需要显示几行，向上取整
+                                    /**
+                                     * 判断标签的个数是否大于规定的个数， 如果大于，则进行换行处理 如果不大于，即等于或小于，就返回原标签
+                                     */
+                                    // 条件等同于rowNumber>1
+                                    if (paramsNameNumber > provideNumber) {
+                                        /** 循环每一行,p表示行 */
+                                        for (var p = 0; p < rowNumber; p++) {
+                                            var tempStr = "";// 表示每一次截取的字符串
+                                            var start = p * provideNumber;// 开始截取的位置
+                                            var end = start + provideNumber;// 结束截取的位置
+                                            // 此处特殊处理最后一行的索引值
+                                            if (p == rowNumber - 1) {
+                                                // 最后一次不换行
+                                                tempStr = params.substring(start, paramsNameNumber);
+                                            } else {
+                                                // 每一次拼接字符串并换行
+                                                tempStr = params.substring(start, end) + "\n";
+                                            }
+                                            newParamsName += tempStr;// 最终拼成的字符串
+                                        }
+
+                                    } else {
+                                        // 将旧标签的值赋给新标签
+                                        newParamsName = params;
+                                    }
+                                    //将最终的字符串返回
+                                    return newParamsName
+                                }
+                            }],
+                            legend:{
+                                selected:{
+                                    '近一月':true,
+                                    '近一周':false,
+                                    '近一天':false
+                                }
+                            }
+                        })
+
+
+                    }
+                });
+
+            }
+            else if(legend=="近一天"&&selected[legend]==true){
+                //折线图动态传输
+                $.ajax({
+                    url:"/questionnum/",
+                    type:'POST',
+                    data:{Numtype:"day",userip:userip},
+                    success:function (data) {
+                        data = JSON.parse(data);
+                        //传送过来的数据格式data{“maxnum”：87，"minmun":10,“datanum”：[["周一"，34]，["周二",87]]},要传一个条数最大值与最小值好划分纵坐标
+                        scatter.setOption({
+                            series:[{
+                                name:"近一天",
+                                data:data["datanum"],
+                                smooth:true,   //关键点，为true是不支持虚线的，实线就用true
+                                itemStyle:{
+                                    normal:{
+                                        lineStyle:{
+                                            width:2,
+                                            type:'solid'  //'dotted'虚线 'solid'实线
+                                        }
+                                    }
+                                }
+                            }],
+                            tooltip: {
+                                trigger: 'axis'
+                            },
+                            //设置Y坐标最大值最小值，应该会均匀划分，如果不能设置ydata
+                            //yAxis:[{
+                            //    min:data["minnum"],
+                            //    max:data["maxnum"],
+                                //data:ydata
+                            //}],
+                            yAxis : [
+                                {
+                                    type : 'value',
+                                    axisLabel : {
+                                        formatter: '{value} 个'
+                                    },
+                                    minInterval: 1
+                                }
+                            ],
+                            xAxis:[{
+                                type : 'category',
+                                data:data["date"],
+                                interval: 0,
+                                formatter : function(params){
+                                    var newParamsName = "";// 最终拼接成的字符串
+                                    var paramsNameNumber = params.length;// 实际标签的个数
+                                    var provideNumber = 4;// 每行能显示的字的个数
+                                    var rowNumber = Math.ceil(paramsNameNumber / provideNumber);// 换行的话，需要显示几行，向上取整
+                                    /**
+                                     * 判断标签的个数是否大于规定的个数， 如果大于，则进行换行处理 如果不大于，即等于或小于，就返回原标签
+                                     */
+                                    // 条件等同于rowNumber>1
+                                    if (paramsNameNumber > provideNumber) {
+                                        /** 循环每一行,p表示行 */
+                                        for (var p = 0; p < rowNumber; p++) {
+                                            var tempStr = "";// 表示每一次截取的字符串
+                                            var start = p * provideNumber;// 开始截取的位置
+                                            var end = start + provideNumber;// 结束截取的位置
+                                            // 此处特殊处理最后一行的索引值
+                                            if (p == rowNumber - 1) {
+                                                // 最后一次不换行
+                                                tempStr = params.substring(start, paramsNameNumber);
+                                            } else {
+                                                // 每一次拼接字符串并换行
+                                                tempStr = params.substring(start, end) + "\n";
+                                            }
+                                            newParamsName += tempStr;// 最终拼成的字符串
+                                        }
+
+                                    } else {
+                                        // 将旧标签的值赋给新标签
+                                        newParamsName = params;
+                                    }
+                                    //将最终的字符串返回
+                                    return newParamsName
+                                }
+                            }],
+                            legend:{
+                                selected:{
+                                    '近一月':false,
+                                    '近一周':false,
+                                    '近一天':true
+                                }
+                            }
+                        })
+
+
+                    }
+                });
+
+            }
+            else{
+                xdata = []
+            }
+        }
+    });
+
+    //饼图动态传输
+    $(document).ready(function () {
+        userip = document.getElementById('ip').innerHTML;
+        //用户主题
+        $.ajax({
+            url:"/usersub/",
+            type:'POST',
+            data: {userip: userip },
+            success:function (data) {
+                data = JSON.parse(data);
+                //data形式：[{"value":45,"name":...},{...}...] 数值是百分比
+                Pie1.setOption({
+                    series:[{
+                        data:data
+                    }],
+                     legend: {
+                        data:data['name']
+                    },
+                })
+            }
+        });
+
+        //用户意向
+        $.ajax({
+            url:"/userattention/",
+            type:'POST',
+            data: {userip: userip },
+            success:function (data) {
+                data = JSON.parse(data);
+                Pie2.setOption({
+                    series:[{
+                        data:data
+                    }],
+                     legend: {
+                        data:data['name']
+                    },
+                })
+            }
+        });
+
+    });
+</script>
+
+</html>

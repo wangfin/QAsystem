@@ -6,23 +6,30 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>QA对数据展示</title>
     <link href="/static/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <link href="/static/css/buttons.css" rel='stylesheet' type='text/css' />
     <script src="/static/js/jquery-1.10.2.min.js"></script>
     <script src="/static/js/bootstrap.min.js"></script>
+    <style>
+        .result{
+            width: 100%;
+            height: 120%;
+        }
+    </style>
 </head>
 <body>
 
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h3 class="display-4">生成结果</h3>
-    <p class="lead">本次处理了{{ length }}个网页，分别为{% for file in files %}
+    <p class="lead">本次处理了{{ length }}个网页，分别为<span id="showfilename">{% for file in files %}
             {{ file }}
-        {% endfor %}</p>
+  {% endfor %}</span></p>
   </div>
 </div>
 
 <table class="table table-hover table-striped">
     <thead>
-        <tr>
+        <tr class="resulthead">
             <th scope="col">问题ID</th>
             <th scope="col">问题</th>
             <th scope="col">主题</th>
@@ -33,7 +40,7 @@
 
     <tbody>
         {% for result in result_list %}
-            <tr>
+            <tr class="resultdata">
                 <th scope='row'>{{ forloop.counter }}</th>
                 <td>{{ result.question }}</td>
                 <td>{{ result.subject }}</td>
@@ -42,8 +49,127 @@
             </tr>
         {% endfor %}
     </tbody>
-
 </table>
-
+<div>
+    <a href="#" class="button button-action button-pill" style="float: right;margin-right:4%;margin-top:2%;background-color: #333333;color:#FFF" >取消</a>
+</div>
+<div>
+    <a href="#" class="button button-action button-pill" style="float: right;margin-right:1%;margin-top:2%;background-color: #333333;color:#FFF" onclick="saveQA()">保存</a>
+</div>
 </body>
+<script>
+    function saveQA() {
+        var trdata = $(".resultdata")
+        for(var i=0;i<trdata.length;i++){
+            var resultdata = {}
+            var tddata = trdata[i].childNodes;
+            var thdata = $(".resulthead").find("th");
+            console.log(thdata.length)
+            //tddata去除空白节点
+            for (var k = 0; k < tddata.length; k ++) {
+                if (tddata[k].nodeType === 3 && /^\s+$/.test(tddata[k].nodeValue)) {
+                    tddata[k].parentNode.removeChild(tddata[k]);
+                }
+            }
+            //传递更改数据
+            for(var j=1;j<tddata.length;j++){
+                console.log(thdata[j].innerHTML)
+                console.log(tddata[j].innerHTML)
+                resultdata[thdata[j].innerHTML] = tddata[j].innerHTML
+            }
+            console.log(JSON.stringify(resultdata))
+            //将更改数据传递给后台
+            $.ajax({
+                url: "/modifyQAres/",
+                type: "POST",
+                data: {jsondata: JSON.stringify(resultdata)},
+                success: function (data) {
+                    console.log(data)
+                }
+            })
+
+        }
+        var showfilename = $("#showfilename").html()
+        //去掉两端空格和换行
+        showfilename = showfilename.replace(/<\/?.+?>/g,"");
+        showfilename = showfilename.replace(/[\r\n]/g, "");
+        showfilename = showfilename.replace(/(^\s*)|(\s*$)/g, "");
+        console.log(showfilename)
+        var showfilearray = showfilename.split("\"")
+        console.log(showfilearray.length)
+        var filenames = new Array()
+        var j=0;
+        for(var i=0;i<showfilearray.length;i++){
+            //showfilearray[i] = showfilearray[i].slice(1)
+            if(showfilearray[i]!=""){
+                filenames[j] = showfilearray[i]
+                j++;
+            }
+
+        }
+        console.log(filenames.length)
+        $.ajax({
+            url: "/filerename/",
+            type: "POST",
+            data: {"unablefile": JSON.stringify(filenames)},
+            success: function (data) {
+                //location.reload();
+                console.log(data);
+            }
+        })
+        //window.location.href="Taskscheduling.html?filenames="+JSON.stringify(filenames)
+        //console.log(filename)
+        //返回上一个页面并刷新
+        //location.replace("/Task");
+        //event.returnValue=false;
+        alert("保存成功")
+    }
+    //支持表格行内修改
+    $("td").click(function () {
+        console.log(this.firstChild.nodeType)
+        var tdtext = $(this).html();
+        if(this.firstChild.nodeType==3) {
+            //先将非此td内的文本框消掉
+            var resulttext = $(".result")
+            for(var i=0;i<resulttext.length;i++) {
+                var resulttexttemp = resulttext[i];
+                var texttemp = resulttexttemp.value;//保存textarea里的内容
+                console.log(texttemp)
+                var tdtemp = resulttexttemp.parentNode;//将textarea对应的td取出
+                //删除textarea
+                resulttexttemp.parentNode.removeChild(resulttexttemp);
+                tdtemp.innerHTML = texttemp;//将textarea中的内容给td
+            }
+            $(this).empty()
+            $("<textarea class='result'></textarea>").appendTo($(this))
+            //$(this).find(".result").attr("placeholder", tdtext)
+            this.firstChild.innerHTML = tdtext;
+        }
+    })
+    $(document).bind('click',function (){
+        var e = e || window.event; //浏览器兼容性
+        var elem = e.target || e.srcElement;
+        while (elem) { //循环判断至跟节点，防止点击的是div子元素
+            if ((elem.class && elem.class=='result')||elem.nodeName=='TD') {
+                console.log(elem.nodeName)
+                return;
+            }
+            elem = elem.parentNode;
+        }
+        console.log("td updata")
+        var resulttext = $(".result")
+        for(var i=0;i<resulttext.length;i++) {
+            var resulttexttemp = resulttext[i];
+            var texttemp = resulttexttemp.value;//保存textarea里的内容
+            console.log(texttemp)
+            var tdtemp = resulttexttemp.parentNode;//将textarea对应的td取出
+            //删除textarea
+            resulttexttemp.parentNode.removeChild(resulttexttemp);
+            tdtemp.innerHTML = texttemp;//将textarea中的内容给td
+        }
+
+    })
+
+</script>
+
 </html>

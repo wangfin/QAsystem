@@ -1,0 +1,304 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>QA对生成</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Bootstrap Core CSS -->
+    {% load static %}
+    <link href="/static/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <!-- Custom CSS -->
+    <link href="/static/css/style.css" rel='stylesheet' type='text/css' />
+    <!-- Graph CSS -->
+    <link href="/static/css/font-awesome.css" rel="stylesheet">
+    <!-- jQuery -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'/>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!-- lined-icons -->
+    <link rel="stylesheet" href="{% static 'css/icon-font.min.css' %}" type='text/css' />
+    <link rel="stylesheet" href="/static/css/buttons.css" type="text/css"/>
+    <!-- <script src="js/amcharts.js"></script>
+    <script src="js/serial.js"></script>
+    <script src="js/light.js"></script>	 -->
+    <!-- //lined-icons -->
+    <script src="{% static 'js/jquery-1.10.2.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!--弹出层插件-->
+    <script src = "/static/js/layer.js"></script>
+    {#    <script src="/static/js/jquery-1.10.2.min.js"></script>#}
+    {#    <script src="/static/js/bootstrap.min.js"></script>#}
+
+    {#    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">#}
+    {#	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>#}
+    {#	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>#}
+
+    <!-- 等待时的框-->
+    <link href="/static/css/loaders.css" rel="stylesheet" type="text/css" />
+    <style>
+        .line-scale-pulse-out-rapid > div{
+            background-color: #333;
+        }
+    </style>
+
+</head>
+<body>
+<div class="page-container">
+    <!--/content-inner-->
+    <div class="left-content">
+        <div class="inner-content">
+            <!-- header-starts -->
+            <div class="header-section">
+                <!-- top_bg -->
+                <div class="top_bg">
+
+                    <div class="header_top">
+                        <div class="top_left" style="margin-bottom:1% ">
+                            <h2><span></span> Call us : 帅气无敌的开发小组</h2>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+
+                </div>
+                <div class="clearfix"></div>
+                <!-- /top_bg -->
+            </div>
+            <!--header_bg-->
+            <div class="header_bg">
+                <div class="header">
+                    <div class="head-t">
+                        <div class="logo">
+                            <a href="/index"><img src="{% static 'img/logo.png' %}" class="img-responsive" alt=""> </a>
+                            {#                                        <a href="#" class="button button-action button-pill" style="margin-top: 1em">Go</a>#}
+                        </div>
+                        <!-- start header_right -->
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+            </div>
+            <!--/header_bg-->
+            <!--content-->
+            <div id="content" style="height:500px">
+                <div id = "filechoose" style="border: 4px dotted #868181;width: 90%;height: 100%;float: right;margin-right: 4%;margin-top: 2%;border-radius:10px;overflow: auto "></div>
+                <div>
+                    <a href="#" class="button button-action button-pill" style="float: right;margin-right:4%;margin-top:2%;background-color: #333333;color:#FFF" id="dotask">运行</a>
+                </div>
+                <div>
+                    <a href="#" class="button button-action button-pill" style="float: right;margin-right:1%;margin-top:2%;background-color: #333333;color:#FFF" id="cancleall">取消全选</a>
+                </div>
+                <div>
+                    <a href="#" class="button button-action button-pill" style="float: right;margin-right:1%;margin-top:2%;background-color: #333333;color:#FFF" id="chooseall">全选</a>
+                </div>
+            </div>
+        </div>
+        <!--/sidebar-menu-->
+        <div class="sidebar-menu">
+            <header class="logo1">
+                <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a>
+            </header>
+            <div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
+            <div class="menu">
+                <ul id="menu">
+                    <li><a href="../index/"><i class="lnr lnr-cloud-upload"></i> <span>文件上传</span></a></li>
+                    <li id="menu-academico" ><a href="/Task"><i class="lnr lnr-layers"></i> <span>QA对生成</span></a></li>
+                    <li id="menu-academico"><a href="/QAManage"><i class="fa fa-table"></i>
+                        <span> QA对管理</span></a>
+                    </li>
+                    <!--<li id="menu-academico" ><a href="#"><i class="lnr lnr-layers"></i> <span>Tabs & Calender</span> <span class="fa fa-angle-right" style="float: right"></span></a>-->
+                    <!--<ul id="menu-academico-sub" >-->
+                    <!--<li id="menu-academico-avaliacoes" ><a href="#">Tabs</a></li>-->
+                    <!--<li id="menu-academico-boletim" ><a href="#">Calender</a></li>-->
+                    <!--</ul>-->
+                    <!--</li>-->
+                    <li><a href="http://47.97.209.48:5601" target="_blank"><i class="lnr lnr-chart-bars"></i>
+                        <span>数据可视化</span> </a>
+                    </li>
+                    <li><a href="/userMining"><i class="lnr lnr-user"></i>
+                        <span>用户信息</span> </a>
+                    </li>
+                    <!--<ul>-->
+                    <!--<li><a href="#"> Input</a></li>-->
+                    <!--<li><a href="#">Validation</a></li>-->
+                    <!--</ul>-->
+                </ul>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!--选择运行模板-->
+<div class="modal fade" id="Doexe" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">请选择网页抽取模板</h4>
+            </div>
+            <div id="model-body">
+                <a style="color:#333;cursor:pointer" class="filemodel" onclick="checkfile(this)">
+                    <img src="/static/img/model.png"></img>
+                    <div class="file-caption-info" style="font-size:15px">华为云网页抽取模版</div>
+                </a>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default createModel" data-dismiss="modal">新建</button>
+                <button type="button" class="btn btn-primary Do" data-dismiss="modal">生成</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--等待的Model-->
+<div class="modal fade" id="wait" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" id="result">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">请稍等片刻</h4>
+            </div>
+            <div class="modal-body">
+                <div class="loader-inner line-scale-pulse-out-rapid" style="position: absolute; left: 45%;">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <br>
+                <br>
+                <p>程序正在运行中，请等待片刻。在完成后，会有弹窗显示。</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--sorry的Model-->
+<div class="modal fade" id="sorry" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Sorry</h4>
+            </div>
+            <div class="modal-body">
+                <p>抱歉，上一个算法还在运行中，请等待上一次运行完成。在进行下一次的运行。</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--创建模板的Modal-->
+<div class="modal fade" id="createModel" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">新建网页抽取模板</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div id="leftform" style="float: left;width: 46%;margin-right: 2%">
+                        <div class="form-group">
+                            <label for="id">网页标题开头特征</label>
+                            <input type="text" class="form-control model" id="begintitle" placeholder="若不需要抽取或没有则不需要填写">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">网页标题结尾特征</label>
+                            <input type="text" class="form-control model" id="endtitle" placeholder="若不需要抽取或没有则不需要填写">
+                        </div>
+                        <div class="form-group">
+                            <label for="tel">网页小标题开头特征</label>
+                            <input type="tel" class="form-control model" id="littlebegintitle" placeholder="若不需要抽取或没有则不需要填写">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">网页小标题结尾特征</label>
+                            <input type="email" class="form-control model" id="littleendtitle" placeholder="若不需要抽取或没有则不需要填写">
+                        </div>
+                        <div class="form-group">
+                            <label for="zhiwei">表格开头特征</label>
+                            <input type="text" class="form-control model" id="tabbegin" placeholder="若不需要抽取或没有则不需要填写">
+                        </div>
+                        <div class="form-group">
+                            <label for="zhiwei">表格结尾特征</label>
+                            <input type="text" class="form-control model" id="tabend" placeholder="若不需要抽取或没有则不需要填写">
+                        </div>
+                    </div>
+                    <div id="rightform" style="float: right;width: 46%">
+                        <div class="form-group">
+                            <label for="zhiwei">图片开头特征</label>
+                            <input type="text" class="form-control model" id="imgbegin" placeholder="若不需要抽取或没有则不需要填写">
+                        </div>
+                        <div class="form-group">
+                            <label for="zhiwei">图片结尾特征</label>
+                            <input type="text" class="form-control model" id="imgend" placeholder="若不需要抽取或没有则不需要填写">
+                        </div>
+                        <div class="form-group">
+                            <label for="zhiwei">主题开头特征</label>
+                            <input type="text" class="form-control model" id="topicalbegin" placeholder="若不需要抽取或没有则不需要填写">
+                        </div>
+                        <div class="form-group">
+                            <label for="zhiwei">主题结尾特征</label>
+                            <input type="text" class="form-control model" id="topicalend" placeholder="若不需要抽取或没有则不需要填写">
+                        </div>
+                        <div class="form-group">
+                            <label for="zhiwei">正文内说明开头特征</label>
+                            <input type="text" class="form-control model" id="description" placeholder="若不需要抽取或没有则不需要填写">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default quxiao-tianjia" data-dismiss="modal" style="margin-top: 4%">取消</button>
+                <button type="button" class="btn btn-primary Docreate" data-dismiss="modal" style="margin-top: 4%">使用该模板运行</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--显示结果的Modal-->
+<div class="modal fade" id="show_result" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="width: 100%;height: 100%">
+        <div class="modal-content" style="height: 90%;width: 90%;margin: auto">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h3 class="display-4">生成结果</h3>
+                    <p class="lead">本次处理了{{ length }}个网页，分别为{% for file in files %}
+                        {{ file }}
+                    {% endfor %}</p>
+                </div>
+            </div>
+
+            <table class="table table-hover table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">问题ID</th>
+                    <th scope="col">问题</th>
+                    <th scope="col">主题</th>
+                    <th scope="col">答案</th>
+                    <th scope="col">文件链接</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {% for result in result_list %}
+                    <tr>
+                        <th scope='row'>{{ forloop.counter }}</th>
+                        <td>{{ result.question }}</td>
+                        <td>{{ result.subject }}</td>
+                        <td style="max-width: 450px;word-wrap:break-word;">{{ result.answer }}</td>
+                        <td>{{ result.answer_link }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <div>
+                <a href="#" class="button button-action button-pill" style="float: right;margin-right:4%;margin-top:2%;background-color: #333333;color:#FFF" >取消</a>
+            </div>
+            <div>
+                <a href="#" class="button button-action button-pill" style="float: right;margin-right:1%;margin-top:2%;background-color: #333333;color:#FFF" onclick="saveQA()">保存</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="/static/js/Task.js/"></script>
+</html>
