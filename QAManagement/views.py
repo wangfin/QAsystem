@@ -1,7 +1,10 @@
 import datetime
-from django.shortcuts import render
+import random
+
+from django.shortcuts import render, render_to_response
 from django.shortcuts import HttpResponse
 from django.db.models import Count
+from django.http import HttpResponseRedirect
 import json
 
 from urllib.parse import urlencode
@@ -9,6 +12,7 @@ from urllib.parse import urlencode
 from .models import User,QuestionCount
 import time
 from .withweb import Withweb
+from .withweb_all import Withweb_all
 import os
 from apscheduler.schedulers.background import BackgroundScheduler
 from django.db import connection
@@ -20,9 +24,16 @@ import requests
 from QAManagement.webextract import hauwei_extractor,moban_extractor
 import sre_constants
 from QAManagement.ques_generate import QG_paragraph,QA_save
-import logging
+# 时间工具类
+from QAManagement.ques_generate import GetTimeBeforeToday
+# import logging
 
-logger = logging.getLogger(__name__)
+import operator as op
+
+# 引入数据库类
+from .models import UserMining
+
+# logger = logging.getLogger(__name__)
 
 # 设置一个全局变量，这个是es的表
 myindex = 'qa_test'
@@ -43,7 +54,7 @@ def index(request):
         ip = request.META['REMOTE_ADDR']
 
     # 存入日志
-    logger.info('访问者IP：' + ip)
+    # logger.info('访问者IP：' + ip)
 
     return render(request,"index.html")
 def QAManagement(request):
@@ -73,14 +84,19 @@ def Regsiter(request):
     return render(request,"register.html")
 def Login(request):
     return render(request,"firstPage.html")
+def Task(request):
+    return render(request,"Taskscheduling.html")
+def userMining(request):
+    return render(request,"userMining.html")
 def userPage(request):
-    if 'HTTP_X_FORWARDED_FOR' in request.META:
-        ip = request.META['HTTP_X_FORWARDED_FOR']
-    else:
-        ip = request.META['REMOTE_ADDR']
-
+    # if 'HTTP_X_FORWARDED_FOR' in request.META:
+    #     ip = request.META['HTTP_X_FORWARDED_FOR']
+    # else:
+    #     ip = request.META['REMOTE_ADDR']
+    # 设置session保存上一轮的question
+    request.session['question'] = ''
     # 存入日志
-    logger.info('访问者IP：' + ip)
+    # logger.info('访问者IP：' + ip)
 
     return render(request,"UserPage.html")
 def upload(request):
@@ -94,7 +110,7 @@ def upload(request):
         f = open(os.path.join(BASE_DIR, 'static', 'document', file_obj.name), 'wb+')
 
         # 存入日志
-        logger.info(file_obj.name)
+        # logger.info(file_obj.name)
         # print(file_obj,type(file_obj))
         for chunk in file_obj.chunks():
             f.write(chunk)
@@ -108,8 +124,8 @@ def search_all(request):
         limit = request.POST.get("pageIndex")
         qa_results = []
         data_json = {}
-        withweb = Withweb()
-        result = withweb.searchall(myindex)
+        withweb_all = Withweb_all()
+        result = withweb_all.searchall(myindex)
         for i in range(len(result)):
             qa_result = {}
             qa_result['id'] = result[i]['_id']
@@ -138,11 +154,13 @@ def Add(request):
         link = received_json_data['答案链接']
         subject = received_json_data['主题']
 
+        sim_ques1 = ''
+        sim_ques2 = ''
         # 存入日志
-        logger.info(received_json_data)
+        # logger.info(received_json_data)
 
-        withweb = Withweb()
-        result = withweb.webinsert(myindex,question,question,answer,link,subject,id)
+        withweb_all = Withweb_all()
+        result = withweb_all.webinsert(myindex,question,question,answer,link,subject,id,sim_ques1,sim_ques2)
 
         # print(result)
         return HttpResponse("add ok")
@@ -159,13 +177,16 @@ def modify(request):
         link = received_json_changed_data['答案链接']
         subject = received_json_changed_data['主题']
 
+        sim_ques1 = ''
+        sim_ques2 = ''
+
         # 存入日志
-        logger.info(received_json_changed_data)
+        # logger.info(received_json_changed_data)
 
         #print(id,question,answer,link,subject)
-        withweb = Withweb()
+        withweb_all = Withweb_all()
 
-        withweb.update(myindex,question,answer,link,subject,id)
+        withweb_all.update(myindex,question,answer,link,subject,id,sim_ques1,sim_ques2)
 
         return HttpResponse("modify ok")
     else:
@@ -177,16 +198,16 @@ def search(request):
         search_question = request.POST.get("search_question")
         qa_results = []
         data_json = {}
-        withweb = Withweb()
+        withweb_all = Withweb_all()
 
         if search_question !='':
             print('标题为不空')
 
         if search_id != '' and search_question == '':
-            result = withweb.search_by_id(myindex, search_id)
+            result = withweb_all.search_by_id(myindex, search_id)
 
         elif search_question != '':
-            result = withweb.search_by_question(myindex, search_question)
+            result = withweb_all.search_by_question(myindex, search_question)
             print(result)
 
         for i in range(len(result)):
@@ -203,7 +224,7 @@ def search(request):
         data_json['total'] = len(qa_results)
 
         # 存入日志
-        logger.info(data_json)
+        # logger.info(data_json)
 
         return HttpResponse(json.dumps(data_json))
 
@@ -212,9 +233,9 @@ def delete(request):
     if request.method=='POST':
         delKey = request.POST.get("del_key")
         json_key = json.loads(delKey)
-        withweb = Withweb()
+        withweb_all = Withweb_all()
         for key in json_key:
-            withweb.single_delete(myindex, key)
+            withweb_all.single_delete(myindex, key)
 
         return HttpResponse("del OK")
     else:
@@ -231,7 +252,7 @@ def userQuestion(request):
         uq = {'userquestion':user_question,'question_time':Time}
 
         # 存入日志
-        logger.info(uq)
+        # logger.info(uq)
         User.objects.create(**uq)
         return HttpResponse("数据库保存成功")
 
@@ -273,11 +294,17 @@ def userQuestion(request):
 # 这个是用户的补完查询，当用户开始输入字的时候，调用补完查询
 # 返回查询的准确问题
 def completion_search(request):
-    if request.method=='POST':
+    if 'HTTP_X_FORWARDED_FOR' in request.META:
+        ip = request.META['HTTP_X_FORWARDED_FOR']
+    else:
+        ip = request.META['REMOTE_ADDR']
+
+    if request.method == 'POST':
         user_question = request.POST.get("completion_Question")
         #print(user_question)
-        withweb = Withweb()
-        questions = withweb.buwan_search(myindex,user_question)
+        withweb = Withweb(ip)
+        ques_before = request.session.get('question', default='')
+        questions = withweb.buwan_search(myindex,user_question,ques_before)
         #print(questions)
         # 答案字典
         ques_dict = {}
@@ -292,13 +319,18 @@ def completion_search(request):
             })
         #return HttpResponse("imagine false")
         # 存入日志
-        for value in ques_dict.values():
-            logger.info('补全查询输入问题：' + user_question + '|||' + '补全查询返回结果：' + value)
+        # for value in ques_dict.values():
+        #     logger.info('补全查询输入问题：' + user_question + '|||' + '补全查询返回结果：' + value)
         return HttpResponse(result_json)
 # 用户点击的发送按钮的查询
 # 返回的结果分为两种，第一种是当某一个答案的评分超过其他几个答案的评分，那么就返回一个
 # 如果评分相同，那么就返回五个
 def enter_search(request):
+    if 'HTTP_X_FORWARDED_FOR' in request.META:
+        ip = request.META['HTTP_X_FORWARDED_FOR']
+    else:
+        ip = request.META['REMOTE_ADDR']
+
     isclear = 4
     if request.method == 'POST':
         user_question = request.POST.get("enter_Question")
@@ -326,6 +358,22 @@ def enter_search(request):
                     maxscore = intent["score"]
                     userintent = intent["intent"]
             if userintent == "闲聊":
+
+                # 存入数据库中
+                usermsg = {}
+                usermsg['userip'] = ip
+                usermsg['userquestion'] = request.POST.get("enter_Question")
+                usermsg['usersub'] = '闲聊'
+                usermsg['userattention'] = '闲聊'
+                # usermsg['usercollect'] = usercollect
+                usermsg['userlike'] = random.randint(1,5)
+
+                # 获取本地时间
+                Time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+                usermsg['times'] = Time
+
+                UserMining.objects.create(**usermsg)
+
                 # 调用图灵机器人
                 url = "http://www.tuling123.com/openapi/api"
                 params2 = {
@@ -368,8 +416,13 @@ def enter_search(request):
                 # user_question = request.POST.get("enter_Question")
 
                 # print(user_question)
-                withweb = Withweb()
-                accurate_result = withweb.accurate_search(myindex, user_question)
+                withweb = Withweb(ip)
+                ques_before = request.session.get('question', default='')
+                user_like = random.randint(1,5)
+                # 获取本地时间
+                Time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+                accurate_result = withweb.accurate_search(myindex, user_question,'k1_test','k2_test','提问',user_like,Time)
+
 
                 if accurate_result != None:
                     print(accurate_result)
@@ -379,7 +432,11 @@ def enter_search(request):
                     })
                     # return accurate_result
                 else:
-                    result = withweb.enter_search(myindex, user_question)
+                    ques_before = request.session.get('question', default='')
+                    user_like = random.randint(1, 5)
+                    # 获取本地时间
+                    Time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+                    result = withweb.enter_search(myindex, user_question,'k1_test','k2_test',ques_before,'提问',user_like,Time)
                     # print(len(result))# 1-问题明确 2-问题模糊 3-问题极度模糊
                     if len(result) == 5:  # 当用户问的不明确时，返回五个相似的问题
                         isclear = 2
@@ -393,6 +450,8 @@ def enter_search(request):
 
                         uq = {'userquestion': user_question, 'question_time': Time}
                         User.objects.create(**uq)
+                        # 设置session
+                        request.session['question'] = user_question
 
                         result_json = json.dumps({
                             "isclear": isclear,
@@ -420,32 +479,52 @@ def enter_search(request):
         except Exception as e:
             print("[Errno {0}] {1}".format(e.errno, e.strerror))
 
-        if isclear == 2:
-            for value in ques_dict.values():
-                logger.info('点击发送按钮输入：' + user_question + "|||" + '返回相似问题：' + value)
-        else:# 存入日志
-            logger.info('点击发送按钮输入：' + user_question + "|||" + '返回结果：' + json.loads(result_json)['answer'])
+        # if isclear == 2:
+        #     for value in ques_dict.values():
+        #         logger.info('点击发送按钮输入：' + user_question + "|||" + '返回相似问题：' + value)
+        # else:# 存入日志
+        #     logger.info('点击发送按钮输入：' + user_question + "|||" + '返回结果：' + json.loads(result_json)['answer'])
         return HttpResponse(result_json)
 
 # 用户选择完问题的精确搜索
 def accurate_search(request):
+    if 'HTTP_X_FORWARDED_FOR' in request.META:
+        ip = request.META['HTTP_X_FORWARDED_FOR']
+    else:
+        ip = request.META['REMOTE_ADDR']
+
     if request.method == 'POST':
         user_question = request.POST.get("accurate_Question")
-        #print('用户问题'+user_question)
-        withweb = Withweb()
-        answer = withweb.accurate_search(myindex, user_question)
+        # print('用户问题'+user_question)
+        ques_before = request.session.get('question', default='')
+        withweb = Withweb(ip)
+        user_like = random.randint(1, 5)
+        # 获取本地时间
+        Time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+        answer = withweb.accurate_search(myindex, user_question, 'k1_test', 'k2_test', '提问', user_like,
+                                         Time)
+        print(answer)
+        # 设置session保存上一轮的question
+        request.session['question'] = user_question
+        # answer = withweb.accurate_search(myindex, user_question)
         #print(answer)
         # 存入日志
-        logger.info('精确搜索输入：' + user_question + '|||' + '回复答案：' + answer.strip())
+        # logger.info('精确搜索输入：' + user_question + '|||' + '回复答案：' + answer.strip())
         return HttpResponse(answer)
 
 # 当用户提问完问题后，调用推荐提问
 # 根据用户提出的问题，查询相似的问题，返回给用户
 def further_search(request):
+    if 'HTTP_X_FORWARDED_FOR' in request.META:
+        ip = request.META['HTTP_X_FORWARDED_FOR']
+    else:
+        ip = request.META['REMOTE_ADDR']
+
     if request.method == 'POST':
         user_question = request.POST.get("accurate_Question")
-        withweb = Withweb()
-        questions = withweb.further_search(myindex, user_question)
+        withweb = Withweb(ip)
+        ques_before = request.session.get('question', default='')
+        questions = withweb.further_search(myindex, user_question,ques_before)
         #print(questions)
         ques_dict = {}
         if len(questions) > 0:  # 返回的推荐问题的数目不为空
@@ -457,8 +536,8 @@ def further_search(request):
 
         # 存入日志
 
-        for value in ques_dict.values():
-            logger.info('推荐问题输入：' + user_question + '|||' + '返回：' + value)
+        # for value in ques_dict.values():
+        #     logger.info('推荐问题输入：' + user_question + '|||' + '返回：' + value)
         return HttpResponse(result_json)
 
 def usermayask(request):
@@ -473,24 +552,24 @@ def usermayask(request):
         return HttpResponse(json.dumps(questions_dict))
 
 # 聊天系统 没有集成是个假的
-def chat(request):
-    if request.method=='POST':
-        question = request.POST.get("enter_Question")
-        if question == '你好':
-            result = "好啊，吃了么"
-        elif question == 'QAQ':
-            result = '怎么了'
-        elif question == '很差劲':
-            result = '很抱歉没有帮到您'
-        elif question == '很棒':
-            result = '很有幸为您带来了帮助'
-        return HttpResponse(result)
+# def chat(request):
+#     if request.method=='POST':
+#         question = request.POST.get("enter_Question")
+#         if question == '你好':
+#             result = "好啊，吃了么"
+#         elif question == 'QAQ':
+#             result = '怎么了'
+#         elif question == '很差劲':
+#             result = '很抱歉没有帮到您'
+#         elif question == '很棒':
+#             result = '很有幸为您带来了帮助'
+#         return HttpResponse(result)
 
 # 运行算法程序
 def Doexe(request):
     if request.method == 'POST':
         # 选择的解析模版
-        modelName = request.POST.get("filename")
+        modelName = request.POST.get("modelname")
 
         myextract = hauwei_extractor.Extract()
         QA_generate = QG_paragraph.Paragraph()
@@ -498,7 +577,7 @@ def Doexe(request):
         json_paths = []
 
         global file_list
-        # print(file_list)
+        print(file_list)
 
         for onehtml in file_list:
 
@@ -511,7 +590,7 @@ def Doexe(request):
 
             mylink = onehtml
 
-            onehtml = os.path.join(file_dir, onehtml)
+            onehtml = os.path.join(file_dir,  )
 
             onehtml = open(onehtml, 'r', encoding="utf-8")
 
@@ -537,19 +616,18 @@ def Doexe(request):
         result = QA_generate.main(json_paths)
 
         # 存入日志
-        logger.info(result)
-
+        # logger.info(result)
         global result_list
         result_list = result
         # print(result)
         num = len(result)
 
         # 只有生成了QA对的时候才能存入
-        if num > 0:
-            # 存入数据库中
-            saveines = QA_save.SaveInEs()
-            for res in result:
-                saveines.main(myindex,res)
+        # if num > 0:
+        #     # 存入数据库中
+        #     saveines = QA_save.SaveInEs()
+        #     for res in result:
+        #         saveines.main(myindex,res)
 
         # if fileName == '华为云网页抽取模版':
         # time.sleep(60)
@@ -562,6 +640,45 @@ def Doexe(request):
         return HttpResponse(result_json)
     else:
         return HttpResponse("失败")
+#生成的QA对修改操作
+def modifyQAres(request):
+    if request.method=="POST":
+        resultdict = {}
+        saveines = QA_save.SaveInEs()
+        #获取修改了的数据
+        mres = request.POST.get("jsondata")
+        mres = json.loads(mres)
+        print(mres["问题"]+"ssssss")
+        resultdict["question"] = mres["问题"]
+        resultdict["subject"] = mres["主题"]
+        resultdict["answer"] = mres["答案"]
+        resultdict["answer_link"] = mres["文件链接"]
+
+        print("QAreas"+str(resultdict))
+        # 将修改了的数据存入数据库
+
+        saveines.main(myindex, resultdict)
+
+        return HttpResponse("保存修改数据成功")
+
+    else:
+        return HttpResponse("存入失败")
+#生成的QA对存入数据库操作
+def saveQA(request):
+    if request.method=="POST":
+        num = len(result_list)
+        # 只有生成了QA对的时候才能存入
+        if num > 0:
+            # 存入数据库中
+            saveines = QA_save.SaveInEs()
+            for res in result_list:
+                #print(res)
+                saveines.main(myindex,res)
+            return HttpResponse("存入成功，存入的QA对个数为："+str(num))
+        else:
+            return HttpResponse("QA对个数为："+str(num))
+    else:
+        return HttpResponse("存入失败")
 # 获取在服务器上的文件名
 def getfilename(request):
     if request.method == "POST":
@@ -576,6 +693,30 @@ def getfilename(request):
             "filenum": fileName.__len__(),
             "filename": fileName
         }))
+# 更改文件名
+def filerename(request):
+    if request.method == "POST":
+        filerenameArray = request.POST.get("unablefile")
+        filerenameArray = filerenameArray.strip(']')
+        filerenameArray = filerenameArray.strip('[')
+        fileArray = filerenameArray.split(',')
+        print(fileArray)
+        BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+        file_dir = os.path.join(BASE_DIR, 'static', 'document')
+        for root, dirs, files in os.walk(file_dir):
+            # print(root) #当前目录路径
+            # print(dirs) #当前路径下所有子目录
+            fileName = files  # 当前路径下所有非目录子文件
+        for unablefile in fileArray:
+            unablefile = unablefile.strip('"')
+            print(unablefile)
+            for temp in fileName:
+                print(temp)
+                print(op.eq(temp, unablefile))
+                if(op.eq(temp,unablefile)):
+                    newname = '(已生成)'+ temp
+                    os.rename(file_dir+"/"+temp,file_dir+"/"+newname)
+        return HttpResponse("rename ok")
 
 # 选择文件
 def choose_file(request):
@@ -585,6 +726,8 @@ def choose_file(request):
         fileName = request.POST.get("filename")
 
         global file_list
+
+        file_list = []
 
         file_list = fileName.strip("[").strip("]").split(',')
         # print(file_list)
@@ -627,7 +770,7 @@ def create_model(request):
         json_paths = []
 
         global file_list
-        # print(file_list)
+        print(file_list)
 
         for onehtml in file_list:
 
@@ -653,7 +796,7 @@ def create_model(request):
 
             try:
                 # 首先解析HTML文件，返回生成的json的文件名
-                jsonpath = myextract.inserthtml(onehtml, jsonpath, mylink)  ######此处写入的是变量
+                jsonpath = myextract.inserthtml(onehtml, jsonpath, mylink)  # 此处写入的是变量
 
                 if jsonpath != None:
                     json_paths.append(jsonpath)
@@ -666,7 +809,7 @@ def create_model(request):
         result = QA_generate.main(json_paths)
 
         # 存入日志
-        logger.info(result)
+        # logger.info(result)
 
         global result_list
         result_list = result
@@ -692,6 +835,322 @@ def create_model(request):
     else:
         return HttpResponse("失败")
 
+
+# 在用户信息首页展示所有用户信息的页面
+def search_users_all(request):
+    if request.method == 'POST':
+        offset = request.POST.get("pageSize")
+        limit = request.POST.get("pageIndex")
+        users = []
+        data_json = {}
+
+        result = UserMining.objects.all().order_by('times')
+        for i in range(len(result)):
+            user = {}
+            user['userip'] = result[i].userip
+            user['userquestion'] = result[i].userquestion
+            user['usersub'] = result[i].usersub
+            user['userattention'] = result[i].userattention
+            user['userlike'] = result[i].userlike
+            user['times'] = result[i].times
+
+            users.append(user)
+
+        data_json['rows'] = users[(int(limit)-1)*int(offset):int(limit)*int(offset)]
+        data_json['total'] = len(users)
+
+
+        return HttpResponse(json.dumps(data_json))
+    else:
+        return HttpResponse("add wrong")
+# 查询用户
+def searchuser(request):
+    if request.method=='POST':
+        offset = request.POST.get("pageSize")
+        limit = request.POST.get("pageIndex")
+        search_id = request.POST.get("search_id")
+        search_sub = request.POST.get("search_sub")
+        users = []
+        data_json = {}
+        result = []
+
+        if search_id != '' and search_sub == '':
+            result = UserMining.objects.filter(userip=search_id).order_by('times')
+
+        elif search_id != '' and search_sub != '':
+            result = UserMining.objects.filter(userip=search_id).filter(usersub=search_sub).order_by('times')
+        elif search_id == '' and search_sub != '':
+            result = UserMining.objects.filter(usersub=search_sub).order_by('times')
+
+        for i in range(len(result)):
+            user = {}
+            user['userip'] = result[i].userip
+            user['userquestion'] = result[i].userquestion
+            user['usersub'] = result[i].usersub
+            user['userattention'] = result[i].userattention
+            user['userlike'] = result[i].userlike
+            user['times'] = result[i].times
+
+            users.append(user)
+
+        data_json['rows'] = users[(int(limit) - 1) * int(offset):int(limit) * int(offset)]
+        data_json['total'] = len(users)
+
+        # 存入日志
+        # logger.info(data_json)
+
+        return HttpResponse(json.dumps(data_json))
+
+
+# 展示单个用户的提问情况
+def search_single_user(request):
+    if request.method == 'POST':
+        # 获取用户IP
+        userip = request.POST.get("userip")
+        offset = request.POST.get("pageSize")
+        limit = request.POST.get("pageIndex")
+        users = []
+        data_json = {}
+        # 按时间排序
+        result = UserMining.objects.filter(userip=userip).order_by('times')
+        for i in range(len(result)):
+            user = {}
+            user['userip'] = result[i].userip
+            user['userquestion'] = result[i].userquestion
+            user['usersub'] = result[i].usersub
+            user['userattention'] = result[i].userattention
+            user['userlike'] = result[i].userlike
+            user['times'] = result[i].times
+
+            users.append(user)
+
+        data_json['rows'] = users[(int(limit)-1)*int(offset):int(limit)*int(offset)]
+        data_json['total'] = len(users)
+
+
+        return HttpResponse(json.dumps(data_json))
+    else:
+        return HttpResponse("add wrong")
+
+
+# 访问个人用户画像
+def userGrah(request):
+    if request.method == 'GET':
+        userip = request.GET.get("userip")
+
+        # print('ip:' + userip)
+
+        # return HttpResponseRedirect('')
+
+        # return render_to_response("userGrah.html")
+        return render(request, "userGrah.html", {"userip": userip})
+
+# 用户个人画像兴趣饼图
+def usersub(request):
+    # 这个是用来查询该用户查询主题的占比
+    if request.method == 'POST':
+        # 获取用户IP
+        userip = request.POST.get("userip")
+        data_json = []
+
+        # 查询主题
+        query = UserMining.objects.filter(userip=userip).values('usersub').annotate(count=Count('usersub')).values('usersub',
+                                                                                                       'count')
+        subcount_list = list(query)
+        # 对统计好出现次数的主题进行排序
+        subcount_sort = sorted(subcount_list, key=lambda e: e.__getitem__('count'), reverse=True)
+
+        for sub in subcount_sort:
+            if sub['usersub'] != '闲聊':
+                result = {}
+                result['name'] = sub['usersub']
+                result['value'] = int(sub['count'])
+
+                data_json.append(result)
+        if len(data_json) <= 5:
+            return HttpResponse(json.dumps(data_json))
+        else:
+            return HttpResponse(json.dumps(data_json[:5]))
+
+# 用户个人画像意向饼图
+def userattention(request):
+    if request.method == 'POST':
+        # 获取用户IP
+        userip = request.POST.get("userip")
+        data_json = []
+
+        # 查询意向
+        query = UserMining.objects.filter(userip=userip).values('userattention').annotate(count=Count('userattention')).values('userattention','count')
+
+        subattention_list = list(query)
+
+        # print(subattention_list)
+        for subattention in subattention_list:
+            result = {}
+            result['name'] = subattention['userattention']
+            result['value'] = subattention['count']
+            data_json.append(result)
+
+        return HttpResponse(json.dumps(data_json))
+
+# 用户提问时间分布表
+def questionnum(request):
+    gettime = GetTimeBeforeToday.GetTime()
+    onedaybefore = str(gettime.get_days_before_today(1))
+    oneweekbefore = str(gettime.get_weeks_before_tody(1))
+    onemonthbefore = str(gettime.get_months_before_tody(1))
+
+    if request.method == 'POST':
+        # 时间类别（月，周，天）
+        timetype = request.POST.get('Numtype')
+        # 用户IP
+        userip = request.POST.get('userip')
+        # 如果是按周来分布的话
+        time_array = time.localtime(time.time())
+        today = time.strftime("%Y-%m-%d %H:%M:%S", time_array)
+        if timetype == 'week':
+            # 近一周
+            # 按时间排序
+            result = UserMining.objects.filter(userip=userip).order_by('times')
+            # 返回数据
+            data_json = {}
+            # 每天的问题个数
+            Mondaynum = 0
+            Tuesdaynum = 0
+            Wednesdaynum = 0
+            Thursdaynum = 0
+            Fridaynum = 0
+            Saturdaynum = 0
+            Sundaynum = 0
+            weekday_list = ['周一','周二','周三','周四','周五','周六','周日']
+            week_data = []
+            for res in result:
+                # 进行一周的时间比较，判断在一周内的时间
+                # 时间的判断只需要进行字符串的大小比较即可，字符串通过ASCII码进行比较
+                # 因为res.times本来就已经被排序过了，所以直接存入数组中即可
+                if res.times > oneweekbefore:
+                    # 获取这个时间是星期几
+                    weekday = int(datetime.datetime.fromtimestamp(time.mktime(time.strptime(res.times, '%Y-%m-%d %H:%M:%S'))).weekday())
+                    # 一周内每天的统计
+                    if weekday == 0:
+                        Mondaynum += 1
+                    elif weekday == 1:
+                        Tuesdaynum += 1
+                    elif weekday == 2:
+                        Wednesdaynum += 1
+                    elif weekday == 3:
+                        Thursdaynum += 1
+                    elif weekday == 4:
+                        Fridaynum += 1
+                    elif weekday == 5:
+                        Saturdaynum += 1
+                    elif weekday == 6:
+                        Sundaynum += 1
+
+            for day in gettime.dateRange(oneweekbefore,today,n=1):
+                weekday = int(datetime.datetime.fromtimestamp(
+                    time.mktime(time.strptime(day, '%Y-%m-%d'))).weekday())
+                data = {}
+                data['date'] = day
+                data['weekday'] = weekday_list[weekday]
+                if weekday == 0:
+                    data['num'] = Mondaynum
+                elif weekday == 1:
+                    data['num'] = Tuesdaynum
+                elif weekday == 2:
+                    data['num'] = Wednesdaynum
+                elif weekday == 3:
+                    data['num'] = Thursdaynum
+                elif weekday == 4:
+                    data['num'] = Fridaynum
+                elif weekday == 5:
+                    data['num'] = Saturdaynum
+                elif weekday == 6:
+                    data['num'] = Sundaynum
+
+                week_data.append(data)
+            # week_data 的格式 [{'date': '2018-08-16', 'weekday': '周四', 'num': 0},{}]
+            # 传送过来的数据格式data
+            # {“maxnum”：87，"minmun": 10, “datanum”：[["周一"，34]，["周二", 87]]}, 要传一个条数最大值与最小值好划分纵坐标
+            # print(week_data)
+            # 按照num排序，取出最大最小值
+            week_data.sort(key=lambda k:list(k.values())[2],reverse=True)
+            maxnum = week_data[0]['num']
+            minnum = week_data[-1]['num']
+            # 按时间排序
+            week_data.sort(key=lambda k:list(k.values())[0],reverse=False)
+
+            data_json['maxnum'] = maxnum
+            data_json['minnum'] = minnum
+            data_json['datanum'] = []
+            data_json['date'] = []
+            for i in week_data:
+                datedata = []
+                datedata.append(i['date'] + ' ' + i['weekday'])
+                datedata.append(i['num'])
+                data_json['datanum'].append(datedata)
+                data_json['date'].append(i['date'] + ' ' + i['weekday'])
+
+            print(data_json)
+
+        elif timetype == 'month':
+            # 返回数据集
+            data_json = {}
+            # 获取前一个月的时间，也就是30天
+            result = UserMining.objects.filter(userip=userip).order_by('times')
+            # 总共30天，五天一组，分为6组
+            days_list = gettime.dateRange(onemonthbefore,today,n=5)
+            days_num = [0, 0, 0, 0, 0, 0]
+
+            for res in result:
+                for i in range(len(days_list) -1 ):
+                    if res.times > days_list[i] and res.times < days_list[i+1]:
+                        # 计算问题次数
+                        days_num[i] += 1
+            data_json['datanum'] = []
+            data_json['date'] = []
+            for i in range(len(days_list) - 1):
+                daydata = []
+                daydata.append(days_list[i] + ' - ' + days_list[i+1])
+                daydata.append(days_num[i])
+
+                data_json['date'].append(days_list[i] + ' - ' + days_list[i+1])
+
+                data_json['datanum'].append(daydata)
+
+            # print(data_json)
+
+
+        elif timetype == 'day':
+            # {“datanum”：[["周一"，34]，["周二", 87]]}, 要传一个条数最大值与最小值好划分纵坐标
+            data_json = {}
+            # 近一天
+            # 按时间排序
+            result = UserMining.objects.filter(userip=userip).order_by('times')
+            # 一天分为24小时，三小时为一组，共八组数据
+            # 取出前一天按3小时分组的时间
+            hours_list = gettime.hourRange(onedaybefore,today,n=3)
+            hours_num = [0,0,0,0,0,0,0,0]
+            for res in result:
+                for i in range(len(hours_list) -1 ):
+                    if res.times > hours_list[i] and res.times < hours_list[i+1]:
+                        # 计算问题次数
+                        hours_num[i] += 1
+            data_json['datanum'] = []
+            data_json['date'] = []
+            for i in range(len(hours_list) - 1):
+                daydata = []
+                daydata.append(hours_list[i].split()[1] + ' - ' + hours_list[i+1].split()[1])
+                daydata.append(hours_num[i])
+
+                data_json['date'].append(hours_list[i].split()[1] + ' - ' + hours_list[i+1].split()[1])
+
+                data_json['datanum'].append(daydata)
+
+            # print(data_json)
+
+
+        return HttpResponse(json.dumps(data_json))
 
 def statistics():
     #print("do")

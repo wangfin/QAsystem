@@ -538,3 +538,800 @@ ValueError: The view QAManagement.views.accurate_search didn't return an HttpRes
 2018-08-02 07:57:37,695 [django.request:93] [base:get_response] [WARNING]- Not Found: /
 2018-08-02 09:57:26,634 [django.request:93] [base:get_response] [WARNING]- Not Found: /
 2018-08-02 10:55:45,823 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-02 14:47:05,437 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-02 15:25:34,867 [django.request:93] [base:get_response] [WARNING]- Not Found: /userpage/
+2018-08-02 15:25:52,027 [django.request:93] [base:get_response] [WARNING]- Not Found: /userpage/
+2018-08-02 16:11:59,796 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-02 16:12:02,442 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-02 16:13:26,642 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /accurate_search/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 139, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view QAManagement.views.accurate_search didn't return an HttpResponse object. It returned None instead.
+2018-08-02 16:13:26,928 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /accurate_search/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 139, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view QAManagement.views.accurate_search didn't return an HttpResponse object. It returned None instead.
+2018-08-02 17:22:45,073 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-03 00:14:27,032 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-03 03:38:43,752 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-03 04:23:21,535 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.boxun.com/
+2018-08-03 04:23:22,966 [django.request:93] [base:get_response] [WARNING]- Not Found: /www.voanews.com:443
+2018-08-03 04:23:22,993 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.rfa.org/
+2018-08-03 04:23:23,072 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.123cha.com/
+2018-08-03 07:16:24,256 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-03 09:03:18,432 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-03 09:39:26,981 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-03 10:31:59,558 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.qq.com/404/search_children.js
+2018-08-03 14:13:57,774 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-03 15:08:35,512 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-03 19:04:26,751 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-03 19:09:35,919 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-03 19:16:30,620 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-04 01:38:46,330 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-04 04:14:33,231 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-04 09:13:17,102 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-04 10:31:39,015 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-04 13:14:45,916 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-04 17:58:14,458 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-04 22:26:33,097 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-04 23:42:06,526 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-05 07:43:25,349 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-05 17:17:54,378 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-05 21:34:06,385 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-05 21:34:08,803 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-06 02:44:17,048 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-06 11:56:25,638 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-06 19:45:10,602 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-06 21:01:46,243 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-07 06:02:10,576 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-07 09:28:29,668 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.qq.com/404/search_children.js
+2018-08-07 15:02:48,809 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-07 15:34:07,904 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-07 18:04:26,094 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-07 23:31:34,036 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-07 23:32:20,789 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-07 23:38:41,116 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-07 23:40:16,925 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-07 23:40:28,770 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-07 23:40:29,749 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-07 23:46:00,088 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-07 23:48:38,590 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-07 23:48:41,283 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-07 23:50:54,142 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-07 23:55:25,051 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-07 23:55:39,449 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-07 23:55:51,694 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-07 23:59:26,281 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:00:35,282 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:01:44,626 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:06:18,872 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:06:19,366 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:10:29,194 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:14:01,334 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:16:00,835 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:16:16,623 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:18:34,483 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:20:27,070 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-08 00:21:31,027 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:21:44,605 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:22:11,036 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:22:41,166 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:23:27,928 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:23:38,520 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:27:27,945 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:30:19,197 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:30:19,373 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:31:21,507 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:31:21,727 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:33:48,140 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:35:12,118 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:35:21,882 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:35:47,768 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:36:27,777 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:36:34,032 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:42:15,406 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:42:46,600 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:43:04,377 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:43:52,542 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:45:24,310 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:47:05,704 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:48:24,713 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:48:55,868 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:48:58,436 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:51:26,036 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:51:51,317 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:53:01,529 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:54:42,886 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 00:57:15,859 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:00:10,632 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:00:51,851 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:01:37,696 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:02:48,437 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:04:43,059 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:05:53,599 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:07:31,487 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:07:38,616 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:07:54,317 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:08:47,724 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:12:09,776 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:15:16,890 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:15:19,002 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:16:28,709 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:17:06,507 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:17:39,023 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:18:17,173 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:20:25,863 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:21:47,681 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:22:31,043 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:23:16,119 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:23:20,707 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:24:03,490 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:25:28,977 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:25:37,744 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:31:25,577 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:32:04,478 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:33:30,160 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:34:45,439 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:36:39,051 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:36:44,322 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:40:07,479 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:42:14,283 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:43:09,763 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:50:17,505 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:52:27,882 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:53:16,171 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:54:13,129 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:54:26,660 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:54:58,593 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:55:02,424 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:55:02,508 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:56:22,393 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 01:58:55,732 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:00:20,865 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:00:37,001 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:02:28,114 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:02:46,148 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:02:50,064 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:09:19,188 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:09:46,371 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:14:47,101 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:18:35,213 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:19:14,433 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:19:40,863 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:19:45,193 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:20:07,604 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:20:30,722 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:22:17,490 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:23:40,296 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:23:55,674 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:25:07,509 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:28:34,619 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:28:57,700 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:33:08,168 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:33:17,451 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:33:28,849 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:36:26,492 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:42:31,696 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:42:46,085 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:43:31,466 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:49:50,920 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:50:17,628 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:51:14,229 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:51:38,979 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:54:37,976 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:56:17,188 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:56:20,105 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:56:20,528 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 02:57:59,051 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 03:00:34,002 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 03:02:08,137 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 03:04:57,688 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 03:05:03,926 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 03:08:13,457 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 03:08:55,588 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 03:13:41,817 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 03:15:05,331 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 03:18:44,363 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 03:23:47,069 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 03:23:58,595 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 03:23:59,136 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 03:25:09,453 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 03:32:57,103 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 03:45:03,770 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 03:48:30,882 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 03:52:34,220 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 03:57:04,126 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 03:57:27,849 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 03:58:39,127 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 04:05:14,052 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 04:15:26,623 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 04:22:47,231 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 04:26:19,869 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 04:32:02,743 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 04:32:28,419 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 04:35:10,742 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 04:39:55,107 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 04:39:57,287 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 04:40:20,433 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 04:55:39,952 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 04:58:20,246 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 04:59:41,120 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 05:01:18,178 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 05:01:29,967 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 05:07:36,589 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 05:09:05,708 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 05:10:03,214 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 05:17:52,035 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 05:24:48,962 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 05:25:09,080 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 05:29:40,750 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 05:31:05,376 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 05:33:39,643 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 05:39:17,264 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 05:41:29,852 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 05:42:14,907 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 06:01:07,607 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 06:08:49,658 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 06:15:06,016 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 06:22:42,906 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 06:27:30,432 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 06:32:59,431 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 06:36:19,442 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 06:38:33,435 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 06:52:38,911 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 07:04:19,746 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 07:09:46,804 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 07:11:24,450 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 07:47:34,275 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-08 08:41:23,705 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 08:50:21,994 [django.request:93] [base:get_response] [WARNING]- Not Found: /133.130.126.119:43
+2018-08-08 08:55:27,932 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 09:24:18,323 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-08 10:11:50,557 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-08 10:24:26,659 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-08 11:52:36,475 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 13:22:55,513 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 14:54:03,421 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 15:55:58,883 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-08 16:51:54,408 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-08 18:48:57,771 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-08 18:52:13,554 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-08 19:49:06,965 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-08 19:53:24,038 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /delete/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 217, in delete
+    withweb.single_delete(myindex, key)
+  File "/home/wang/QASystem/QAManagement/withweb.py", line 135, in single_delete
+    res = myelas.deleteone(myindex,id)
+  File "/home/wang/QASystem/QAManagement/elas.py", line 134, in deleteone
+    res=self.es.delete(index=myindex,doc_type='user',id=id)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/client/utils.py", line 76, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/client/__init__.py", line 1065, in delete
+    doc_type, id), params=params)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/transport.py", line 318, in perform_request
+    status, headers_response, data = connection.perform_request(method, url, params, body, headers=headers, ignore=ignore, timeout=timeout)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/connection/http_urllib3.py", line 185, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/connection/base.py", line 125, in _raise_error
+    raise HTTP_EXCEPTIONS.get(status_code, TransportError)(status_code, error_message, additional_info)
+elasticsearch.exceptions.NotFoundError: TransportError(404, '{"_index":"qa_test","_type":"user","_id":"2250","_version":3,"result":"not_found","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":1439,"_primary_term":1}')
+2018-08-08 20:04:39,640 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /search/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 186, in search
+    result = withweb.search_by_id(myindex, search_id)
+  File "/home/wang/QASystem/QAManagement/withweb.py", line 173, in search_by_id
+    result = myelas.idsearch(myindex,myid)
+  File "/home/wang/QASystem/QAManagement/elas.py", line 149, in idsearch
+    res=self.es.get(index=myindex, doc_type='user', id=myid)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/client/utils.py", line 76, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/client/__init__.py", line 430, in get
+    doc_type, id), params=params)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/transport.py", line 318, in perform_request
+    status, headers_response, data = connection.perform_request(method, url, params, body, headers=headers, ignore=ignore, timeout=timeout)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/connection/http_urllib3.py", line 185, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/connection/base.py", line 125, in _raise_error
+    raise HTTP_EXCEPTIONS.get(status_code, TransportError)(status_code, error_message, additional_info)
+elasticsearch.exceptions.NotFoundError: TransportError(404, '{"_index":"qa_test","_type":"user","_id":"2250","found":false}')
+2018-08-08 20:16:17,059 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-08 20:17:09,575 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /search_all/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connection.py", line 171, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/util/connection.py", line 79, in create_connection
+    raise err
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/util/connection.py", line 69, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/connection/http_urllib3.py", line 171, in perform_request
+    response = self.pool.urlopen(method, url, body, retries=False, headers=request_headers, **kw)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/util/retry.py", line 343, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/packages/six.py", line 686, in reraise
+    raise value
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connectionpool.py", line 354, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/http/client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/http/client.py", line 1285, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/http/client.py", line 1234, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/http/client.py", line 1026, in _send_output
+    self.send(msg)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/http/client.py", line 964, in send
+    self.connect()
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connection.py", line 196, in connect
+    conn = self._new_conn()
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connection.py", line 176, in _new_conn
+    (self.host, self.timeout))
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPConnection object at 0x7f28b00ec0b8>, 'Connection to 47.97.209.48 timed out. (connect timeout=10)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 112, in search_all
+    result = withweb.searchall(myindex)
+  File "/home/wang/QASystem/QAManagement/withweb.py", line 144, in searchall
+    return myelas.searchall(myindex)
+  File "/home/wang/QASystem/QAManagement/elas.py", line 127, in searchall
+    res = self.es.search(index=myindex, doc_type='user', size=10000,body={"query": {"match_all": {}}})
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/client/utils.py", line 76, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/client/__init__.py", line 655, in search
+    doc_type, '_search'), params=params, body=body)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/transport.py", line 318, in perform_request
+    status, headers_response, data = connection.perform_request(method, url, params, body, headers=headers, ignore=ignore, timeout=timeout)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/connection/http_urllib3.py", line 180, in perform_request
+    raise ConnectionError('N/A', str(e), e)
+elasticsearch.exceptions.ConnectionError: ConnectionError((<urllib3.connection.HTTPConnection object at 0x7f28b00ec0b8>, 'Connection to 47.97.209.48 timed out. (connect timeout=10)')) caused by: ConnectTimeoutError((<urllib3.connection.HTTPConnection object at 0x7f28b00ec0b8>, 'Connection to 47.97.209.48 timed out. (connect timeout=10)'))
+2018-08-08 20:17:24,186 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /search_all/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connection.py", line 171, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/util/connection.py", line 79, in create_connection
+    raise err
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/util/connection.py", line 69, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/connection/http_urllib3.py", line 171, in perform_request
+    response = self.pool.urlopen(method, url, body, retries=False, headers=request_headers, **kw)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/util/retry.py", line 343, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/packages/six.py", line 686, in reraise
+    raise value
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connectionpool.py", line 354, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/http/client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/http/client.py", line 1285, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/http/client.py", line 1234, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/http/client.py", line 1026, in _send_output
+    self.send(msg)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/http/client.py", line 964, in send
+    self.connect()
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connection.py", line 196, in connect
+    conn = self._new_conn()
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connection.py", line 176, in _new_conn
+    (self.host, self.timeout))
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPConnection object at 0x7f28b0099fd0>, 'Connection to 47.97.209.48 timed out. (connect timeout=10)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 112, in search_all
+    result = withweb.searchall(myindex)
+  File "/home/wang/QASystem/QAManagement/withweb.py", line 144, in searchall
+    return myelas.searchall(myindex)
+  File "/home/wang/QASystem/QAManagement/elas.py", line 127, in searchall
+    res = self.es.search(index=myindex, doc_type='user', size=10000,body={"query": {"match_all": {}}})
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/client/utils.py", line 76, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/client/__init__.py", line 655, in search
+    doc_type, '_search'), params=params, body=body)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/transport.py", line 318, in perform_request
+    status, headers_response, data = connection.perform_request(method, url, params, body, headers=headers, ignore=ignore, timeout=timeout)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/connection/http_urllib3.py", line 180, in perform_request
+    raise ConnectionError('N/A', str(e), e)
+elasticsearch.exceptions.ConnectionError: ConnectionError((<urllib3.connection.HTTPConnection object at 0x7f28b0099fd0>, 'Connection to 47.97.209.48 timed out. (connect timeout=10)')) caused by: ConnectTimeoutError((<urllib3.connection.HTTPConnection object at 0x7f28b0099fd0>, 'Connection to 47.97.209.48 timed out. (connect timeout=10)'))
+2018-08-08 20:33:41,634 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /modify/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 168, in modify
+    withweb.update(myindex,question,answer,link,subject,id)
+  File "/home/wang/QASystem/QAManagement/withweb.py", line 148, in update
+    myelas.updateqa(myindex,question,answer,link,subject,hitid)
+  File "/home/wang/QASystem/QAManagement/elas.py", line 145, in updateqa
+    body={"doc": {"question": myquestion, "accuratequestion": myquestion,"answer":myanswer,"link":mylink,"subject":mysubject}})
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/client/utils.py", line 76, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/client/__init__.py", line 547, in update
+    doc_type, id, '_update'), params=params, body=body)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/transport.py", line 318, in perform_request
+    status, headers_response, data = connection.perform_request(method, url, params, body, headers=headers, ignore=ignore, timeout=timeout)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/connection/http_urllib3.py", line 185, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/elasticsearch/connection/base.py", line 125, in _raise_error
+    raise HTTP_EXCEPTIONS.get(status_code, TransportError)(status_code, error_message, additional_info)
+elasticsearch.exceptions.ConflictError: TransportError(409, 'version_conflict_engine_exception', '[user][6980]: version conflict, current version [2] is different than the one provided [1]')
+2018-08-08 20:52:23,011 [django.request:93] [base:get_response] [WARNING]- Not Found: /133.130.126.119:43
+2018-08-08 22:06:18,370 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-08 23:11:41,179 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-09 04:03:48,546 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-09 08:36:43,440 [django.request:93] [base:get_response] [WARNING]- Not Found: /133.130.126.119:43
+2018-08-09 10:46:26,274 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-09 11:44:23,504 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-09 13:58:47,754 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-09 20:39:50,294 [django.request:93] [base:get_response] [WARNING]- Not Found: /133.130.126.119:43
+2018-08-09 22:32:02,399 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-10 07:49:45,976 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-10 08:21:40,158 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-10 10:03:18,020 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-10 10:29:52,647 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/139.219.106.96:11000/1qiWaz2wRsx3eXdc4rDfv5tgb6yhn7Uujm8Lik999
+2018-08-10 10:40:58,024 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.qq.com/404/search_children.js
+2018-08-10 12:08:45,568 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-10 16:56:23,665 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-10 20:47:18,000 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-11 02:01:08,049 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-11 09:31:29,113 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-11 10:58:40,778 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-11 11:07:47,897 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-11 16:56:59,359 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-11 19:35:40,122 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-12 05:51:08,635 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-12 06:24:41,376 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-12 07:20:38,796 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-12 16:27:02,946 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-12 16:54:32,414 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-12 16:54:32,416 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-12 16:56:42,753 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-12 16:56:42,813 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-12 16:56:42,871 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-12 16:56:42,930 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-12 17:17:10,536 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-12 17:17:25,460 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-12 17:17:31,851 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-12 17:17:38,547 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-12 17:47:30,611 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-12 20:16:50,142 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-12 21:30:25,922 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-12 23:45:13,324 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-13 03:25:42,788 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-13 04:56:24,004 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-13 08:37:08,501 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-13 09:16:49,934 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-13 09:21:23,023 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-13 14:23:10,815 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-13 16:35:32,391 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-13 16:35:56,787 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-13 16:35:59,284 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /enter_search/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 427, in enter_search
+    logger.info('点击发送按钮输入：' + user_question + "|||" + '返回结果：' + json.loads(result_json)['answer'])
+UnboundLocalError: local variable 'result_json' referenced before assignment
+2018-08-13 17:23:54,958 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/wujieliulan.com/
+2018-08-13 17:23:54,963 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.rfa.org/
+2018-08-13 17:23:54,979 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.minghui.org/
+2018-08-13 17:23:55,001 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.epochtimes.com/
+2018-08-13 17:23:55,024 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/
+2018-08-13 17:23:55,025 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.bing.com/
+2018-08-13 17:23:55,028 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.123cha.com/
+2018-08-13 17:23:55,055 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.boxun.com/
+2018-08-13 17:23:56,746 [django.request:93] [base:get_response] [WARNING]- Not Found: /www.voanews.com:443
+2018-08-13 17:49:27,706 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-13 20:43:40,239 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-14 00:42:22,808 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-14 03:07:48,987 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-14 03:09:55,112 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-14 03:16:50,728 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-14 06:21:39,661 [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-08-14 08:57:10,294 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-14 09:33:29,172 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-14 09:33:34,803 [django.request:93] [base:get_response] [WARNING]- Not Found: /Tasksheduling
+2018-08-14 09:36:13,924 [django.request:93] [base:get_response] [WARNING]- Not Found: /Tasksheduling
+2018-08-14 09:49:00,737 [django.request:93] [base:get_response] [WARNING]- Not Found: /Tasksheduling
+2018-08-14 10:42:12,353 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.qq.com/404/search_children.js
+2018-08-14 11:14:48,629 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /Doexe/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connection.py", line 171, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/util/connection.py", line 79, in create_connection
+    raise err
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/util/connection.py", line 69, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connectionpool.py", line 343, in _make_request
+    self._validate_conn(conn)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connectionpool.py", line 849, in _validate_conn
+    conn.connect()
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connection.py", line 314, in connect
+    conn = self._new_conn()
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connection.py", line 180, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x7f6971848668>: Failed to establish a new connection: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/requests/adapters.py", line 445, in send
+    timeout=timeout
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/util/retry.py", line 398, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.ltp-cloud.com', port=443): Max retries exceeded with url: /analysis/ (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7f6971848668>: Failed to establish a new connection: [Errno 113] No route to host',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 539, in Doexe
+    result = QA_generate.main(json_paths)
+  File "/home/wang/QASystem/QAManagement/ques_generate/QG_paragraph.py", line 113, in main
+    phrase_qa = self.Phrase_type_title(dic,title)
+  File "/home/wang/QASystem/QAManagement/ques_generate/QG_paragraph.py", line 288, in Phrase_type_title
+    result = self.ltp_request(title_list)
+  File "/home/wang/QASystem/QAManagement/ques_generate/QG_paragraph.py", line 921, in ltp_request
+    r = requests.post(url_get_base, data=args)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/requests/sessions.py", line 512, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/requests/sessions.py", line 622, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/requests/adapters.py", line 513, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.ltp-cloud.com', port=443): Max retries exceeded with url: /analysis/ (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7f6971848668>: Failed to establish a new connection: [Errno 113] No route to host',))
+2018-08-14 11:32:44,003 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /Doexe/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connection.py", line 171, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/util/connection.py", line 79, in create_connection
+    raise err
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/util/connection.py", line 69, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connectionpool.py", line 343, in _make_request
+    self._validate_conn(conn)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connectionpool.py", line 849, in _validate_conn
+    conn.connect()
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connection.py", line 314, in connect
+    conn = self._new_conn()
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connection.py", line 180, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x7f69722c0518>: Failed to establish a new connection: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/requests/adapters.py", line 445, in send
+    timeout=timeout
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/util/retry.py", line 398, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.ltp-cloud.com', port=443): Max retries exceeded with url: /analysis/ (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7f69722c0518>: Failed to establish a new connection: [Errno 113] No route to host',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 539, in Doexe
+    result = QA_generate.main(json_paths)
+  File "/home/wang/QASystem/QAManagement/ques_generate/QG_paragraph.py", line 113, in main
+    phrase_qa = self.Phrase_type_title(dic,title)
+  File "/home/wang/QASystem/QAManagement/ques_generate/QG_paragraph.py", line 288, in Phrase_type_title
+    result = self.ltp_request(title_list)
+  File "/home/wang/QASystem/QAManagement/ques_generate/QG_paragraph.py", line 921, in ltp_request
+    r = requests.post(url_get_base, data=args)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/requests/sessions.py", line 512, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/requests/sessions.py", line 622, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/requests/adapters.py", line 513, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.ltp-cloud.com', port=443): Max retries exceeded with url: /analysis/ (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7f69722c0518>: Failed to establish a new connection: [Errno 113] No route to host',))
+2018-08-14 12:18:20,976 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-14 15:04:38,394 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-14 15:27:28,083 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /Doexe/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connection.py", line 171, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/util/connection.py", line 79, in create_connection
+    raise err
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/util/connection.py", line 69, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connectionpool.py", line 343, in _make_request
+    self._validate_conn(conn)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connectionpool.py", line 849, in _validate_conn
+    conn.connect()
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connection.py", line 314, in connect
+    conn = self._new_conn()
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connection.py", line 180, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x7f6971a52b00>: Failed to establish a new connection: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/requests/adapters.py", line 445, in send
+    timeout=timeout
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/urllib3/util/retry.py", line 398, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.ltp-cloud.com', port=443): Max retries exceeded with url: /analysis/ (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7f6971a52b00>: Failed to establish a new connection: [Errno 113] No route to host',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 539, in Doexe
+    result = QA_generate.main(json_paths)
+  File "/home/wang/QASystem/QAManagement/ques_generate/QG_paragraph.py", line 113, in main
+    phrase_qa = self.Phrase_type_title(dic,title)
+  File "/home/wang/QASystem/QAManagement/ques_generate/QG_paragraph.py", line 288, in Phrase_type_title
+    result = self.ltp_request(title_list)
+  File "/home/wang/QASystem/QAManagement/ques_generate/QG_paragraph.py", line 921, in ltp_request
+    r = requests.post(url_get_base, data=args)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/requests/sessions.py", line 512, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/requests/sessions.py", line 622, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/requests/adapters.py", line 513, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.ltp-cloud.com', port=443): Max retries exceeded with url: /analysis/ (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7f6971a52b00>: Failed to establish a new connection: [Errno 113] No route to host',))
+2018-08-14 18:45:57,595 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/112.124.42.80:63435/
+2018-08-14 18:45:58,317 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/112.124.42.80:63435/
+2018-08-14 19:04:31,346 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/112.124.42.80:63435/
+2018-08-15 06:50:40,603 [django.request:93] [base:get_response] [WARNING]- Not Found: /http:/www.baidu.com/cache/global/img/gs.gif
+2018-08-15 09:09:01,426 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /filerename/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 592, in filerename
+    os.rename(file_dir+temp,file_dir+newname)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/wang/QASystem/QAManagement/static/document运维概览_ 数据湖工厂_用户指南.html' -> '/home/wang/QASystem/QAManagement/static/document(已生成)运维概览_ 数据湖工厂_用户指南.html'
+2018-08-15 09:17:56,562 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /Doexe/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 518, in Doexe
+    onehtml = open(onehtml, 'r', encoding="utf-8")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/wang/QASystem/QAManagement/static/document/数据表管理_ 数据湖工厂_用户指南.html'
+2018-08-15 09:22:09,077 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /Doexe/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 518, in Doexe
+    onehtml = open(onehtml, 'r', encoding="utf-8")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/wang/QASystem/QAManagement/static/document/实例监控_ 数据湖工厂_用户指南.html'
+2018-08-15 09:35:27,999 [django.request:93] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2018-08-15 09:53:28,568 [django.request:118] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /Doexe/
+Traceback (most recent call last):
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/wang/anaconda3/envs/PyTorch/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/wang/QASystem/QAManagement/views.py", line 518, in Doexe
+    onehtml = open(onehtml, 'r', encoding="utf-8")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/wang/QASystem/QAManagement/static/document/实例监控_ 数据湖工厂_用户指南.html'

@@ -9,10 +9,10 @@
           </mappings>
         </serverdata>
       </paths>
-      <paths name="阿里云">
+      <paths name="wang@47.97.209.48:22">
         <serverdata>
           <mappings>
-            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/home/wang/QASystem" local="$PROJECT_DIR$" />
           </mappings>
         </serverdata>
       </paths>

@@ -10,14 +10,6 @@
           <option name="port" value="22" />
         </fileTransfer>
       </webServer>
-      <webServer id="6408e82b-81d2-4b24-9c7d-96585ea12b70" name="阿里云" url="http://47.97.209.48">
-        <fileTransfer host="47.97.209.48" port="22" rootFolder="/home/wang/QASystem" accessType="SFTP">
-          <advancedOptions>
-            <advancedOptions dataProtectionLevel="Private" />
-          </advancedOptions>
-          <option name="port" value="22" />
-        </fileTransfer>
-      </webServer>
     </option>
   </component>
 </project>

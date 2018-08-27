@@ -130,6 +130,7 @@
                                             </div>
 
                                         </div>
+                                        <div id="msg_end" style="height:0px; overflow:hidden"></div>
                                     </div>
                                     <div class="list-group" style="display: none;z-index: 2500;">
                                         <a href="#" class="list-group-item list-group-item-action">QAQ</a>
@@ -216,12 +217,15 @@
             $(".leaderboard").find("li").css("padding-right",(10/1280)*winWidth)
             $(".leaderboard").find("li").css("padding-left",(50/1280)*winWidth)
             $(".leaderboard").css("top",(400/653)*winHeight)
-            $("#Chat2").css({
-                "left":function () {return (4 / 1280) * winWidth;},
-                "hegiht":function () {return (186 / 653) * winHeight;},
-
-
-            });
+            $(".Chat2>img").css("left",(4/1280)*winWidth)
+            $(".Chat2>img").css("height",(184/653)*winHeight)
+            //设定输入框自适应
+            var sendboxWidth = $(".chatBox-send").width()
+            var sendboxHeight = $(".chatBox-send").height()
+            console.log(sendboxHeight)
+            console.log(sendboxWidth)
+            $(".div-textarea").css("width",sendboxWidth-95)
+            $(".div-textarea").css("height",sendboxHeight)
 
         });
     Date.prototype.format = function(fmt) {
