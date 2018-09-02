@@ -154,12 +154,14 @@ class Templatetree():
             for model_node in model_depeth_list:
                 if (question_tree.parent(ques_node.identifier) == None) and (model_tree.parent(model_node.identifier) == None):
                     if ques_node.data == ques_node.data:
+                        print(ques_node)
                         is_match = True
                     else:
                         is_match = False
 
         # 如果可以生成的话
         if is_match:
+            print('可以生成')
             for ques_node in question_depeth_list:
                 for model_node in model_depeth_list:
                     # 这两个节点的data 也就是 词性与关系相同
@@ -168,10 +170,10 @@ class Templatetree():
                         if (question_tree.parent(ques_node.identifier) != None) and (model_tree.parent(model_node.identifier) != None):
                             if question_tree.parent(ques_node.identifier).data == model_tree.parent(model_node.identifier).data:
                                 # 我们认为这样的节点就可以进行替换
-                                model_node.tag.split(' ')[1] = ques_node.tag.split()[1]
+                                model_node.tag.split()[1] = ques_node.tag.split()[1]
                         elif (question_tree.parent(ques_node.identifier) == None) and (model_tree.parent(model_node.identifier) == None):
                             # 父节点为None的是根节点，判断根节点的词性就行了
-                            model_node.tag.split(' ')[1] = ques_node.tag.split()[1]
+                            model_node.tag.split()[1] = ques_node.tag.split()[1]
 
             model_depeth_list.sort(key=lambda k: k.tag.split()[0], reverse=False)
 

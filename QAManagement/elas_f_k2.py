@@ -12,16 +12,14 @@ class k2():
                 "user": {
                     "_all": {"enabled": False},
                     "properties": {
-                        "subject_k": {"type": "text",
+                        "subject_k": {"type": "keyword"
                                      # "include_in_all":True,
-                                     "index": True,
-                                     "analyzer": "ik_max_word",
-                                     "search_analyzer": "ik_max_word"
+
 
                                      }
 
                     }
-                },
+                }
 
             }
         }

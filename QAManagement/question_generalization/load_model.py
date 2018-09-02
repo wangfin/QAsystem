@@ -40,7 +40,7 @@ class Load():
 
     def load(self,filename):
         num_lines = self.getFileLineNums(filename)
-        gensim_file = '../data/chinese_model.txt'
+        gensim_file = '/home/wang/data/chinese_model.txt'
         gensim_first_line = "{} {}".format(num_lines, 300)
         # Prepends the line.
         if platform == "linux" or platform == "linux2":
@@ -53,6 +53,6 @@ class Load():
 
 if __name__ == "__main__":
     load = Load()
-    load.load('../data/sgns.merge1.bigram.txt')
+    load.load('/home/wang/data/sgns.merge1.bigram.txt')
 
 

@@ -10,12 +10,12 @@ from pyltp import Postagger
 
 class Classification():
     # 导入ltp
-    LTP_DATA_DIR = '../data/ltp_data'  # ltp模型目录的路径
+    LTP_DATA_DIR = '/home/wang/data/ltp_data'  # ltp模型目录的路径
 
     # 分词
     cws_model_path = os.path.join(LTP_DATA_DIR, 'cws.model')  # 分词模型路径，模型名称为`cws.model`
     segmentor = Segmentor()  # 初始化实例
-    segmentor.load_with_lexicon(cws_model_path, '../data/new_dictionary.txt')  # 加载模型，第二个参数是您的增量模型路径
+    segmentor.load_with_lexicon(cws_model_path, '/home/wang/data/new_dictionary.txt')  # 加载模型，第二个参数是您的增量模型路径
 
     # 分类的疑问词
     # 多久 how-long
@@ -165,7 +165,7 @@ class Classification():
 
 if __name__ == "__main__":
     # 输入问句
-    question_file = open('../data/zhidao_train_clean_questions')
+    question_file = open('/home/wang/data/zhidao_train_clean_questions')
     question_list = []
     for line in question_file:
         question_list.append(line.strip('\n'))
@@ -194,55 +194,55 @@ if __name__ == "__main__":
 
     # 将问句写入文件
 
-    file = open('../data/classification/how_long_questions', 'w')
+    file = open('/home/wang/data/classification/how_long_questions', 'w')
     for i in Classification.how_long_questions:
         file.write(i + '\n')
 
-    file = open('../data/classification/how_do_questions', 'w')
+    file = open('/home/wang/data/classification/how_do_questions', 'w')
     for i in Classification.how_do_questions:
         file.write(i + '\n')
 
-    file = open('../data/classification/how_much_questions', 'w')
+    file = open('/home/wang/data/classification/how_much_questions', 'w')
     for i in Classification.how_much_questions:
         file.write(i + '\n')
 
-    file = open('../data/classification/where_questions', 'w')
+    file = open('/home/wang/data/classification/where_questions', 'w')
     for i in Classification.where_questions:
         file.write(i + '\n')
 
-    file = open('../data/classification/who_questions', 'w')
+    file = open('/home/wang/data/classification/who_questions', 'w')
     for i in Classification.who_questions:
         file.write(i + '\n')
 
-    file = open('../data/classification/when_questions', 'w')
+    file = open('/home/wang/data/classification/when_questions', 'w')
     for i in Classification.when_questions:
         file.write(i + '\n')
 
-    file = open('../data/classification/why_questions', 'w')
+    file = open('/home/wang/data/classification/why_questions', 'w')
     for i in Classification.why_questions:
         file.write(i + '\n')
 
-    file = open('../data/classification/which_questions', 'w')
+    file = open('/home/wang/data/classification/which_questions', 'w')
     for i in Classification.which_questions:
         file.write(i + '\n')
 
-    file = open('../data/classification/definition_questions', 'w')
+    file = open('/home/wang/data/classification/definition_questions', 'w')
     for i in Classification.definition_questions:
         file.write(i + '\n')
 
-    file = open('../data/classification/list_ques_questions', 'w')
+    file = open('/home/wang/data/classification/list_ques_questions', 'w')
     for i in Classification.list_ques_questions:
         file.write(i + '\n')
 
-    file = open('../data/classification/yes_no_questions', 'w')
+    file = open('/home/wang/data/classification/yes_no_questions', 'w')
     for i in Classification.yes_no_questions:
         file.write(i + '\n')
 
-    file = open('../data/classification/common_ques_questions', 'w')
+    file = open('/home/wang/data/classification/common_ques_questions', 'w')
     for i in Classification.common_ques_questions:
         file.write(i + '\n')
 
-    file = open('../data/classification/other_questions', 'w')
+    file = open('/home/wang/data/classification/other_questions', 'w')
     for i in Classification.other_questions:
         file.write(i + '\n')
 

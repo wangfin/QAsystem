@@ -35,6 +35,7 @@
             <th scope="col">主题</th>
             <th scope="col">答案</th>
             <th scope="col">文件链接</th>
+            <th scope="col">泛化句子</th>
         </tr>
     </thead>
 
@@ -46,20 +47,48 @@
                 <td>{{ result.subject }}</td>
                 <td style="max-width: 450px;word-wrap:break-word;">{{ result.answer }}</td>
                 <td>{{ result.answer_link }}</td>
+                <td>{% for gen in result.generalization %} {{ gen }} {% endfor %}</td>
             </tr>
         {% endfor %}
     </tbody>
 </table>
 <div>
-    <a href="#" class="button button-action button-pill" style="float: right;margin-right:4%;margin-top:2%;background-color: #333333;color:#FFF" >取消</a>
+    <a href="#" class="button button-action button-pill" style="float: right;margin-right:4%;margin-top:2%;background-color: #333333;color:#FFF" onclick="back()">返回上一页</a>
+</div>
+<div>
+    <a href="#" class="button button-action button-pill" style="float: right;margin-right:1%;margin-top:2%;background-color: #333333;color:#FFF" onclick="reset()">重置</a>
 </div>
 <div>
     <a href="#" class="button button-action button-pill" style="float: right;margin-right:1%;margin-top:2%;background-color: #333333;color:#FFF" onclick="saveQA()">保存</a>
 </div>
+
 </body>
 <script>
+    var trdata = $(".resultdata")
+    var resultdata = {}
+    $(document).ready(function () {
+        for(var i=0;i<trdata.length;i++){
+            var tddata = trdata[i].childNodes;
+            var thdata = $(".resulthead").find("th");
+            console.log(thdata.length)
+            //tddata去除空白节点
+            for (var k = 0; k < tddata.length; k ++) {
+                if (tddata[k].nodeType === 3 && /^\s+$/.test(tddata[k].nodeValue)) {
+                    tddata[k].parentNode.removeChild(tddata[k]);
+                }
+            }
+            //传递更改数据
+            for(var j=1;j<tddata.length;j++){
+                console.log(thdata[j].innerHTML)
+                console.log(tddata[j].innerHTML)
+                resultdata[thdata[j].innerHTML] = tddata[j].innerHTML
+            }
+            console.log(JSON.stringify(resultdata))
+            //将更改数据传递给后台
+
+        }
+    })
     function saveQA() {
-        var trdata = $(".resultdata")
         for(var i=0;i<trdata.length;i++){
             var resultdata = {}
             var tddata = trdata[i].childNodes;
@@ -77,7 +106,6 @@
                 console.log(tddata[j].innerHTML)
                 resultdata[thdata[j].innerHTML] = tddata[j].innerHTML
             }
-            console.log(JSON.stringify(resultdata))
             //将更改数据传递给后台
             $.ajax({
                 url: "/modifyQAres/",
@@ -120,8 +148,8 @@
         //window.location.href="Taskscheduling.html?filenames="+JSON.stringify(filenames)
         //console.log(filename)
         //返回上一个页面并刷新
-        //location.replace("/Task");
-        //event.returnValue=false;
+        location.replace("/Task");
+        event.returnValue=false;
         alert("保存成功")
     }
     //支持表格行内修改
@@ -169,6 +197,34 @@
         }
 
     })
+    function back() {
+        //返回上一页并刷新
+        location.replace("/Task");
+        event.returnValue=false;
+    }
+    //重置
+    function reset() {
+        console.log(JSON.stringify(resultdata))
+        for(var i=0;i<trdata.length;i++){
+            var tddata = trdata[i].childNodes;
+            var thdata = $(".resulthead").find("th");
+            console.log(thdata.length)
+            //tddata去除空白节点
+            for (var k = 0; k < tddata.length; k ++) {
+                if (tddata[k].nodeType === 3 && /^\s+$/.test(tddata[k].nodeValue)) {
+                    tddata[k].parentNode.removeChild(tddata[k]);
+                }
+            }
+            //传递原始数据
+            for(var j=1;j<tddata.length;j++){
+                console.log(thdata[j].innerHTML)
+                console.log(tddata[j].innerHTML)
+                tddata[j].innerHTML = resultdata[thdata[j].innerHTML]
+            }
+        }
+
+
+    }
 
 </script>
 

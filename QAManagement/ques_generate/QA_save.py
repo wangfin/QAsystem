@@ -25,7 +25,7 @@ class SaveInEs():
             sim_ques1 = ''
             sim_ques2 = ''
             SaveInEs.withweb.webinsert(datatable, qa_list['question'], qa_list['question'], qa_list['answer'], qa_list['answer_link'],
-                                   qa_list['subject'], num+a,sim_ques1,sim_ques2)
+                                   qa_list['subject'], num+a,qa_list["sim_ques1"],qa_list["sim_ques2"])
             a += 1
 
 

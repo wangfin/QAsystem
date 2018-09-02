@@ -24,6 +24,7 @@ import requests
 from QAManagement.webextract import hauwei_extractor,moban_extractor
 import sre_constants
 from QAManagement.ques_generate import QG_paragraph,QA_save
+from QAManagement.question_generalization.temporary_generate import Temporary
 # 时间工具类
 from QAManagement.ques_generate import GetTimeBeforeToday
 # import logging
@@ -332,6 +333,11 @@ def enter_search(request):
         ip = request.META['REMOTE_ADDR']
 
     isclear = 4
+    result_json = json.dumps({
+        "isclear": isclear,
+        "answer": "QAQ 小Q没明白您的意思",
+        "userintent": "闲聊"
+    })
     if request.method == 'POST':
         user_question = request.POST.get("enter_Question")
         print(user_question)
@@ -347,144 +353,150 @@ def enter_search(request):
             'timezoneOffset': '0',
             'verbose': 'true',
         })
-        try:
-            r = requests.get(
-                'https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/5f7d357a-7c28-4891-b4dc-d810f8b564ef',
-                headers=headers, params=params)
-            res = r.json()
-            maxscore = 0
-            for intent in res["intents"]:
-                if (intent["score"] >= maxscore):
-                    maxscore = intent["score"]
-                    userintent = intent["intent"]
-            if userintent == "闲聊":
+        r = requests.get(
+            'https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/5f7d357a-7c28-4891-b4dc-d810f8b564ef',
+            headers=headers, params=params)
+        res = r.json()
+        maxscore = 0
+        for intent in res["intents"]:
+            if (intent["score"] >= maxscore):
+                maxscore = intent["score"]
+                userintent = intent["intent"]
+        if userintent == "闲聊":
 
-                # 存入数据库中
-                usermsg = {}
-                usermsg['userip'] = ip
-                usermsg['userquestion'] = request.POST.get("enter_Question")
-                usermsg['usersub'] = '闲聊'
-                usermsg['userattention'] = '闲聊'
-                # usermsg['usercollect'] = usercollect
-                usermsg['userlike'] = random.randint(1,5)
+            # 存入数据库中
+            usermsg = {}
+            usermsg['userip'] = ip
+            usermsg['userquestion'] = request.POST.get("enter_Question")
+            usermsg['usersub'] = '闲聊'
+            usermsg['userattention'] = '闲聊'
+            # usermsg['usercollect'] = usercollect
+            # usermsg['userlike'] = random.randint(1,5)
 
-                # 获取本地时间
-                Time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-                usermsg['times'] = Time
+            # 获取本地时间
+            Time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+            usermsg['times'] = Time
 
-                UserMining.objects.create(**usermsg)
+            UserMining.objects.create(**usermsg)
 
-                # 调用图灵机器人
-                url = "http://www.tuling123.com/openapi/api"
-                params2 = {
-                    "key": "588d7fd064554687b34f0568c107efae",
-                    "info": request.POST.get("enter_Question"),
-                    "userid": "123456"
-                }
-                params2 = urlencode(params2)
-                f = urllib.request.urlopen("%s?%s" % (url, params2))
+            # 调用图灵机器人
+            url = "http://www.tuling123.com/openapi/api"
+            params2 = {
+                "key": "588d7fd064554687b34f0568c107efae",
+                "info": request.POST.get("enter_Question"),
+                "userid": "123456"
+            }
+            params2 = urlencode(params2)
+            f = urllib.request.urlopen("%s?%s" % (url, params2))
 
-                content = f.read()
-                res = json.loads(content)
-                if res:
-                    # error_code = res["intent"]["code"]
-                    error_code = res["code"]
-                    if ((error_code == 40001 & error_code != 40002) & error_code != 40004) & error_code != 40007:
-                        # 成功请求
-                        print(res["text"])
-                        # res["result"]["values"]
-                        result_json = json.dumps(
-                            {
-                                "isclear": isclear,
-                                "answer": res["text"],
-                            })
-                    else:
-                        print("%s" % (res["code"]))
-                        result_json = json.dumps(
-                            {
-                                "isclear": isclear,
-                                "answer": "对不起，小Q出现了一点问题QAQ",
-                            })
-                else:
-                    # print"request api error"
+            content = f.read()
+            res = json.loads(content)
+            if res:
+                # error_code = res["intent"]["code"]
+                error_code = res["code"]
+                if ((error_code == 40001 & error_code != 40002) & error_code != 40004) & error_code != 40007:
+                    # 成功请求
+                    print(res["text"])
+                    # res["result"]["values"]
                     result_json = json.dumps(
                         {
                             "isclear": isclear,
-                            "answer": "error",
+                            "answer": res["text"],
+                            "userintent":userintent
                         })
-            elif userintent == "提问":
-                # user_question = request.POST.get("enter_Question")
+                else:
+                    print("%s" % (res["code"]))
+                    result_json = json.dumps(
+                        {
+                            "isclear": isclear,
+                            "answer": "对不起，小Q出现了一点问题QAQ",
+                            "userintent": userintent
+                        })
+            else:
+                # print"request api error"
+                result_json = json.dumps(
+                    {
+                        "isclear": isclear,
+                        "answer": "error",
+                        "userintent": userintent
+                    })
+        elif userintent == "提问":
+            # user_question = request.POST.get("enter_Question")
 
-                # print(user_question)
-                withweb = Withweb(ip)
+            # print(user_question)
+            withweb = Withweb(ip)
+            ques_before = request.session.get('question', default='')
+            # user_like = random.randint(1,5)
+            # 获取本地时间
+            Time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+            accurate_result = withweb.accurate_search(myindex, user_question,'k1_test','k2_test','提问',0.0,Time)
+
+
+            if accurate_result != None:
+                print(accurate_result)
+                result_json = json.dumps({
+                    'isclear': 1,
+                    'answer': accurate_result,
+                    "userintent": userintent
+                })
+                # return accurate_result
+            else:
                 ques_before = request.session.get('question', default='')
-                user_like = random.randint(1,5)
+                # user_like = random.randint(1, 5)
                 # 获取本地时间
                 Time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-                accurate_result = withweb.accurate_search(myindex, user_question,'k1_test','k2_test','提问',user_like,Time)
+                result = withweb.enter_search(myindex, user_question,'k1_test','k2_test',ques_before,'提问',0.0,Time)
+                # print(len(result))# 1-问题明确 2-问题模糊 3-问题极度模糊
+                if len(result) == 5:  # 当用户问的不明确时，返回五个相似的问题
+                    isclear = 2
+                elif len(result) == 1:  # 当用户问题很明确的时候，返回一个明确的答案
+                    isclear = 1
+                ques_dict = {}
+                if (isclear == 1):
+                    question_time_today = datetime.date.today()
+                    question_time_now = time.strftime(" %H:%M:%S")
+                    Time = str(question_time_today) + question_time_now
 
+                    uq = {'userquestion': user_question, 'question_time': Time}
+                    User.objects.create(**uq)
+                    # 设置session
+                    request.session['question'] = user_question
 
-                if accurate_result != None:
-                    print(accurate_result)
                     result_json = json.dumps({
-                        'isclear': 1,
-                        'answer': accurate_result
+                        "isclear": isclear,
+                        "answer": result[0],
+                        "userintent": userintent
                     })
-                    # return accurate_result
-                else:
-                    ques_before = request.session.get('question', default='')
-                    user_like = random.randint(1, 5)
-                    # 获取本地时间
-                    Time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-                    result = withweb.enter_search(myindex, user_question,'k1_test','k2_test',ques_before,'提问',user_like,Time)
-                    # print(len(result))# 1-问题明确 2-问题模糊 3-问题极度模糊
-                    if len(result) == 5:  # 当用户问的不明确时，返回五个相似的问题
-                        isclear = 2
-                    elif len(result) == 1:  # 当用户问题很明确的时候，返回一个明确的答案
-                        isclear = 1
-                    ques_dict = {}
-                    if (isclear == 1):
-                        question_time_today = datetime.date.today()
-                        question_time_now = time.strftime(" %H:%M:%S")
-                        Time = str(question_time_today) + question_time_now
+                elif (isclear == 2):
+                    # 模糊问题
+                    for i in range(len(result)):  # 这里返回的是五个相似的问题
+                        ques_dict['question' + str(i)] = result[i]
+                    ques_dict['isclear'] = 'isclear'
+                    result_json = json.dumps(ques_dict)
+                elif (isclear == 3):
+                    result_json = json.dumps({
+                        "isclear": isclear,
+                        "answer": "对不起，匹配失败",
+                        "userintent": userintent
+                    })
 
-                        uq = {'userquestion': user_question, 'question_time': Time}
-                        User.objects.create(**uq)
-                        # 设置session
-                        request.session['question'] = user_question
+        else:
+            result_json = json.dumps({
+                "isclear": isclear,
+                "answer": "QAQ 小Q没明白您的意思",
+                "userintent": userintent
+            })
 
-                        result_json = json.dumps({
-                            "isclear": isclear,
-                            "answer": result[0]
-                        })
-                    elif (isclear == 2):
-                        # 模糊问题
-                        for i in range(len(result)):  # 这里返回的是五个相似的问题
-                            ques_dict['question' + str(i)] = result[i]
-                        ques_dict['isclear'] = 'isclear'
-                        result_json = json.dumps(ques_dict)
-                    elif (isclear == 3):
-                        result_json = json.dumps({
-                            "isclear": isclear,
-                            "answer": "对不起，匹配失败",
-                        })
+    # 这个地方会报异常AttributeError: 'AttributeError' object has no attribute 'errno' 很迷。。。
+    # except Exception as e:
+    #     print("[Errno {0}] {1}".format(e.errno, e.strerror))
 
-            else:
-                result_json = json.dumps({
-                    "isclear": isclear,
-                    "answer": "QAQ 小Q没明白您的意思",
-                })
-
-        # 这个地方会报异常AttributeError: 'AttributeError' object has no attribute 'errno' 很迷。。。
-        except Exception as e:
-            print("[Errno {0}] {1}".format(e.errno, e.strerror))
-
-        # if isclear == 2:
-        #     for value in ques_dict.values():
-        #         logger.info('点击发送按钮输入：' + user_question + "|||" + '返回相似问题：' + value)
-        # else:# 存入日志
-        #     logger.info('点击发送按钮输入：' + user_question + "|||" + '返回结果：' + json.loads(result_json)['answer'])
-        return HttpResponse(result_json)
+    # if isclear == 2:
+    #     for value in ques_dict.values():
+    #         logger.info('点击发送按钮输入：' + user_question + "|||" + '返回相似问题：' + value)
+    # else:# 存入日志
+    #     logger.info('点击发送按钮输入：' + user_question + "|||" + '返回结果：' + json.loads(result_json)['answer'])
+    return HttpResponse(result_json)
 
 # 用户选择完问题的精确搜索
 def accurate_search(request):
@@ -498,10 +510,10 @@ def accurate_search(request):
         # print('用户问题'+user_question)
         ques_before = request.session.get('question', default='')
         withweb = Withweb(ip)
-        user_like = random.randint(1, 5)
+        # user_like = random.randint(1, 5)
         # 获取本地时间
         Time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-        answer = withweb.accurate_search(myindex, user_question, 'k1_test', 'k2_test', '提问', user_like,
+        answer = withweb.accurate_search(myindex, user_question, 'k1_test', 'k2_test', '提问',0.0,
                                          Time)
         print(answer)
         # 设置session保存上一轮的question
@@ -590,7 +602,7 @@ def Doexe(request):
 
             mylink = onehtml
 
-            onehtml = os.path.join(file_dir,  )
+            onehtml = os.path.join(file_dir,mylink)
 
             onehtml = open(onehtml, 'r', encoding="utf-8")
 
@@ -637,6 +649,11 @@ def Doexe(request):
             "qa": result,
         })
 
+        # i = 1
+        # while i <= 10:
+        #     i += 1
+        #     time.sleep(1)  # 休眠1秒
+
         return HttpResponse(result_json)
     else:
         return HttpResponse("失败")
@@ -648,12 +665,18 @@ def modifyQAres(request):
         #获取修改了的数据
         mres = request.POST.get("jsondata")
         mres = json.loads(mres)
-        print(mres["问题"]+"ssssss")
+        print(mres["泛化句子"]+"ssssss")
         resultdict["question"] = mres["问题"]
         resultdict["subject"] = mres["主题"]
         resultdict["answer"] = mres["答案"]
         resultdict["answer_link"] = mres["文件链接"]
+        simdict = {}
+        simwords = mres["泛化句子"].strip().split("  ")
 
+        simdict["sim_ques1"] = simwords[0]
+        simdict["sim_ques2"] = simwords[1]
+        print(simdict["sim_ques1"]+"     "+simdict["sim_ques2"])
+        resultdict["answer_fan"] = simdict
         print("QAreas"+str(resultdict))
         # 将修改了的数据存入数据库
 
@@ -665,14 +688,16 @@ def modifyQAres(request):
         return HttpResponse("存入失败")
 #生成的QA对存入数据库操作
 def saveQA(request):
-    if request.method=="POST":
+    if request.method == "POST":
+        result_list = request.POST.get("jsondata")
+        print('保存结果'+str(result_list))
         num = len(result_list)
         # 只有生成了QA对的时候才能存入
         if num > 0:
             # 存入数据库中
             saveines = QA_save.SaveInEs()
             for res in result_list:
-                #print(res)
+                print(res)
                 saveines.main(myindex,res)
             return HttpResponse("存入成功，存入的QA对个数为："+str(num))
         else:
@@ -739,6 +764,11 @@ def choose_file(request):
 # 显示生成的QA对页面
 def show_result(request):
     global result_list
+    temporary = Temporary()
+    for res in result_list:
+        res['generalization'] = []
+        res['generalization'] = temporary.main(res['question'])
+
     # print(result_list)
     global file_list
 
@@ -851,6 +881,7 @@ def search_users_all(request):
             user['userquestion'] = result[i].userquestion
             user['usersub'] = result[i].usersub
             user['userattention'] = result[i].userattention
+            user['usercollect'] = result[i].usercollect
             user['userlike'] = result[i].userlike
             user['times'] = result[i].times
 
@@ -888,6 +919,7 @@ def searchuser(request):
             user['userquestion'] = result[i].userquestion
             user['usersub'] = result[i].usersub
             user['userattention'] = result[i].userattention
+            user['usercollect'] = result[i].usercollect
             user['userlike'] = result[i].userlike
             user['times'] = result[i].times
 
@@ -920,6 +952,7 @@ def search_single_user(request):
             user['usersub'] = result[i].usersub
             user['userattention'] = result[i].userattention
             user['userlike'] = result[i].userlike
+            user['usercollect'] = result[i].usercollect
             user['times'] = result[i].times
 
             users.append(user)
@@ -955,7 +988,7 @@ def usersub(request):
 
         # 查询主题
         query = UserMining.objects.filter(userip=userip).values('usersub').annotate(count=Count('usersub')).values('usersub',
-                                                                                                       'count')
+                                                                                                                   'count')
         subcount_list = list(query)
         # 对统计好出现次数的主题进行排序
         subcount_sort = sorted(subcount_list, key=lambda e: e.__getitem__('count'), reverse=True)
@@ -1180,7 +1213,42 @@ def statistics():
         QuestionCount.objects.create(**qc)
         if(i==5):
             break
+# 收藏功能
+def collect(request):
+    if request.method == 'POST':
+        question = request.POST.get('collectquestion')  # 收藏问题
+        iscollect = request.POST.get('iscollect')  # 收藏还是取消收藏
+        print(iscollect)
+        print(question)
+        if iscollect:
+            collecttemp = "是"
+        else:
+            collecttemp = "否"
+        # 这个是有bug的存在，我是直接将最后一条插入的问题作为更改收藏的问题
+        result = UserMining.objects.last()
+        # 然后将所有的这个ip下的所有的这个问题改成这个评分
+        UserMining.objects.filter(userquestion=result.userquestion,userip=result.userip).update(usercollect=collecttemp)
+        return HttpResponse("cllectOk")
+    else:
+        return HttpResponse("cllectwrong")
+# 用户评分
+def userscore(request):
+    if request.method == 'POST':
+        scoredata = request.POST.get("scoredata")
+        scoredata = json.loads(scoredata)
+        # print("ffff"+scoredata['likequestion'])
+        # print("ffff"+scoredata['likescore'])
+        # 把小傻子张同学的代码注释了，怎么能用答案去问题库里匹配呢？
+        # result = UserMining.objects.filter(userquestion=scoredata['likequestion']).update(userlike=float(scoredata['likescore']))
 
+        # 这个是有bug的存在，我是直接将最后一条插入的问题作为更改评分的问题
+        result = UserMining.objects.last()
+        # 然后将所有的这个ip下的所有的这个问题改成这个评分
+        UserMining.objects.filter(userquestion=result.userquestion,userip=result.userip).update(userlike=float(scoredata['likescore']))
+
+        return HttpResponse("scoreOk")
+    else:
+        return HttpResponse("scorewrong")
 
 scheduler = BackgroundScheduler()# 后台运行
 scheduler.add_job(statistics, 'interval', seconds=3600)

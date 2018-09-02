@@ -9,7 +9,7 @@ import pymysql
 class SQLHelper():
 
     # 数据库信息
-    host = 'localhost'
+    host = '47.97.209.48'
     username = 'root'
     password = '123456'
     database = 'Ques_template'

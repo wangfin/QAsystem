@@ -57,5 +57,7 @@ urlpatterns = [
     path(r'search_single_user/',views.search_single_user),
     path(r'questionnum/',views.questionnum),
     path(r'searchuser/',views.searchuser),
+    path(r'collect/',views.collect),
+    path(r'userscore/',views.userscore)
 ]
 urlpatterns += staticfiles_urlpatterns()

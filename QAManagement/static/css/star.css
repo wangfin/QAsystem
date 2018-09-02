@@ -1,0 +1,161 @@
+﻿/*选中星星时的动画*/
+@-webkit-keyFrames score-active{
+	0%{
+		-webkit-transform: rotate(180deg);
+		transform: rotate(180deg);
+	}
+	100%{
+		-webkit-transform: rotate(0);
+		transform: rotate(0);
+	}
+}
+@-moz-keyFrames score-active{
+	0%{
+		-moz-transform: rotate(180deg);
+		transform: rotate(180deg);
+		opacity:0;
+	}
+	100%{
+		-moz-transform: rotate(0);
+		transform: rotate(0);
+		opacity:1;
+	}
+}
+@-o-keyFrames score-active{
+	0%{
+		-o-transform: rotate(180deg);
+		transform: rotate(180deg);
+		opacity:0;
+	}
+	100%{
+		-o-transform: rotate(0);
+		transform: rotate(0);
+		opacity:1;
+	}
+}
+@keyFrames score-active{
+	0%{
+		transform: rotate(180deg);
+		opacity:0;
+	}
+	100%{
+		transform: rotate(0);
+		opacity:1;
+	}
+}
+
+/*取消选中星星时的动画*/
+@-webkit-keyFrames score-unactive{
+	0%{
+		-webkit-transform: rotate(0);
+		transform: rotate(0);
+	}
+	100%{
+		-webkit-transform: rotate(180deg);
+		transform: rotate(180deg);
+	}
+}
+@-moz-keyFrames score-unactive{
+	0%{
+		-moz-transform: rotate(0);
+		transform: rotate(0);
+		opacity:1;
+	}
+	100%{
+		-moz-transform: rotate(180deg);
+		transform: rotate(180deg);
+		opacity:0;
+	}
+}
+@-o-keyFrames score-unactive{
+	0%{
+		-o-transform: rotate(0);
+		transform: rotate(0);
+		opacity:1;
+	}
+	100%{
+		-o-transform: rotate(180deg);
+		transform: rotate(180deg);
+		opacity:0;
+	}
+}
+@keyFrames score-unactive{
+	0%{
+		transform: rotate(0);
+		opacity:1;
+	}
+	100%{
+		transform: rotate(180deg);
+		opacity:0;
+	}
+}
+
+/*容器*/
+.star-score{
+	margin:0;
+	padding:0;
+	display:inline-block;
+	list-style:none;
+}
+.star-score:after{
+	content:"";
+	display:table;
+	clear:both;
+}
+/*单颗星星容器*/
+.star{
+	position:relative;
+	display:inline-block;
+	cursor:pointer;
+}
+/*无分的星星图片*/
+.star>img:first-child{
+	position:absolute;
+	top:0;
+	left:0;
+}
+/*有分的星星图片 宽度0隐藏*/
+.star>span{
+	position:absolute;
+	top:0;
+	left:0;
+	width:0;
+	height:100%;
+	overflow:hidden;
+}
+.star>span>img{
+	position:absolute;
+	top:0;
+	left:0;
+}
+.star:after{
+	content : attr(data-prompt);
+	display:none;
+	padding:5px 10px;
+	position:absolute;
+	top:-30px;
+	border-radius:10%;
+	box-shadow:-1px -1px 3px rgba(200,200,200,1) inset,
+		2px 2px 3px rgba(0,0,0,.1);
+	background-color:#fff;
+	white-space:nowrap;
+}
+.star:hover:after{
+	display:block;
+}
+
+
+/*评分后的动画*/
+.star-score.active>.star:not(:hover){
+	-webkit-animation:score-active .6s;
+	-moz-animation:score-active .6s;
+	-o-animation:score-active .6s;
+	animation:score-active .6s;
+}
+/*清空分数后的动画*/
+.star-score:not(.active)>.star:not(:hover){
+	-webkit-animation:score-unactive .6s;
+	-moz-animation:score-unactive .6s;
+	-o-animation:score-unactive .6s;
+	animation:score-unactive .6s;
+}

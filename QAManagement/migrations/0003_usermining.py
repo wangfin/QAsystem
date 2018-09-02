@@ -19,6 +19,7 @@ class Migration(migrations.Migration):
                 ('usersub', models.CharField(max_length=64)),
                 ('userattention', models.CharField(max_length=64)),
                 ('userlike', models.IntegerField(null=True)),
+                ('usercollect', models.CharField(max_length=64, blank=True, null=True)),
                 ('times', models.CharField(max_length=64, null=True)),
             ],
         ),
