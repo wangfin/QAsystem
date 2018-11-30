@@ -15,7 +15,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="阿里云服务器" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="阿里云" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">

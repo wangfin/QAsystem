@@ -85,6 +85,7 @@
     <!--/content-inner-->
     <div class="left-content">
         <div class="inner-content">
+<div class="main-container" id="main-container" style="width: 98%;float: right;">
             <!-- header-starts -->
             <div class="header-section">
                 <!-- top_bg -->
@@ -115,7 +116,6 @@
             </div>
             <!--/header_bg-->
             <!--content-->
-            <div id="content" style="height:500px">
                 <script type="text/javascript">
                     try {
                         ace.settings.check('main-container', 'fixed')
@@ -129,7 +129,7 @@
                     </a>
 
 
-                    <div class="page-content" style="width: 98%;float: right">
+                    <div class="page-content" style="margin: 2%">
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 查询条件
@@ -154,12 +154,10 @@
                     </div><!-- /.page-content -->
                 </div><!-- /.main-content -->
 
-
-            </div><!-- /.main-container-inner -->
-
             <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
                 <i class="icon-double-angle-up icon-only bigger-110"></i>
             </a>
+        </div>
         </div>
     </div>
     <!--/sidebar-menu-->
@@ -424,14 +422,32 @@
 
 </script>
 <script>
-  /*  $("#search_btn").click(function () {
-        $(this).attr({
-            "data-target":"#userGraph",
-            "data-toggle":"modal"
-        })
-    })*/
+    /*  $("#search_btn").click(function () {
+          $(this).attr({
+              "data-target":"#userGraph",
+              "data-toggle":"modal"
+          })
+      })*/
 </script>
 <!--初始化表格-->
+<script>
+    var toggle = true;
+
+    $(".sidebar-icon").click(function () {
+        if (toggle) {
+            $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+            $("#menu span").css({"position": "absolute"});
+        }
+        else {
+            $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+            setTimeout(function () {
+                $("#menu span").css({"position": "relative"});
+            }, 400);
+        }
+
+        toggle = !toggle;
+    });
+</script>
 <script>
     $("#search_btn").click(function () {
         var Pie1 = echarts.init(document.getElementById("Pie1"));

@@ -101,7 +101,7 @@ class Elas():
                             "multi_match": {
                                 "query": s1,
                                 "fields": ["question", "questionfh1", "questionfh2"],
-                                "boost": 3
+                                "boost": 6
                             }
                         },
                         {
@@ -149,7 +149,7 @@ class Elas():
                             "multi_match": {
                                 "query": s1,
                                 "fields": ["question", "questionfh1", "questionfh2"],
-                                "boost": 3
+                                "boost": 6
                             }
                         },
                         {
@@ -214,7 +214,7 @@ class Elas():
                             "multi_match": {
                                 "query": s1,
                                 "fields": ["question", "questionfh1", "questionfh2"],
-                                "boost": 3
+                                "boost": 6
                             }
                         }
                     ]

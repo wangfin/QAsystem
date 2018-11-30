@@ -3,17 +3,19 @@
 # @Author  : wb
 # @File    : generate.py
 
-from extract import Extract
-from mysqldb_helper import SQLHelper
-from similarity import Similarity
-from templatetree import Templatetree
+from QAManagement.question_generalization.extract import Extract
+import requests
+
+from QAManagement.question_generalization.mysqldb_helper import SQLHelper
+from QAManagement.question_generalization.similarity import Similarity
+# from QAManagement.question_generalization.templatetree import Templatetree
+from QAManagement.ques_generate.LTML import LTML
 # 问句泛化
 
 # 之前已经生成好了问句模板
 # 接下来通过问句模板构建问句泛化
 
 class Generate():
-
 
     # 1.读取需要泛化的句子
     def read(self,question):
@@ -556,27 +558,175 @@ class Generate():
         # 输入问句分词words_list
         # 输入词性postags_list
         # 输入关系arcs_list
-        templatetree = Templatetree()
-
-        new_ques = ''
-
-        # 生成出的泛化的句子
-        result = templatetree.main(ques_list,model_list)
-        if result != None:
-            # 把原来问句中的被删除的词填入新的问句中
-            new_ques_list = self.revert(ques_list[0],result[1],delete_id)
-
-            for i in new_ques_list:
-                new_ques += i
-
-            return new_ques
-        else:
-            return None
+        # templatetree = Templatetree()
+        #
+        # new_ques = ''
+        #
+        # # 生成出的泛化的句子
+        # result = templatetree.main(ques_list,model_list)
+        # if result != None:
+        #     # 把原来问句中的被删除的词填入新的问句中
+        #     new_ques_list = self.revert(ques_list[0],result[1],delete_id)
+        #
+        #     for i in new_ques_list:
+        #         new_ques += i
+        #
+        #     return new_ques
+        # else:
+        #     return None
 
         # if result != None:
         #     return result
         # else:
         #     return None
+
+
+        # 想到另外一种可能更好的方法，使用语义角色标注
+        # roles = Generate.labeller.label(ques_list[0], ques_list[1], ques_list[2])  # 语义角色标注
+        # 打印结果
+        # for role in roles:
+        #     print(role.index,
+        #           "".join(["%s:(%d,%d)" % (arg.name, arg.range.start, arg.range.end) for arg in role.arguments]))
+
+        ques_result = self.ltp_request(ques_list[0])
+        model_result = self.ltp_request(model_list[0])
+
+        ques_a0 = 0
+        ques_a1 = 0
+        model_a0 = 0
+        model_a1 = 0
+
+        # for ques_arc in ques_result:
+        #     for model_arc in model_result:
+        #         # 找根节点
+        #         if ques_arc['semrelate'] == 'Root' and model_arc['semrelate'] == 'Root':
+        #             # 找出其中的语义角色
+        #             if len(ques_arc['arg']) != 0 and len(model_arc['arg']) != 0:
+        #                 # 如果A0，A1这些都有的话，那么就可以替换了
+        #                 # list_c = [a['type'] for a in ques_arc['arg'][i] if a in model_arc['arg'][j] for i in range(len(ques_arc['arg'])) for j in range(len(model_arc['arg']))]
+        #                 # 找其中的一个A0
+        #                 for i in ques_arc['arg']:
+        #                     if i['type'] == 'A0':
+        #                         for j in model_arc['arg']:
+        #                             if j['type'] == 'A0':
+        #
+        #                     elif i['type'] == 'A1':
+
+        # 匹配A0，A1的个数
+        for ques_arc in ques_result:
+            if ques_arc['semrelate'] == 'Root':
+            # 找出其中的语义角色
+                if len(ques_arc['arg']) != 0:
+                # 找出其中所有的a0和a1的个数
+                    for i in ques_arc['arg']:
+                        if i['type'] == 'A0':
+                            ques_a0 += 1
+                        elif i['type'] == 'A1':
+                            ques_a1 += 1
+
+        # 匹配A0，A1的个数
+        for model_arc in model_result:
+            if model_arc['semrelate'] == 'Root':
+                # 找出其中的语义角色
+                if len(model_arc['arg']) != 0:
+                    # 找出其中所有的a0和a1的个数
+                    for i in model_arc['arg']:
+                        if i['type'] == 'A0':
+                            model_a0 += 1
+                        elif i['type'] == 'A1':
+                            model_a1 += 1
+        print(ques_a1)
+        print(model_a1)
+        if ques_a1 == model_a1:
+            print('开始生成')
+            # 那么就是可以替换的句子
+            # 替换的方式是将所有的与root相关的组进行替换
+            # 只能将原句替换到模板句上
+            for ques_arc in ques_result:
+                for model_arc in model_result:
+                    # 找根节点
+                    if ques_arc['semrelate'] == 'Root' and model_arc['semrelate'] == 'Root':
+                        print('两个的Root')
+                        # 找出其中的语义角色
+                        if len(ques_arc['arg']) != 0 and len(model_arc['arg']) != 0:
+                            print('arc是否存在'+str(ques_arc['arg'])+';'+str(model_arc['arg']))
+                            # 如果A0，A1这些都有的话，那么就可以替换了
+                            # list_c = [a['type'] for a in ques_arc['arg'][i] if a in model_arc['arg'][j] for i in range(len(ques_arc['arg'])) for j in range(len(model_arc['arg']))]
+                            # 找其中的一个A0
+                            for i in range(len(ques_arc['arg'])):
+                                if ques_arc['arg'][i]['type'] == 'A0':
+                                    for j in range(len(model_arc['arg'])):
+                                        # 两边都是A0
+                                        if model_arc['arg'][j]['type'] == 'A0':
+                                            print('找到了两个都是A0')
+                                            if i != 0 and ques_arc['arg'][i-1]['end'] +1 == ques_arc['arg'][i]['beg'] and ques_arc['arg'][i-1]['type'] != 'A1':
+                                                print('开始生成1')
+                                                # 开始替换
+                                                # for x in range(ques_arc['arg'][i-1]['end'],ques_arc['arg'][i]['end']):
+                                                #     model_list[0][x] = ques_list[0][x]
+                                                model_list[0][int(ques_arc['arg'][j]['beg'])-1:int(ques_arc['arg'][j]['end'])-1] = ques_list[0][int(ques_arc['arg'][i-1]['beg'])-1:int(ques_arc['arg'][i]['end'])-1]
+
+                                            elif i != len(ques_arc['arg']) -1 and ques_arc['arg'][i+1]['beg'] == ques_arc['arg'][i]['end'] +1 and ques_arc['arg'][i+1]['type'] != 'A1':
+                                                print('开始生成2')
+                                                model_list[0][int(ques_arc['arg'][j]['beg'])-1:int(
+                                                    ques_arc['arg'][j]['end'])-1] = ques_list[0][int(
+                                                    ques_arc['arg'][i]['beg'])-1:int(ques_arc['arg'][i+1]['end'])-1]
+
+                                            # elif ques_arc['arg'][i-1]['end']+1 == ques_arc['arg'][i]['beg'] and ques_arc['arg'][i+1]['beg'] == ques_arc['arg'][i]['end']+1:
+                                            #     print('开始生成3')
+                                            #     model_list[0][int(ques_arc['arg'][j]['beg'])-1:int(
+                                            #         ques_arc['arg'][j]['end'])-1] = ques_list[0][int(
+                                            #         ques_arc['arg'][i-1]['beg'])-1:int(ques_arc['arg'][i + 1]['end'])-1]
+                                            else:
+                                                print('开始生成4')
+                                                model_list[0][int(ques_arc['arg'][j]['beg'])-1:int(
+                                                    ques_arc['arg'][j]['end'])-1] = ques_list[0][int(
+                                                    ques_arc['arg'][i]['beg'])-1:int(ques_arc['arg'][i]['end'])-1]
+
+                                elif ques_arc['arg'][i]['type'] == 'A1':
+                                    for j in range(len(model_arc['arg'])):
+                                        # 两边都是A1
+                                        if model_arc['arg'][j]['type'] == 'A1':
+                                            print('找到了两个都是A1')
+                                            if i != 0 and ques_arc['arg'][i - 1]['end']+1 == ques_arc['arg'][i]['beg'] and \
+                                                    ques_arc['arg'][i - 1]['type'] != 'A0':
+                                                print('生成a1')
+                                                # 开始替换
+                                                # for x in range(ques_arc['arg'][i-1]['end'],ques_arc['arg'][i]['end']):
+                                                #     model_list[0][x] = ques_list[0][x]
+                                                model_list[0][
+                                                int(ques_arc['arg'][j]['beg'])-1:int(ques_arc['arg'][j]['end'])-1] = ques_list[0][int(
+                                                    ques_arc['arg'][i - 1]['beg'])-1:int(ques_arc['arg'][i]['end'])-1]
+
+                                            elif i != len(ques_arc['arg']) - 1and ques_arc['arg'][i + 1]['beg'] == \
+                                                    ques_arc['arg'][i]['end']+1 and ques_arc['arg'][i - 1]['type'] != 'A0':
+                                                print('生成')
+                                                model_list[0][int(ques_arc['arg'][j]['beg'])-1:int(
+                                                    ques_arc['arg'][j]['end'])-1] = ques_list[0][int(
+                                                    ques_arc['arg'][i]['beg'])-1:int(ques_arc['arg'][i + 1]['end'])-1]
+
+                                            elif ques_arc['arg'][i - 1]['end']+1 == ques_arc['arg'][i]['beg'] and \
+                                                    ques_arc['arg'][i + 1]['beg'] == ques_arc['arg'][i]['end']+1:
+                                                print('找到了两个都是A0')
+                                                model_list[0][int(ques_arc['arg'][j]['beg'])-1:int(
+                                                    ques_arc['arg'][j]['end'])-1] = ques_list[0][int(
+                                                    ques_arc['arg'][i - 1]['beg'])-1:int(ques_arc['arg'][i + 1]['end'])-1]
+                                            else:
+                                                print('找到了两个都是A0')
+                                                model_list[0][int(ques_arc['arg'][j]['beg'])-1:int(
+                                                    ques_arc['arg'][j]['end'])-1] = ques_list[0][int(
+                                                    ques_arc['arg'][i]['beg'])-1:int(ques_arc['arg'][i]['end'])-1]
+                        else:
+                            print('不生成')
+                    else:
+                        print('不生成')
+
+
+        print(model_list[0])
+
+
+
+
 
     # 还原函数
     # 还原被简化的问句
@@ -607,3 +757,35 @@ class Generate():
 
         return new_questions
 
+    # 发送LTP请求的函数
+    def ltp_request(self, sentence_list):
+        # line = '虚拟化驱动不正常时网络、存储性能降低。'
+        # words = Paragraph.segmentor.segment(sentence)  # 分词
+        # words_list = list(words)
+        # print(words_list)
+
+        # LTML用于构建自定义分词的xml，用于向LTP云传入args
+        ltml = LTML()
+        ltml.build_from_words(sentence_list)
+        xml = ltml.tostring()
+        # print(xml)
+
+        url_get_base = "https://api.ltp-cloud.com/analysis/"
+
+        # 这个是加入自定义词典的参数
+        args = {
+            'api_key': 'a1R923E7s37daeNz7dsMeXiTexWGoookJX2HONwC',
+            'pattern': 'all',
+            'format': 'json',
+            'xml_input': 'true',
+            'text': xml
+        }
+
+        r = requests.post(url_get_base, data=args)
+
+        content = r.json()
+
+        # for i in content[0][0]:
+        #     print(i)
+
+        return content[0][0]

@@ -5,11 +5,11 @@
 
 # 测试数据库
 
-from mysqldb_helper import SQLHelper
+from QAManagement.question_generalization.mysqldb_helper import SQLHelper
 
 helper = SQLHelper(host=SQLHelper.host,user=SQLHelper.username,pwd=SQLHelper.password,db=SQLHelper.database)
 
-sql = "SELECT * FROM common_ques WHERE question= '主卡 和 副卡 的 号码 有 什么 区别 ？'"
+sql = "SELECT * FROM how_do_ques WHERE question= '京东 竞拍 保证金 如何 退还 ？'"
 model_words_list = []
 model_postags_list = []
 model_arcs_list = []

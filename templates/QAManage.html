@@ -107,7 +107,7 @@
                     </a>
 
 
-                    <div class="page-content">
+                    <div class="page-content" style="margin: 2%">
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 查询条件
@@ -517,6 +517,7 @@
             }
 
         </script>
+<<<<<<< HEAD
     <script>
         var toggle = true;
 
@@ -535,6 +536,26 @@
             toggle = !toggle;
         });
     </script>
+=======
+        <script>
+    var toggle = true;
+
+    $(".sidebar-icon").click(function () {
+        if (toggle) {
+            $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+            $("#menu span").css({"position": "absolute"});
+        }
+        else {
+            $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+            setTimeout(function () {
+                $("#menu span").css({"position": "relative"});
+            }, 400);
+        }
+
+        toggle = !toggle;
+    });
+</script>
+>>>>>>> 82e0b89c1fa199c64563d328439b723cbe716e8a
     <!--<script>-->
         <!--$(function() {-->
     <!--//初始化-->

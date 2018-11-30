@@ -4,7 +4,7 @@
 # @File    : tree_test.py
 
 # 构建树的测试类
-from templatetree import Templatetree
+from QAManagement.question_generalization.templatetree import Templatetree
 
 templatetree = Templatetree()
 

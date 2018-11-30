@@ -5,11 +5,11 @@
 
 # 生成测试
 
-from generate import Generate
+from QAManagement.question_generalization.generate import Generate
 
 generate = Generate()
 
-result = generate.main('数据存储在DIS和OBS有什么区别？')
+result = generate.main('小米6在使用过程中有什么问题吗？')
 
 print(result)
 #

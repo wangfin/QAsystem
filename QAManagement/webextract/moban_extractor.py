@@ -222,8 +222,9 @@ class Extract():
 
             label = re.findall(self.subjecttzs+r'(.*?)'+self.subjecttze, a, re.S)
             label = re.sub(r'\">\"', "", str(label), flags=re.S)
+            label = re.sub(r'<i> &gt; </i>', ">", str(label), flags=re.S)
+            #label = re.sub(r'</span>', "", str(label), flags=re.S)
             label = re.sub(r'</a>', "</a", str(label), flags=re.S)
-            label = re.sub(r'</span>', "</span", str(label), flags=re.S)
             label=re.findall(r'>(.*?)</',str(label),re.S)
             labellist=[]
             for onelabel in label:
@@ -411,8 +412,9 @@ class Extract():
 
                     label = re.findall(self.subjecttzs+r'(.*?)'+self.subjecttze, a, re.S)
                     label = re.sub(r'\">\"', "", str(label), flags=re.S)
+                    label = re.sub(r'<i> &gt; </i>', ">", str(label), flags=re.S)
+                    # label = re.sub(r'</span>', "", str(label), flags=re.S)
                     label = re.sub(r'</a>', "</a", str(label), flags=re.S)
-                    label = re.sub(r'</span>', "</span", str(label), flags=re.S)
                     label = re.findall(r'>(.*?)</', str(label), re.S)
                     labellist = []
                     for onelabel in label:

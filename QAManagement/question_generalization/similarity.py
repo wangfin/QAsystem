@@ -13,7 +13,7 @@ import math
 
 class Similarity():
 
-    w2v = KeyedVectors.load_word2vec_format('../data/chinese_model.txt',limit=500000)
+    w2v = KeyedVectors.load_word2vec_format('/home/wang/data/chinese_model.txt',limit=500000)
 
     # 将输入的list转换成句向量
     def sent2vec(self,sen_list):

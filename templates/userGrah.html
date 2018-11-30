@@ -116,9 +116,10 @@
             <!--/header_bg-->
             <!--content-->
             <div id="content" style="height:500px;width: 93%;float: right">
-{#                <h4>最感兴趣的主题为：</h4>#}
+                {#                <h4>最感兴趣的主题为：</h4>#}
                 <div id="Pie1" class="pie" style="float: left;"></div>
                 <div id="Pie2" class="pie" style="float: left"></div>
+                <div class="clear" style="clear: both"></div>
                 <div id="Scatter" class="scatter"></div>
                 <div id="usertab">
                     <script type="text/javascript">
@@ -274,8 +275,8 @@
     var Pie1 = echarts.init(document.getElementById("Pie1"));
     option1 = {
         title : {
-        text: '用户感兴趣的主题分布表',
-    },
+            text: '用户感兴趣的主题分布表',
+        },
         tooltip: {
             trigger: 'item',
             formatter: "{a} <br/>{b}: {c} ({d}%)"
@@ -325,8 +326,8 @@
     var Pie2 = echarts.init(document.getElementById("Pie2"));
     option2 = {
         title : {
-        text: '用户意向分布表',
-    },
+            text: '用户意向分布表',
+        },
         tooltip: {
             trigger: 'item',
             formatter: "{a} <br/>{b}: {c} ({d}%)"
@@ -374,8 +375,8 @@
     var ydata = []; //y轴
     scatteroption = {
         title : {
-        text: '问题数量按时间分布表',
-    },
+            text: '问题数量按时间分布表',
+        },
         xAxis: {
             data:xdata,
             //刻度与刻度值对齐
@@ -383,10 +384,48 @@
                 alignWithLabel:true
             },
             boundaryGap:false,
+            axisLabel: {
+                formatter: function (params) {
+                    console.log("fomatter")
+                    var newParamsName = "";// 最终拼接成的字符串
+                    var paramsNameNumber = params.length;// 实际标签的个数
+                    var provideNumber = 10;// 每行能显示的字的个数
+                    var rowNumber = Math.ceil(paramsNameNumber / provideNumber);// 换行的话，需要显示几行，向上取整
+                    /**
+                     * 判断标签的个数是否大于规定的个数， 如果大于，则进行换行处理 如果不大于，即等于或小于，就返回原标签
+                     */
+                    // 条件等同于rowNumber>1
+                    if (paramsNameNumber > provideNumber) {
+                        /** 循环每一行,p表示行 */
+                        for (var p = 0; p < rowNumber; p++) {
+                            var tempStr = "";// 表示每一次截取的字符串
+                            var start = p * provideNumber;// 开始截取的位置
+                            var end = start + provideNumber;// 结束截取的位置
+                            // 此处特殊处理最后一行的索引值
+                            if (p == rowNumber - 1) {
+                                // 最后一次不换行
+                                tempStr = params.substring(start, paramsNameNumber);
+                            } else {
+                                // 每一次拼接字符串并换行
+                                tempStr = params.substring(start, end) + "\n";
+                            }
+                            newParamsName += tempStr;// 最终拼成的字符串
+                        }
+
+                    } else {
+                        // 将旧标签的值赋给新标签
+                        newParamsName = params;
+                    }
+                    //将最终的字符串返回
+                    return newParamsName
+                }
+            }
 
         },
 
-        yAxis: {data:ydata},
+        yAxis: {
+            data: ydata,
+        },
         legend: {
             right: 10,
             data: ['近一月',"近一周","近一天"],
@@ -495,7 +534,7 @@
                             //yAxis:[{
                             //    min:data["minnum"],
                             //    max:data["maxnum"],
-                                //data:ydata
+                            //data:ydata
                             //}],
                             yAxis : [
                                 {
@@ -519,7 +558,7 @@
                             }
                         })
 
-                        
+
                     }
                 });
                 // xdata = ["0","周一","周二","周三","周四","周五","周六","周日"];
@@ -529,7 +568,7 @@
                 //表格动态传输
             }
             else if(legend=="近一月"&&selected[legend]==true) {
-                                //折线图动态传输
+                //折线图动态传输
                 $.ajax({
                     url:"/questionnum/",
                     type:'POST',
@@ -558,7 +597,7 @@
                             //yAxis:[{
                             //    min:data["minnum"],
                             //    max:data["maxnum"],
-                                //data:ydata
+                            //data:ydata
                             //}],
                             yAxis : [
                                 {
@@ -651,7 +690,7 @@
                             //yAxis:[{
                             //    min:data["minnum"],
                             //    max:data["maxnum"],
-                                //data:ydata
+                            //data:ydata
                             //}],
                             yAxis : [
                                 {
@@ -735,7 +774,7 @@
                     series:[{
                         data:data
                     }],
-                     legend: {
+                    legend: {
                         data:data['name']
                     },
                 })
@@ -753,7 +792,7 @@
                     series:[{
                         data:data
                     }],
-                     legend: {
+                    legend: {
                         data:data['name']
                     },
                 })

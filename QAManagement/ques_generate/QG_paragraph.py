@@ -44,13 +44,13 @@ class Paragraph(object):
     # parser.load(par_model_path)  # 加载模型
 
     # 先进行自定义的分词
-    LTP_DATA_DIR = '../data/ltp_data'  # ltp模型目录的路径
+    LTP_DATA_DIR = '/home/wang/data/ltp_data'  # ltp模型目录的路径
     cws_model_path = os.path.join(LTP_DATA_DIR, 'cws.model')  # 分词模型路径，模型名称为`cws.model`
     segmentor = Segmentor()  # 初始化实例
-    segmentor.load_with_lexicon(cws_model_path, '../data/new_dictionary.txt')  # 加载模型，第二个参数是您的增量模型路径
+    segmentor.load_with_lexicon(cws_model_path, '/home/wang/data/new_dictionary.txt')  # 加载模型，第二个参数是您的增量模型路径
 
     # 读取疑问词
-    ques_word_file = open('../data/question_word.txt')
+    ques_word_file = open('/home/wang/data/question_word.txt')
     ques_words_list = []
     for line in ques_word_file:
         ques_words_list.append(line.strip('\n'))

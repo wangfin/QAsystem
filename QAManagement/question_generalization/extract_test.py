@@ -61,7 +61,7 @@
 # segmentor.release()  # 释放模型
 # postagger.release()  # 释放模型
 
-from extract import Extract
+from QAManagement.question_generalization.extract import Extract
 
 extract = Extract()
 
