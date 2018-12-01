@@ -1,0 +1,2436 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+        <title>请求认证方式-华为云帮助中心</title>
+        <meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link type="image/x-icon" href="//img.huaweicloud.com/static/images/global/favicon.ico" rel="icon"/>
+<link rel="stylesheet" href="//img.huaweicloud.com/static/v2_resources/css/global.css?t=" />
+<script src="//img.huaweicloud.com/static/js/v2/jquery-1.11.3.min.js"></script>
+<!--[if lt IE 9]>
+<script src="//static.huaweicloud.com/static/js/v2/respond.min.js"></script>
+<script src="//static.huaweicloud.com/static/cross-domain/respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
+
+<link href="/cross-domain/respond.proxy.gif" id="respond-redirect" rel="respond-redirect" />
+<script src="/cross-domain/respond.proxy.js"></script>
+<![endif]-->
+
+<link rel="dns-prefetch" href="http://img.huaweicloud.com"/>
+<link rel="dns-prefetch" href="http://static.huaweicloud.com"/>
+<link rel="dns-prefetch" href="http://static2.huaweicloud.com"/>
+<link rel="dns-prefetch" href="http://img2.huaweicloud.com"/>
+<link rel="dns-prefetch" href="http://portal.huaweicloud.com"/>
+<link rel="dns-prefetch" href="http://support.huaweicloud.com"/>
+<link rel="dns-prefetch" href="http://activity.huaweicloud.com"/>
+<title>请求认证方式</title>
+<meta name="description" content="华为企业云产品文档中心,为用户解决常见问题,提供购买指南,产品术语,用户指南,接口参考,资料下载等内容,帮助用户更好的使用华为企业云的ICT服务,详情咨询4000-955-988。"/>
+<meta name="keywords" content="请求认证方式"/>
+        <link rel="stylesheet" href="//img.huaweicloud.com/static/v2_resources/css/help.css?t=">
+        <link rel="stylesheet" href="//img.huaweicloud.com/static/v2_resources/css/commonltr.css?t=" />
+    </head>
+
+<body class="home-page">
+<div id="header" data-on="1" class="">
+    <div class="wrapper cf ">
+    <div class="white-bg"></div>
+    <div class="header-wrapper-bg ">
+        <div class="compatibility">
+            <div class="layer">
+                <span><span class="icon-compatibility notice"></span>建议使用以下浏览器，以获得最佳体验。</span>
+                <span><span class="icon-compatibility ie"></span>IE 8.0+以上版本</span>
+                <span><span class="icon-compatibility chrome"></span>Chrome 谷歌浏览器</span>
+                <span><span class="icon-compatibility firefox"></span>Firefox 火狐浏览器</span>
+                <span class="icon-compatibility close-large"></span>
+            </div>
+        </div>
+        <div class="head-main cf">
+            <span class="headmenu"> </span>
+            <a href="http://www.huaweicloud.com" id="headerNavLogo">
+                <div class="logo"></div>
+            </a>
+            <div class="navigation">
+                <ul class="nav">
+                    <li class="nav-item" index="activity" ><a mate_data_ts='support_v3_top_navigation.click.activity_20170820' href='http://activity.huaweicloud.com/promotion/' class="pointer" target='_blank' rel='nofollow' id="headerNavActivity">最新活动<i class="hot"></i></a></li>
+                    <li class="nav-item" navdown="show" index="product" ><a mate_data_ts="support_v3_top_navigation.click.product_20170820" href="http://www.huaweicloud.com/product/" id="headerNavProduct">产品</a></li>
+                    <li class="nav-item" navdown="show" index="solution"><a mate_data_ts="support_v3_top_navigation.click.solution_20170820" href="http://www.huaweicloud.com/solution/" id="headerNavSolution">解决方案</a></li>
+                    <li class="nav-item" navdown="show" index="market"><a mate_data_ts="support_v3_top_navigation.click.app_20170820" href="https://app.huaweicloud.com?locale=zh-cn" class="pointer" target="_blank" rel="nofollow" id="headerNavMarketplace">云市场</a></li>
+                    <li class="nav-item" navdown="show" index="community" ><a mate_data_ts="support_v3_top_viceNavigation.click.ydcomm_20170820" href="https://portal.huaweicloud.com/ydcomm" rel="nofollow" target="_blank" id="headerNavCommunity">云社区</a></li>
+                    <li class="nav-item" navdown="show" index="ecology" ><a mate_data_ts="support_v3_top_navigation.click.partners_20170820" href="http://www.huaweicloud.com/partners/"  target="_blank" id="headerNavPartners">合作与生态</a></li>
+                    <li class="nav-item" navdown="show" index="support"><a mate_data_ts="support_v3_top_viceNavigation.click.support_20170820" href="http://support.huaweicloud.com" id="headerNavSupport">支持与服务</a></li>
+                    <li class="line"></li>
+                </ul>
+            </div>
+            <div class="header-curr-page"><a href="#toTop" id="headerNavToTop"><span class="page-name"></span></a></div>
+            <div class="head-tools">
+                <ul class="role-tools">
+                    <li class="tool-item">
+                        <span class="i-search"></span>
+                        <div class="search-box">
+                            <input type="text" class="search-input" placeholder="请输入搜索内容" />
+                            <a target="_blank" data-href="http://www.huaweicloud.com/s/" href="http://www.huaweicloud.com/s/" mate_data_ts="support_v3_top_navigation.click.search_20170820" class="search-inner" id="headerNavSearch">
+                                <span class="i-search"></span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="tool-item"><a href=" http://support.huaweicloud.com/en-us/ " class="console" id="headerNavLanguageEn">En</a></li>
+                    <li class="tool-item"><a href="https://console.huaweicloud.com?locale=zh-cn" class="console" id="headerNavConsole">控制台</a></li>
+                    <li class="tool-item"><a href="http://support.huaweicloud.com/beian_index.html" class="record" id="headerNavBeian">备案</a></li>
+                    <li class="tool-item mobile-login"><a data-login-href="https://auth.huaweicloud.com/authui/login?locale=zh-cn&amp;service=" href="https://auth.huaweicloud.com/authui/login" mate_data_ts="support_v2_top_navigation.click.login" id="headerNavMobileLogin"><span class="icon-login js-login"></span></a></li>
+                    <li class="tool-item login-act"><a data-login-href="https://auth.huaweicloud.com/authui/login?locale=zh-cn&amp;service=" href="https://auth.huaweicloud.com/authui/login" mate_data_ts="support_v2_top_navigation.click.login" class="btn js-login" id="headerNavLogin">登录</a></li>
+                    <li class="tool-item login-act"><a href="https://auth.huaweicloud.com/authui/auth.html?locale=zh-cn#/register" mate_data_ts="support_v2_top_navigation.click.register" class="btn js-register" id="headerNavRegister">注册</a></li>
+                    <li class="tool-item user-info">
+                        <img class="account-pic" src="//static.huaweicloud.com/static/v2_resources/images/global/headPic.png" alt="" />
+                        <div class="account-btn"><span class="my-acct"></span></div>
+                        <div class="user-info-layer">
+                            <ul class="account-nav">
+                                <li class="account-item"><a href="https://console.huaweicloud.com?locale=zh-cn" id="headerNavConsoleLoginin">管理控制台</a></li>
+                                <li class="account-item"><a href="https://account.huaweicloud.com/usercenter?locale=zh-cn" id="headerNavUsercenter">用户中心</a></li>
+                                <li class="account-item"><a href="https://account.huaweicloud.com/usercenter/?locale=zh-cn#/userindex/realNameAuth" id="headerNavRealNameAuth">实名认证</a></li>
+                                <li class="account-item logout"><a mate_data_ts="support_v2_top_navigation.click.logout" href="https://portal.huaweicloud.com/index/logout" id="headerNavLogout">退出</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="nav-main" class="">
+        <div class="nav-ing">
+            <div class="topbar-nav">
+                <ul class="topbar-list">
+                    <li class="nav-inner active" data-target="product">产品<i class="foldIcon"></i></li>
+                    <li class="nav-inner" data-target="solution">解决方案<i class="foldIcon"></i></li>
+                    <li class="nav-inner" data-target="community">云社区<i class="foldIcon"></i></li>
+                    <li class="nav-inner" data-target="market">云市场<i class="foldIcon"></i></li>
+                    <li class="nav-inner " data-target="ecology">合作与生态<i class="foldIcon"></i></li>
+                    <li class="nav-inner" data-target="support">支持与服务<i class="foldIcon"></i></li>
+                    <li class="nav-inner act"><a href="http://activity.huaweicloud.com/promotion/" id="headerNavActivityLeft">最新活动</a></li>
+                    <li class="nav-inner"><a href="https://console.huaweicloud.com?locale=zh-cn" id="headerNavConsoleLeft">控制台</a></li>
+                </ul>
+            </div>
+            
+            
+
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+                        <div class="menu-boxs product show">
+                <h3 class="nav-title">产品<i class="foldIcon"></i></h3>
+                <div class="panel-box ">
+                    					<div class="sub-item-col">
+					                    <div class="menu-panel ">
+                        <h3 class="sub-title"> 计算 <i class="foldIcon"></i></h3>
+                        <ul class="menu-panel-list">
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/ecs.html"  mate_data_ts="support_v3_top_navigation.click.product_ecs_20170820" id="headerNavProductecs">
+                                    <p class="caption">  弹性云服务器                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/fcs.html"  mate_data_ts="support_v3_top_navigation.click.product_fcs_20170820" id="headerNavProductfcs">
+                                    <p class="caption"> FPGA加速云服务器                                    
+                                    <span class="new">New!</span></p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/gpu.html"  mate_data_ts="support_v3_top_navigation.click.product_gpu_20170820" id="headerNavProductgpu">
+                                    <p class="caption"> GPU加速云服务器                                    
+                                    <span class="new">New!</span></p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/csbs.html"  mate_data_ts="support_v3_top_navigation.click.product_csbs_20170820" id="headerNavProductcsbs">
+                                    <p class="caption"> 云服务器备份                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/cce.html"  mate_data_ts="support_v3_top_navigation.click.product_cce_20170820" id="headerNavProductcce">
+                                    <p class="caption">  云容器引擎                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/bms.html"  mate_data_ts="support_v3_top_navigation.click.product_bms_20170820" id="headerNavProductbms">
+                                    <p class="caption">  裸金属服务器                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/as.html"  mate_data_ts="support_v3_top_navigation.click.product_as_20170820" id="headerNavProductas">
+                                    <p class="caption">  弹性伸缩服务                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/ims.html"  mate_data_ts="support_v3_top_navigation.click.product_ims_20170820" id="headerNavProductims">
+                                    <p class="caption">  镜像服务                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/dec.html"  mate_data_ts="support_v3_top_navigation.click.product_dec_20170820" id="headerNavProductdec">
+                                    <p class="caption">  专属云                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/cff.html"  mate_data_ts="support_v3_top_navigation.click.product_cff_20170820" id="headerNavProductcff">
+                                    <p class="caption"> 函数服务                                    
+                                    </p>
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+					                    <div class="menu-panel ">
+                        <h3 class="sub-title"> 应用服务 <i class="foldIcon"></i></h3>
+                        <ul class="menu-panel-list">
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/servicestage.html"  mate_data_ts="support_v3_top_navigation.click.product_servicestage_20170820" id="headerNavProductservicestage">
+                                    <p class="caption"> 微服务云应用平台                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/dms.html"  mate_data_ts="support_v3_top_navigation.click.product_dms_20170820" id="headerNavProductdms">
+                                    <p class="caption">  分布式消息服务                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/smn.html"  mate_data_ts="support_v3_top_navigation.click.product_smn_20170820" id="headerNavProductsmn">
+                                    <p class="caption">  消息通知服务                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/ecpc.html"  mate_data_ts="support_v3_top_navigation.click.product_ecpc_20170820" id="headerNavProductecpc">
+                                    <p class="caption">  通信平台云                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/ddm.html"  mate_data_ts="support_v3_top_navigation.click.product_ddm_20170820" id="headerNavProductddm">
+                                    <p class="caption"> 分布式数据库中间件                                    
+                                    </p>
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+					
+					</div>
+                    					<div class="sub-item-col">
+					                    <div class="menu-panel ">
+                        <h3 class="sub-title"> 存储 <i class="foldIcon"></i></h3>
+                        <ul class="menu-panel-list">
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/evs.html"  mate_data_ts="support_v3_top_navigation.click.product_evs_20170820" id="headerNavProductevs">
+                                    <p class="caption">  云硬盘                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/vbs.html"  mate_data_ts="support_v3_top_navigation.click.product_vbs_20170820" id="headerNavProductvbs">
+                                    <p class="caption">  云硬盘备份                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/obs.html"  mate_data_ts="support_v3_top_navigation.click.product_obs_20170820" id="headerNavProductobs">
+                                    <p class="caption">  对象存储服务                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/cdn.html"  mate_data_ts="support_v3_top_navigation.click.product_cdn_20170820" id="headerNavProductcdn">
+                                    <p class="caption"> CDN                                    
+                                    <span class="new">New!</span></p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/sfs.html"  mate_data_ts="support_v3_top_navigation.click.product_sfs_20170820" id="headerNavProductsfs">
+                                    <p class="caption">  弹性文件服务                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/des.html"  mate_data_ts="support_v3_top_navigation.click.product_des_20170820" id="headerNavProductdes">
+                                    <p class="caption">  数据快递服务                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/dess.html"  mate_data_ts="support_v3_top_navigation.click.product_dess_20170820" id="headerNavProductdess">
+                                    <p class="caption"> 专属企业存储服务                                    
+                                    </p>
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+					                    <div class="menu-panel ">
+                        <h3 class="sub-title"> 数据库 <i class="foldIcon"></i></h3>
+                        <ul class="menu-panel-list">
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/rds.html"  mate_data_ts="support_v3_top_navigation.click.product_rds_20170820" id="headerNavProductrds">
+                                    <p class="caption"> 关系型数据库                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/dcs.html"  mate_data_ts="support_v3_top_navigation.click.product_dcs_20170820" id="headerNavProductdcs">
+                                    <p class="caption">  分布式缓存服务                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/dds.html"  mate_data_ts="support_v3_top_navigation.click.product_dds_20170820" id="headerNavProductdds">
+                                    <p class="caption"> 文档数据库服务                                    
+                                    </p>
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+					
+					</div>
+                    					<div class="sub-item-col">
+					                    <div class="menu-panel ">
+                        <h3 class="sub-title"> 网络 <i class="foldIcon"></i></h3>
+                        <ul class="menu-panel-list">
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/vpc.html"  mate_data_ts="support_v3_top_navigation.click.product_vpc_20170820" id="headerNavProductvpc">
+                                    <p class="caption">  虚拟私有云                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/elb.html"  mate_data_ts="support_v3_top_navigation.click.product_elb_20170820" id="headerNavProductelb">
+                                    <p class="caption">  弹性负载均衡                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/dc.html"  mate_data_ts="support_v3_top_navigation.click.product_dc_20170820" id="headerNavProductdc">
+                                    <p class="caption">  云专线                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/vpn.html"  mate_data_ts="support_v3_top_navigation.click.product_vpn_20170820" id="headerNavProductvpn">
+                                    <p class="caption"> 虚拟专用网络                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/dns.html"  mate_data_ts="support_v3_top_navigation.click.product_dns_20170820" id="headerNavProductdns">
+                                    <p class="caption"> 云解析服务                                    
+                                    <span class="new">New!</span></p>
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+					                    <div class="menu-panel ">
+                        <h3 class="sub-title"> 数据分析 <i class="foldIcon"></i></h3>
+                        <ul class="menu-panel-list">
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/dis.html"  mate_data_ts="support_v3_top_navigation.click.product_dis_20170820" id="headerNavProductdis">
+                                    <p class="caption">  数据接入服务                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/mrs.html"  mate_data_ts="support_v3_top_navigation.click.product_mrs_20170820" id="headerNavProductmrs">
+                                    <p class="caption">  MapReduce服务                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/dws.html"  mate_data_ts="support_v3_top_navigation.click.product_dws_20170820" id="headerNavProductdws">
+                                    <p class="caption"> 数据仓库服务                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/ais.html"  mate_data_ts="support_v3_top_navigation.click.product_ais_20170820" id="headerNavProductais">
+                                    <p class="caption"> 人工智能服务                                    
+                                    <span class="new">New!</span></p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/dps.html"  mate_data_ts="support_v3_top_navigation.click.product_dps_20170820" id="headerNavProductdps">
+                                    <p class="caption">  数据调度服务                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/molap.html"  mate_data_ts="support_v3_top_navigation.click.product_molap_20170820" id="headerNavProductmolap">
+                                    <p class="caption"> 多维交互分析服务                                   
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/mls.html"  mate_data_ts="support_v3_top_navigation.click.product_mls_20170820" id="headerNavProductmls">
+                                    <p class="caption">  机器学习服务                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/stream.html"  mate_data_ts="support_v3_top_navigation.click.product_cloudStream_20170820" id="headerNavProductcloudStream">
+                                    <p class="caption"> 实时流计算服务                                    
+                                    <span class="new">New!</span></p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/uquery.html"  mate_data_ts="support_v3_top_navigation.click.product_uquery_20170820" id="headerNavProductuquery">
+                                    <p class="caption"> 数据查询服务                                    
+                                    </p>
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+					
+					</div>
+                    					<div class="sub-item-col">
+					                    <div class="menu-panel ">
+                        <h3 class="sub-title"> 安全 <i class="foldIcon"></i></h3>
+                        <ul class="menu-panel-list">
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/antiddos.html"  mate_data_ts="support_v3_top_navigation.click.product_antiddos_20170820" id="headerNavProductantiddos">
+                                    <p class="caption">  Anti-DDoS流量清洗                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/ddos.html"  mate_data_ts="support_v3_top_navigation.click.product_ddos_20170820" id="headerNavProductddos">
+                                    <p class="caption"> DDoS高防IP                                    
+                                    <span class="new">New!</span></p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/dss.html"  mate_data_ts="support_v3_top_navigation.click.product_dss_20170820" id="headerNavProductdss">
+                                    <p class="caption"> 数据库安全服务                                    
+                                    <span class="new">New!</span></p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/kms.html"  mate_data_ts="support_v3_top_navigation.click.product_kms_20170820" id="headerNavProductkms">
+                                    <p class="caption">  密钥管理服务                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/scs.html"  mate_data_ts="support_v3_top_navigation.click.product_scs_20170820" id="headerNavProductscs">
+                                    <p class="caption"> 证书管理服务                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/si.html"  mate_data_ts="support_v3_top_navigation.click.product_si_20170820" id="headerNavProductsi">
+                                    <p class="caption">  安全指数服务                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/ssa.html"  mate_data_ts="support_v3_top_navigation.click.product_ssa_20170820" id="headerNavProductssa">
+                                    <p class="caption"> 安全态势感知服务                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/ars.html"  mate_data_ts="support_v3_top_navigation.click.product_ars_20170820" id="headerNavProductars">
+                                    <p class="caption"> 程序运行认证服务                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/partner.html"  mate_data_ts="support_v3_top_navigation.click.product_partner_20170820" id="headerNavProductpartner">
+                                    <p class="caption"> 合作伙伴产品中心                                    
+                                    </p>
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+					                    <div class="menu-panel ">
+                        <h3 class="sub-title"> <a class="devcloud" href="http://www.huaweicloud.com/devcloud/" id="headerNavDevcloud">软件开发云</a>  <i class="foldIcon"></i></h3>
+                        <ul class="menu-panel-list">
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/projectman.html"  mate_data_ts="support_v3_top_navigation.click.product_projectman_20170820" id="headerNavProductprojectman">
+                                    <p class="caption">  项目管理                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/codehub.html"  mate_data_ts="support_v3_top_navigation.click.product_codehub_20170820" id="headerNavProductcodehub">
+                                    <p class="caption">  配置管理                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/pipeline.html"  mate_data_ts="support_v3_top_navigation.click.product_pipeline_20170820" id="headerNavProductpipeline">
+                                    <p class="caption"> 流水线                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/codecheck.html"  mate_data_ts="support_v3_top_navigation.click.product_codecheck_20170820" id="headerNavProductcodecheck">
+                                    <p class="caption">  代码检查                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/codeci.html"  mate_data_ts="support_v3_top_navigation.click.product_codeci_20170820" id="headerNavProductcodeci">
+                                    <p class="caption">  编译构建                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/deployman.html"  mate_data_ts="support_v3_top_navigation.click.product_deployman_20170820" id="headerNavProductdeployman">
+                                    <p class="caption"> 部署服务                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/testman.html"  mate_data_ts="support_v3_top_navigation.click.product_testman_20170820" id="headerNavProducttestman">
+                                    <p class="caption">  测试管理                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/releaseman.html"  mate_data_ts="support_v3_top_navigation.click.product_releaseman_20170820" id="headerNavProductreleaseman">
+                                    <p class="caption">  发布管理                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/mobiletest.html"  mate_data_ts="support_v3_top_navigation.click.product_mobiletest_20170820" id="headerNavProductmobiletest">
+                                    <p class="caption"> 移动应用测试                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/cloudide.html"  mate_data_ts="support_v3_top_navigation.click.product_cloudide_20170820" id="headerNavProductcloudide">
+                                    <p class="caption"> CloudIDE                                    
+                                    <span class="new">New!</span></p>
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+					
+					</div>
+                    					<div class="sub-item-col">
+					                    <div class="menu-panel ">
+                        <h3 class="sub-title"> 管理与部署 <i class="foldIcon"></i></h3>
+                        <ul class="menu-panel-list">
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/ces.html"  mate_data_ts="support_v3_top_navigation.click.product_ces_20170820" id="headerNavProductces">
+                                    <p class="caption">  云监控服务                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/iam.html"  mate_data_ts="support_v3_top_navigation.click.product_iam_20170820" id="headerNavProductiam">
+                                    <p class="caption">  统一身份认证服务                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/cts.html"  mate_data_ts="support_v3_top_navigation.click.product_cts_20170820" id="headerNavProductcts">
+                                    <p class="caption">  云审计服务                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/icms.html"  mate_data_ts="support_v3_top_navigation.click.product_icms_20170820" id="headerNavProducticms">
+                                    <p class="caption"> 综合上云迁移交付服务                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/ccs.html"  mate_data_ts="support_v3_top_navigation.click.product_ccs_20170820" id="headerNavProductccs">
+                                    <p class="caption"> 云目录服务                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/crs.html"  mate_data_ts="support_v3_top_navigation.click.product_crs_20170820" id="headerNavProductcrs">
+                                    <p class="caption"> 云报表服务                                    
+                                    </p>
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+					                    <div class="menu-panel ">
+                        <h3 class="sub-title"> 企业应用 <i class="foldIcon"></i></h3>
+                        <ul class="menu-panel-list">
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/workspace.html"  mate_data_ts="support_v3_top_navigation.click.product_workspace_20170820" id="headerNavProductworkspace">
+                                    <p class="caption">  云桌面                                    
+                                    </p>
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+					                    <div class="menu-panel ">
+                        <h3 class="sub-title"> 云通信 <i class="foldIcon"></i></h3>
+                        <ul class="menu-panel-list">
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/cloudim.html"  mate_data_ts="support_v3_top_navigation.click.product_cloudim_20170820" id="headerNavProductcloudim">
+                                    <p class="caption"> 即时通信                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/cloudvc.html"  mate_data_ts="support_v3_top_navigation.click.product_cloudvc_20170820" id="headerNavProductcloudvc">
+                                    <p class="caption"> 会议                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/cloudcc.html"  mate_data_ts="support_v3_top_navigation.click.product_cloudcc_20170820" id="headerNavProductcloudcc">
+                                    <p class="caption"> 联络中心                                    
+                                    </p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/voice.html"  mate_data_ts="support_v3_top_navigation.click.product_voice_20170820" id="headerNavProductvoice">
+                                    <p class="caption"> 语音通话                                    
+                                    </p>
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+					                    <div class="menu-panel ">
+                        <h3 class="sub-title"> 物联网 <i class="foldIcon"></i></h3>
+                        <ul class="menu-panel-list">
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/product/iot.html"  mate_data_ts="support_v3_top_navigation.click.product_iot_20170820" id="headerNavProductiot">
+                                    <p class="caption"> IoT平台                                    
+                                    <span class="new">New!</span></p>
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+					
+					</div>
+                    
+                </div>
+            </div>
+            <div class="menu-boxs solution ">
+                <h3 class="nav-title">解决方案<i class="foldIcon"></i></h3>
+                <div class="panel-box ">
+                    <div class="menu-panel show">
+                        <h3 class="sub-title">通用解决方案<i class="foldIcon"></i></h3>
+                        
+                        <ul class="menu-panel-list">
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/solution/highperformance/" rel="nofollow" mate_data_ts="support_v3_top_navigation.click.solution_highperformance_20170820" id="headerNavSolution1highperformance">
+                                    <p class="caption">高性能计算云</p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/solution/sap/" rel="nofollow" mate_data_ts="support_v3_top_navigation.click.solution_sap_20170820" id="headerNavSolution1sap">
+                                    <p class="caption">SAP Cloud 解决方案</p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/solution/cloudoffice/" rel="nofollow" mate_data_ts="support_v3_top_navigation.click.solution_cloudoffice_20170820" id="headerNavSolution1cloudoffice">
+                                    <p class="caption">中小企业云上办公</p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/solution/migrationcloud/" rel="nofollow" mate_data_ts="support_v3_top_navigation.click.solution_migrationcloud_20170820" id="headerNavSolution1migrationcloud">
+                                    <p class="caption">上云迁移</p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/solution/clouddisaster/" rel="nofollow" mate_data_ts="support_v3_top_navigation.click.solution_clouddisaster_20170820" id="headerNavSolution1clouddisaster">
+                                    <p class="caption">云容灾</p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/solution/webmobile/" rel="nofollow" mate_data_ts="support_v3_top_navigation.click.solution_webmobile_20170820" id="headerNavSolution1webmobile">
+                                    <p class="caption">移动互联云</p>
+                                </a>
+                            </li>
+                            
+
+                        </ul>
+                    </div>
+                    <div class="menu-panel sol">
+                        <h3 class="sub-title">行业解决方案<i class="foldIcon"></i></h3>
+                        
+                        <ul class="menu-panel-list">
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/solution/businesscloud/" rel="nofollow" mate_data_ts="support_v3_top_navigation.click.solution_businesscloud_20170820" id="headerNavSolution2businesscloud">
+                                    <p class="caption"> 电商云</p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/solution/retail/" rel="nofollow" mate_data_ts="support_v3_top_navigation.click.solution_retail_20170820" id="headerNavSolution2retail">
+                                    <p class="caption">零售云</p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/solution/car/" rel="nofollow" mate_data_ts="support_v3_top_navigation.click.solution_car_20170820" id="headerNavSolution2car">
+                                    <p class="caption">汽车</p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/solution/medicalcloud/" rel="nofollow" mate_data_ts="support_v3_top_navigation.click.solution_medicalcloud_20170820" id="headerNavSolution2medicalcloud">
+                                    <p class="caption">现代医疗云</p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/solution/medical/" rel="nofollow" mate_data_ts="support_v3_top_navigation.click.solution_medical_20170820" id="headerNavSolution2medical">
+                                    <p class="caption">医疗影像云</p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/solution/parkcloud/" rel="nofollow" mate_data_ts="support_v3_top_navigation.click.solution_parkcloud_20170820" id="headerNavSolution2parkcloud">
+                                    <p class="caption">园区云</p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/solution/biotechcloud/" rel="nofollow" mate_data_ts="support_v3_top_navigation.click.solution_biotechcloud_20170820" id="headerNavSolution2biotechcloud">
+                                    <p class="caption"> 生物科学云</p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/solution/rendercloud/" rel="nofollow" mate_data_ts="support_v3_top_navigation.click.solution_rendercloud_20170820" id="headerNavSolution2rendercloud">
+                                    <p class="caption"> 渲染云</p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/solution/logisticscloud/" rel="nofollow" mate_data_ts="support_v3_top_navigation.click.solution_logisticscloud_20170820" id="headerNavSolution2logisticscloud">
+                                    <p class="caption"> 物流云</p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/solution/mediacloud/" rel="nofollow" mate_data_ts="support_v3_top_navigation.click.solution_mediacloud_20170820" id="headerNavSolution2mediacloud">
+                                    <p class="caption"> 媒资云</p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/solution/airport/" rel="nofollow" mate_data_ts="support_v3_top_navigation.click.solution_airport_20170820" id="headerNavSolution2airport">
+                                    <p class="caption">机场</p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/solution/fcs/" rel="nofollow" mate_data_ts="support_v3_top_navigation.click.solution_sfcs_20170820" id="headerNavSolution2sfcs">
+                                    <p class="caption">专享云</p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/solution/financecloud/" rel="nofollow" mate_data_ts="support_v3_top_navigation.click.solution_financecloud_20170820" id="headerNavSolution2financecloud">
+                                    <p class="caption">金融云</p>
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                    <!--
+                    <div class="menu-panel  ">
+                        <h3 class="sub-title"><a class="devcloud" href="http://www.huaweicloud.com/solution/fusionCloud/">FusionCloud</a><i class="foldIcon"></i></h3>
+                        
+                        <ul class="menu-panel-list">
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/solution/fusionsphere/" rel="nofollow" mate_data_ts="support_v3_top_navigation.click.solution_FusionSphere_20170820">
+                                    <p class="caption">FusionSphere</p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/solution/manageone/" rel="nofollow" mate_data_ts="support_v3_top_navigation.click.solution_ManageOne_20170820">
+                                    <p class="caption">ManageOne</p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/solution/fusionstage/" rel="nofollow" mate_data_ts="support_v3_top_navigation.click.solution_FusionStagePaaS_20170820">
+                                    <p class="caption">FusionStage</p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/solution/fusioninsight/" rel="nofollow" mate_data_ts="support_v3_top_navigation.click.solution_FusionInsight_20170820">
+                                    <p class="caption">FusionInsight</p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/solution/fusionaccess/" rel="nofollow" mate_data_ts="support_v3_top_navigation.click.solution_FusionAccess_20170820">
+                                    <p class="caption">FusionAccess</p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="http://www.huaweicloud.com/solution/privatecloud/" rel="nofollow" mate_data_ts="support_v3_top_navigation.click.solution_华为FusionCloud私有云_20170820">
+                                    <p class="caption">华为FusionCloud私有云</p>
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                    -->
+
+                </div>
+            </div>
+            <div class="menu-boxs market ">
+                <h3 class="nav-title">云市场<i class="foldIcon"></i></h3>
+                <div class="panel-box ">
+                    <div class="menu-panel show">
+                        <h3 class="sub-title">基础软件<i class="foldIcon"></i></h3>
+                        <ul class="menu-panel-list">
+                             <li>
+                             <a href="https://app.huaweicloud.com/basicSoftware/?type=101"  target="_blank" id="headerNavMarketplace101">
+                                 <p class="caption">操作系统</p>
+                             </a>
+                             </li>
+                             <li>
+                                 <a href="https://app.huaweicloud.com/basicSoftware/?type=102" target="_blank" id="headerNavMarketplace102">
+                                     <p class="caption">数据库与缓存</p>
+                                 </a>
+                              </li>
+                             <li>
+                                 <a href="https://app.huaweicloud.com/basicSoftware/?type=103" target="_blank" id="headerNavMarketplace103">
+                                     <p class="caption">应用运行环境</p>
+                                 </a>
+                              </li>
+                             <li>
+                                 <a href="https://app.huaweicloud.com/basicSoftware/?type=104"  target="_blank" id="headerNavMarketplace104">
+                                     <p class="caption">管理与监控</p>
+                                 </a>
+                              </li>
+                             <li>
+                                 <a href="https://app.huaweicloud.com/basicSoftware/?type=105"  target="_blank" id="headerNavMarketplace105">
+                                     <p class="caption">网络与安全</p>
+                                 </a>
+                              </li>
+                        </ul>
+                    </div>
+                    <div class="menu-panel ">
+                        <h3 class="sub-title">商业软件<i class="foldIcon"></i></h3>
+                        <ul class="menu-panel-list">
+                             <li>
+                             <a href="https://app.huaweicloud.com/businessSoftware/?type=301"  target="_blank" id="headerNavMarketplace301">
+                                 <p class="caption">行业应用</p>
+                             </a>
+                             </li>
+                             <li>
+                                 <a href="https://app.huaweicloud.com/businessSoftware/?type=302"  target="_blank" id="headerNavMarketplace302">
+                                     <p class="caption">客户服务</p>
+                                 </a>
+                              </li>
+                             <li>
+                                 <a href="https://app.huaweicloud.com/businessSoftware/?type=303"  target="_blank" id="headerNavMarketplace303">
+                                     <p class="caption">电子商务</p>
+                                 </a>
+                              </li>
+                             <li>
+                                 <a href="https://app.huaweicloud.com/businessSoftware/?type=304"  target="_blank" id="headerNavMarketplace304">
+                                     <p class="caption">人力资源</p>
+                                 </a>
+                              </li>
+                             <li>
+                                 <a href="https://app.huaweicloud.com/businessSoftware/?type=305"  target="_blank" id="headerNavMarketplace305">
+                                     <p class="caption">商业智能</p>
+                                 </a>
+                              </li>
+                             <li>
+                                 <a href="https://app.huaweicloud.com/businessSoftware/?type=306"  target="_blank" id="headerNavMarketplace306">
+                                     <p class="caption">建站系统</p>
+                                 </a>
+                              </li>
+                             <li>
+                                 <a href="https://app.huaweicloud.com/businessSoftware/?type=307"  target="_blank" id="headerNavMarketplace307">
+                                     <p class="caption">协同办公</p>
+                                 </a>
+                              </li>
+                             <li>
+                                 <a href="https://app.huaweicloud.com/businessSoftware/?type=308"  target="_blank" id="headerNavMarketplace308">
+                                     <p class="caption">销售管理</p>
+                                 </a>
+                              </li>
+                             <li>
+                                 <a href="https://app.huaweicloud.com/businessSoftware/?type=309"  target="_blank" id="headerNavMarketplace309">
+                                     <p class="caption">财务管理</p>
+                                 </a>
+                              </li>
+                             <li>
+                                 <a href="https://app.huaweicloud.com/businessSoftware/?type=310"  target="_blank" id="headerNavMarketplace310">
+                                     <p class="caption">存储与备份</p>
+                                 </a>
+                              </li>
+                        </ul>
+                    </div>
+                    <div class="menu-panel ">
+                        <h3 class="sub-title">专业服务<i class="foldIcon"></i></h3>
+                        <ul class="menu-panel-list">
+                             <li>
+                                 <a href="https://app.huaweicloud.com/professionalServices/?type=401"  target="_blank" id="headerNavMarketplace401">
+                                     <p class="caption">数据迁移</p>
+                                 </a>
+                              </li>
+                             <li>
+                                 <a href="https://app.huaweicloud.com/professionalServices/?type=402"  target="_blank" id="headerNavMarketplace402">
+                                     <p class="caption">环境配置</p>
+                                 </a>
+                              </li>
+                             <li>
+                                 <a href="https://app.huaweicloud.com/professionalServices/?type=403"  target="_blank" id="headerNavMarketplace403">
+                                     <p class="caption">故障排查</p>
+                                 </a>
+                              </li>
+                             <li>
+                                 <a href="https://app.huaweicloud.com/professionalServices/?type=404"  target="_blank" id="headerNavMarketplace404">
+                                     <p class="caption">安全代维</p>
+                                 </a>
+                              </li>
+                             <li>
+                                 <a href="https://app.huaweicloud.com/professionalServices/?type=405" target="_blank" id="headerNavMarketplace405">
+                                     <p class="caption">环境搭建</p>
+                                 </a>
+                              </li>
+                            <li>
+                                 <a href="https://app.huaweicloud.com/professionalServices/?type=406" target="_blank" id="headerNavMarketplace406">
+                                     <p class="caption">咨询与培训</p>
+                                 </a>
+                              </li>
+                        </ul>
+                    </div>
+                    <div class="menu-panel">
+                        <h3 class="sub-title">开发者工具<i class="foldIcon"></i></h3>
+                        <ul class="menu-panel-list">
+                             <li>
+                                 <a href="https://app.huaweicloud.com/developerTools/?type=201"  target="_blank" id="headerNavMarketplace201">
+                                     <p class="caption">问题与缺陷跟踪</p>
+                                 </a>
+                              </li>
+                             <li>
+                                 <a href="https://app.huaweicloud.com/developerTools/?type=202"  target="_blank" id="headerNavMarketplace202">
+                                     <p class="caption">监控工具</p>
+                                 </a>
+                              </li>
+                             <li>
+                                 <a href="https://app.huaweicloud.com/developerTools/?type=203"  target="_blank" id="headerNavMarketplace203">
+                                     <p class="caption">日志分析</p>
+                                 </a>
+                              </li>
+                             <li>
+                                 <a href="https://app.huaweicloud.com/developerTools/?type=204" target="_blank" id="headerNavMarketplace204">
+                                     <p class="caption">测试工具</p>
+                                 </a>
+                              </li>
+                             <li>
+                                 <a href="https://app.huaweicloud.com/developerTools/?type=205"  target="_blank" id="headerNavMarketplace205">
+                                     <p class="caption">源代码控制</p>
+                                 </a>
+                              </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+	      <div class="menu-boxs community ">
+                <h3 class="nav-title">云社区<i class="foldIcon"></i></h3>
+                <div class="panel-box ">
+                    <div class="menu-panel show">
+                        <h3 class="sub-title">云社区<i class="foldIcon"></i></h3>
+                        <ul class="menu-panel-list">
+                            <li>
+                                <a href="https://portal.huaweicloud.com/blogs" rel="nofollow" target="_blank" id="headerNavCommunityBlog">
+                                    <p class="caption">云博客</p>
+                                </a>
+                            </li>
+			    <li>
+                                <a href="http://forum.huaweicloud.com/" rel="nofollow" target="_blank" id="headerNavCommunityForum">
+                                    <p class="caption">云论坛</p>
+                                </a>
+                            </li>
+			    <li>
+                                <a href="https://portal.huaweicloud.com/ask" rel="nofollow" target="_blank" id="headerNavCommunityAsk">
+                                    <p class="caption">云问答</p>
+                                </a>
+                            </li>
+			    <li>
+                                <a href="https://portal.huaweicloud.com/videos" rel="nofollow" target="_blank" id="headerNavCommunityVideo">
+                                    <p class="caption">云视频</p>
+                                </a>
+                            </li>
+			    <li>
+                                <a href="https://portal.huaweicloud.com/developer" rel="nofollow" target="_blank" id="headerNavCommunityDeveloper">
+                                    <p class="caption">开发者</p>
+                                </a>
+                            </li>
+			    <li>
+                                <a href="https://portal.huaweicloud.com/devcloud" rel="nofollow" target="_blank" id="headerNavCommunityDevcloud">
+                                    <p class="caption">软件开发云</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>  
+                </div>
+            </div>
+            <div class="menu-boxs ecology ">
+                <h3 class="nav-title">合作与生态<i class="foldIcon"></i></h3>
+                <div class="panel-box ">
+                    <div class="menu-panel show">
+                        <h3 class="sub-title">合作伙伴<i class="foldIcon"></i></h3>
+                        <ul class="menu-panel-list">
+                            <li>
+                                <a href="http://www.huaweicloud.com/partners/" rel="nofollow" target="_blank" id="headerNavPartnersPlan">
+                                    <p class="caption">合作伙伴计划</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="menu-panel">
+                        <h3 class="sub-title"><a class="devcloud" href="http://developer.huaweicloud.com/index.html" id="headerNavPartnersDeveloper">开发者中心</a><i class="foldIcon"></i></h3>
+                        <ul class="menu-panel-list">
+                            <li>
+                                <a href="http://developer.huaweicloud.com/ecology-tool-center.html" id="headerNavPartnersDeveloperTool">
+                                    <p class="caption">开发者工具中心</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://developer.huaweicloud.com/ecology-devops.html" id="headerNavPartnersDeveloperDevops">
+                                    <p class="caption">DevOps解决方案</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="menu-panel">
+                        <h3 class="sub-title">华为云<i class="foldIcon"></i></h3>
+                        <ul class="menu-panel-list">
+                            <li>
+                                <a href="http://www.huaweicloud.com/about/about_us.html" target="_blank" rel="nofollow" id="headerNavAboutUs">
+                                    <p class="caption">了解华为云</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.huaweicloud.com/about/news_1.html" target="_blank" rel="nofollow" id="headerNavNews">
+                                    <p class="caption">新闻报道</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.huaweicloud.com/cases/cases_1.html" target="_blank" rel="nofollow" id="headerNavCases">
+                                    <p class="caption">客户案例</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="menu-boxs support ">
+                <h3 class="nav-title">支持与服务<i class="foldIcon"></i></h3>
+                <div class="panel-box ">
+                    <div class="menu-panel show">
+                        <h3 class="sub-title">帮助中心<i class="foldIcon"></i></h3>
+                        <ul class="menu-panel-list">
+                            <li>
+                                <a href="http://support.huaweicloud.com/index.html" id="headerNavSupportDocument">
+                                    <p class="caption">文档</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://support.huaweicloud.com/help-novice.html" id="headerNavSupportNovice">
+                                    <p class="caption">新手指南</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://support.huaweicloud.com/help-tools.html" id="headerNavSupportTools">
+                                    <p class="caption">自助服务</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="menu-panel  ">
+                        <h3 class="sub-title">客户服务<i class="foldIcon"></i></h3>
+                        <ul class="menu-panel-list">
+                            <li>
+                                <a href="http://www.huaweicloud.com/about/notice_1.html" id="headerNavNotice">
+                                    <p class="caption">服务公告</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.huaweicloud.com/about/protection.html" id="headerNavProtection">
+                                    <p class="caption">服务保障</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.huaweicloud.com/about/VIP_client.html" target="_blank" rel="nofollow" id="headerNavVip">
+                                    <p class="caption">VIP专享服务</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--for mobile -->
+            <div class="menu-boxs ">
+                <a href="http://activity.huaweicloud.com/promotion/" id="headerNavActivityMobile"><h3 class="nav-title">最新活动</h3></a>
+            </div>           
+            <div class="menu-boxs ">
+                <a href="https://console.huaweicloud.com?locale=zh-cn" id="headerNavConsoleMobile"><h3 class="nav-title">控制台</h3></a>
+            </div>
+            
+            <div class="nav-search">
+                <span class="text">搜索</span>
+                <span class="icon-search"></span>
+                <a data-href="http://www.huaweicloud.com/s/" href="http://www.huaweicloud.com/s/" mate_data_ts="support_v2_top_navigation.click.search"  class="searchLink" id="headerNavSearchMobile"></a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div id="content">
+    <div class="banner-box">
+        <div class="banner-text">
+            <div class="banner-title">
+                <h1>帮助中心</h1>
+            </div>
+            <div class="banner-search">
+    <div class="search-box" id="search-box">
+        
+        <input class="input searchInput" name="textfield" type="text" value="请输入搜索内容" onfocus="if (value =='请输入搜索内容'){value =''}" onblur="if (value ==''){value='请输入搜索内容'}"/>
+        
+        <a target="_blank" data-href="http://www.huaweicloud.com/s/" href="http://www.huaweicloud.com/s/" mate_data_ts="support_v2_top_navigation.click.search" class="search-inner">
+            <button class="search-button"></button>
+        </a>
+    </div>
+    <ul class="search-items">
+
+    </ul>
+</div>
+<script src="//img.huaweicloud.com/static/js/v2/jquery-1.11.3.min.js"></script>
+<script>
+ var hot_ajax_url = 'https://portal.huaweicloud.com/api/search/hot';
+var site_search_url = 'http://www.huaweicloud.com';
+            
+        $('.searchInput').keyup(function(){
+            var SearchUrl = $(".search-inner").data("href");
+            $('.search-inner').attr('href',SearchUrl+$.base64.urlSafeEncode($('.searchInput').val(),true))
+        })
+        $(".searchInput").keydown(function (event) {
+            var e = event || window.event || arguments.callee.caller.arguments[0];
+            if (e && e.keyCode == 13) {
+                $(this).siblings(".search-inner")[0].click() 
+            }
+        })
+
+
+</script>
+        </div>
+    </div>
+    <div class="help-tab-al detail">
+        <ul>
+            <li class="active" data-name="tab1">
+                <a href="http://support.huaweicloud.com/index.html"><span>文档</span></a>
+            </li>
+            <li data-name="tab2">
+                <a href="http://support.huaweicloud.com//help-novice.html"><span>新手指南</span></a>
+            </li>
+            <li data-name="tab3">
+                <a href="http://support.huaweicloud.com/help-tools.html"><span>自助服务</span></a>
+            </li>
+        </ul>
+    </div>
+    <div class="help-cen">
+        <div class="help-body cf">
+            <div class="help-side">
+                <div class="prod-name">
+                    <div class="menu-box">
+                        <p class="title">全部文档</p>
+                        <i class="menu-btn"></i>
+                    </div>
+                                                                                                    <!--<em class=" icons-product-md   ais"></em>-->
+                    <em class=" icons-product-md   ais"></em>
+                    <p class="caption">
+                                                <a href="/ais_gls/index.html" target='_self'>人工智能服务</a>
+                                                <i class="foldIcon"></i>
+                    </p>
+
+                    
+
+<div class="side-nav-menu">
+    <div class="inner">
+        
+        <div class="item">
+                        
+            <dl class="side-menu-list">
+                <dt>计算</dt>
+                                <dd title='弹性云服务器'>
+                    <a  href='/ecs/index.html' target='_self' >弹性云服务器</a>
+                </dd>
+                                <dd title='云服务器备份'>
+                    <a  href='/csbs/index.html' target='_self' >云服务器备份</a>
+                </dd>
+                                <dd title='云容器引擎'>
+                    <a  href='/cce/index.html' target='_self' >云容器引擎</a>
+                </dd>
+                                <dd title='裸金属服务器'>
+                    <a  href='/bms/index.html' target='_self' >裸金属服务器</a>
+                </dd>
+                                <dd title='弹性伸缩服务'>
+                    <a  href='/as/index.html' target='_self' >弹性伸缩服务</a>
+                </dd>
+                                <dd title='镜像服务'>
+                    <a  href='/ims/index.html' target='_self' >镜像服务</a>
+                </dd>
+                                <dd title='专属云'>
+                    <a  href='/dec/index.html' target='_self' >专属云</a>
+                </dd>
+                                <dd title='函数服务'>
+                    <a  href='' target='_self' >函数服务</a>
+                </dd>
+                
+            </dl>
+                        
+            <dl class="side-menu-list">
+                <dt>存储</dt>
+                                <dd title='云硬盘'>
+                    <a  href='/evs/index.html' target='_self' >云硬盘</a>
+                </dd>
+                                <dd title='云硬盘备份'>
+                    <a  href='/vbs/' target='_self' >云硬盘备份</a>
+                </dd>
+                                <dd title='对象存储服务'>
+                    <a  href='/obs/' target='_self' >对象存储服务</a>
+                </dd>
+                                <dd title='数据快递服务'>
+                    <a  href='/des/index.html' target='_self' >数据快递服务</a>
+                </dd>
+                                <dd title='弹性文件服务'>
+                    <a  href='/sfs/index.html' target='_self' >弹性文件服务</a>
+                </dd>
+                                <dd title='CDN'>
+                    <a  href='/cdn/index.html' target='_self' >CDN</a>
+                </dd>
+                
+            </dl>
+                        
+            <dl class="side-menu-list">
+                <dt>网络</dt>
+                                <dd title='虚拟私有云'>
+                    <a  href='/vpc/' target='_self' >虚拟私有云</a>
+                </dd>
+                                <dd title='弹性负载均衡'>
+                    <a  href='/elb/' target='_self' >弹性负载均衡</a>
+                </dd>
+                                <dd title='云专线'>
+                    <a  href='/dc/index.html' target='_self' >云专线</a>
+                </dd>
+                                <dd title='虚拟专用网络'>
+                    <a  href='/vpn/index.html' target='_self' >虚拟专用网络</a>
+                </dd>
+                                <dd title='云解析服务'>
+                    <a  href='/dns/index.html' target='_self' >云解析服务</a>
+                </dd>
+                
+            </dl>
+                        
+            <dl class="side-menu-list">
+                <dt>安全</dt>
+                                <dd title='Anti-DDoS流量清洗'>
+                    <a  href='/antiddos/' target='_self' >Anti-DDoS流量清洗</a>
+                </dd>
+                                <dd title='Web漏洞扫描'>
+                    <a  href='/webscan/' target='_self' >Web漏洞扫描</a>
+                </dd>
+                                <dd title='安全指数服务'>
+                    <a  href='/sis/index.html' target='_self' >安全指数服务</a>
+                </dd>
+                                <dd title='密钥管理服务'>
+                    <a  href='/kms/index.html' target='_self' >密钥管理服务</a>
+                </dd>
+                                <dd title='主机入侵检测'>
+                    <a  href='/hid/index.html' target='_self' >主机入侵检测</a>
+                </dd>
+                                <dd title='渗透测试'>
+                    <a  href='/pts/index.html' target='_self' >渗透测试</a>
+                </dd>
+                                <dd title='证书管理'>
+                    <a  href='/scs/index.html' target='_self' >证书管理</a>
+                </dd>
+                                <dd title='Web应用防火墙'>
+                    <a  href='/waf1/index.html' target='_self' >Web应用防火墙</a>
+                </dd>
+                                <dd title='主机漏洞检测'>
+                    <a  href='/hvd/index.html' target='_self' >主机漏洞检测</a>
+                </dd>
+                                <dd title='程序运行认证服务'>
+                    <a  href='/ars/index.html' target='_self' >程序运行认证服务</a>
+                </dd>
+                                <dd title='安全态势感知服务'>
+                    <a  href='/ssa/index.html' target='_self' >安全态势感知服务</a>
+                </dd>
+                                <dd title='网页防篡改服务'>
+                    <a  href='/wtp/index.html' target='_self' >网页防篡改服务</a>
+                </dd>
+                
+            </dl>
+                        
+            <dl class="side-menu-list">
+                <dt>数据库</dt>
+                                <dd title='关系型数据库'>
+                    <a  href='/rds/index.html' target='_self' >关系型数据库</a>
+                </dd>
+                                <dd title='分布式缓存服务'>
+                    <a  href='/dcs/index.html' target='_self' >分布式缓存服务</a>
+                </dd>
+                                <dd title='文档数据库服务'>
+                    <a  href='/dds/index.html' target='_self' >文档数据库服务</a>
+                </dd>
+                                <dd title='分布式数据库中间件'>
+                    <a  href='/ddm_gls/index.html' target='_self' >分布式数据库中间件</a>
+                </dd>
+                
+            </dl>
+                        
+            <dl class="side-menu-list">
+                <dt>应用服务</dt>
+                                <dd title='微服务云应用平台'>
+                    <a  href='/usermanual-servicestage/zh-cn_topic_0053812706.html' target='_self' >微服务云应用平台</a>
+                </dd>
+                                <dd title='分布式消息服务'>
+                    <a  href='/dms/index.html' target='_self' >分布式消息服务</a>
+                </dd>
+                                <dd title='消息通知服务'>
+                    <a  href='/smn/index.html' target='_self' >消息通知服务</a>
+                </dd>
+                                <dd title='通信平台云'>
+                    <a  href='/ecpc/' target='_self' >通信平台云</a>
+                </dd>
+                
+            </dl>
+            
+        </div>
+        
+        <div class="item">
+                        
+            <dl class="side-menu-list">
+                <dt>软件开发云</dt>
+                                <dd>
+                    <a  href='/devcloud/index.html' >
+                        软件开发云
+                    </a>
+                </dd>
+                
+            </dl>
+                        
+            <dl class="side-menu-list">
+                <dt>企业应用</dt>
+                                <dd>
+                    <a  href='/workspace/index.html' >
+                        云桌面
+                    </a>
+                </dd>
+                
+            </dl>
+                        
+            <dl class="side-menu-list">
+                <dt>管理与部署</dt>
+                                <dd>
+                    <a  href='/ces/' >
+                        云监控服务
+                    </a>
+                </dd>
+                                <dd>
+                    <a  href='/iam/' >
+                        统一身份认证服务
+                    </a>
+                </dd>
+                                <dd>
+                    <a  href='/cts/index.html' >
+                        云审计服务
+                    </a>
+                </dd>
+                                <dd>
+                    <a  href='/usermanual-icms/zh-cn_topic_0051542930.html' >
+                        综合上云迁移交付服务
+                    </a>
+                </dd>
+                                <dd>
+                    <a  href='/ccs/index.html' >
+                        云目录服务
+                    </a>
+                </dd>
+                                <dd>
+                    <a  href='/crs/index.html' >
+                        云报表服务
+                    </a>
+                </dd>
+                
+            </dl>
+                        
+            <dl class="side-menu-list">
+                <dt>数据分析</dt>
+                                <dd>
+                    <a  href='/dws/index.html' >
+                        数据仓库服务
+                    </a>
+                </dd>
+                                <dd>
+                    <a  href='/ais_gls/index.html' >
+                        人工智能服务
+                    </a>
+                </dd>
+                                <dd>
+                    <a  href='/mls_gls/index.html' >
+                        机器学习服务
+                    </a>
+                </dd>
+                                <dd>
+                    <a  href='/dis_gls/index.html' >
+                        数据接入服务
+                    </a>
+                </dd>
+                                <dd>
+                    <a  href='/molap_gls/index.html' >
+                        多维交互分析服务
+                    </a>
+                </dd>
+                                <dd>
+                    <a  href='/mrs_gls/index.html' >
+                        MapReduce服务
+                    </a>
+                </dd>
+                                <dd>
+                    <a  href='/dps_gls/index.html' >
+                        数据调度服务
+                    </a>
+                </dd>
+                                <dd>
+                    <a  href='/cs_gls/index.html' >
+                        实时流计算服务
+                    </a>
+                </dd>
+                                <dd>
+                    <a  href='/uquery_gls/index.html' >
+                        数据查询服务
+                    </a>
+                </dd>
+                
+            </dl>
+                        
+            <dl class="side-menu-list">
+                <dt>解决方案</dt>
+                                <dd>
+                    <a  href='/sol_disaster_faq' >
+                        云容灾
+                    </a>
+                </dd>
+                                <dd>
+                    <a  href='/sol_migrationcloud_faq/' >
+                        上云迁移
+                    </a>
+                </dd>
+                                <dd>
+                    <a  href='/usermanual-hpc/zh-cn_topic_0062552886.html' >
+                        高性能计算云
+                    </a>
+                </dd>
+                
+            </dl>
+                        
+            <dl class="side-menu-list">
+                <dt>其他</dt>
+                                <dd>
+                    <a  href='/qs-consolehome/zh-cn_topic_0016718749.html ' >
+                        管理控制台快速入门
+                    </a>
+                </dd>
+                                <dd>
+                    <a  href='/mc_faq/index.html' >
+                        消息中心
+                    </a>
+                </dd>
+                                <dd>
+                    <a  href='/pro_price/index.html' >
+                        产品价格详情
+                    </a>
+                </dd>
+                                <dd>
+                    <a  href='http://support.huaweicloud.com/pro_features/features_1.html' >
+                        产品新特性
+                    </a>
+                </dd>
+                                <dd>
+                    <a  href='/usermanual-console/zh-cn_topic_0031285551.html' >
+                        用户中心
+                    </a>
+                </dd>
+                                <dd>
+                    <a  href='/usermanual-marketplace_userhelp_zh/zh-cn_topic_0046212946.html' >
+                        云市场
+                    </a>
+                </dd>
+                                <dd>
+                    <a  href='/usermanual-ca/zh-cn_topic_0046606215.html' >
+                        我的凭证
+                    </a>
+                </dd>
+                                <dd>
+                    <a  href='/bp_usernotice/index.html' >
+                        商业合作伙伴最终用户须知
+                    </a>
+                </dd>
+                                <dd>
+                    <a  href='/usermanual-iaas/zh-cn_topic_0040259342.html' >
+                        公共问题
+                    </a>
+                </dd>
+                                <dd>
+                    <a  href='/compliance/1486968407000.html' >
+                        合规中心
+                    </a>
+                </dd>
+                
+            </dl>
+            
+        </div>
+    </div>
+</div>
+                </div>
+
+                <ul class="side-nav">
+                                                                                                                                                                                                        <li class="nav-item level1 " >
+                        <a title='产品术语' href='/ais_gls/index.html' target='_self'>产品术语</a>
+                                            </li>
+                                                                                                                                                                                    <li class="nav-item level1 " >
+                        <a title='常见问题' href='/ais_faq/index.html' target='_self'>常见问题</a>
+                                            </li>
+                                                                                                                                                                                    <li class="nav-item level1 " >
+                        <a title='用户指南' href='/usermanual-ais/zh-cn_topic_0071378732.html' target='_self'>用户指南</a>
+                        						<i class='foldIcon'></i>
+                        <ul>
+                                                                                                                                                                                                                                                            <li class="nav-item level2 ">
+                                <a title='简介' href='/usermanual-ais/zh-cn_topic_0071378732.html' target='_self'>简介
+                                </a>
+                                								<i class='foldIcon'></i>
+                                <ul>
+                                                                        
+                                                                                                                                                                                                                                                            <li class="nav-item level3 ">
+                                        <a title='人工智能服务' href='/usermanual-ais/zh-cn_topic_ais.html' target=''>人工智能服务</a>
+                                                                            </li>
+                                    
+                                                                                                                                                                                                                                                            <li class="nav-item level3 ">
+                                        <a title='应用场景' href='/usermanual-ais/zh-cn_topic_0071378742.html' target=''>应用场景</a>
+                                                                            </li>
+                                    
+                                                                                                                                                                                                                                                            <li class="nav-item level3 ">
+                                        <a title='与其他云服务的关系' href='/usermanual-ais/zh-cn_topic_0071378726.html' target=''>与其他云服务的关系</a>
+                                                                            </li>
+                                    
+                                                                                                                                                                                                                                                            <li class="nav-item level3 ">
+                                        <a title='访问和使用' href='/usermanual-ais/zh-cn_topic_0071378746.html' target='_self'>访问和使用</a>
+                                        										<i class='foldIcon'></i>
+                                        <ul>
+                                                                                        
+                                                                                                                                                                                                                                                                                                                    <li class="nav-item level4 ">
+                                                <a title='如何访问' href='/usermanual-ais/zh-cn_topic_0071378735.html' target=''>如何访问</a>
+                                                                                            </li>
+                                            
+                                                                                                                                                                                                                                                                                                                    <li class="nav-item level4 ">
+                                                <a title='如何使用' href='/usermanual-ais/zh-cn_topic_ais_use.html' target=''>如何使用</a>
+                                                                                            </li>
+                                            
+                                                                                                                                                                                                                                                                                                                    <li class="nav-item level4 ">
+                                                <a title='约束限制' href='/usermanual-ais/zh-cn_topic_0071378754.html' target=''>约束限制</a>
+                                                                                            </li>
+                                            
+                                                                                                                                                                                                                                                                                                                    <li class="nav-item level4 ">
+                                                <a title='计费标准' href='/usermanual-ais/zh-cn_topic_0071378743.html' target=''>计费标准</a>
+                                                                                            </li>
+                                            
+                                        </ul>
+                                                                            </li>
+                                    
+                                </ul>
+                                                            </li>
+                                                                                                                                                                                                                                <li class="nav-item level2 ">
+                                <a title='业务操作' href='/usermanual-ais/zh-cn_topic_0071378749.html' target='_self'>业务操作
+                                </a>
+                                								<i class='foldIcon'></i>
+                                <ul>
+                                                                        
+                                                                                                                                                                                                                                                            <li class="nav-item level3 ">
+                                        <a title='申请服务' href='/usermanual-ais/zh-cn_topic_0071378727.html' target=''>申请服务</a>
+                                                                            </li>
+                                    
+                                                                                                                                                                                                                                                            <li class="nav-item level3 ">
+                                        <a title='调用API' href='/usermanual-ais/zh-cn_topic_0071378737.html' target='_self'>调用API</a>
+                                        										<i class='foldIcon'></i>
+                                        <ul>
+                                                                                        
+                                                                                                                                                                                                                                                                                                                    <li class="nav-item level4 ">
+                                                <a title='构造请求方法' href='/usermanual-ais/zh-cn_topic_0071378740.html' target=''>构造请求方法</a>
+                                                                                            </li>
+                                            
+                                                                                                                                                                                                                                                                                                                    <li class="nav-item level4 ">
+                                                <a title='发起请求' href='/usermanual-ais/zh-cn_topic_0071378729.html' target=''>发起请求</a>
+                                                                                            </li>
+                                            
+                                                                                                                                                                                                                                                                                                                    <li class="nav-item level4 ">
+                                                <a title='解析响应消息' href='/usermanual-ais/zh-cn_topic_0071378730.html' target=''>解析响应消息</a>
+                                                                                            </li>
+                                            
+                                                                                                                                                                                                                                                                                                                    <li class="nav-item level4 ">
+                                                <a title='状态码' href='/usermanual-ais/zh-cn_topic_0071378739.html' target=''>状态码</a>
+                                                                                            </li>
+                                            
+                                        </ul>
+                                                                            </li>
+                                    
+                                                                                                                                                                                                                                                            <li class="nav-item level3 ">
+                                        <a title='查看服务使用信息' href='/usermanual-ais/zh-cn_topic_0071378750.html' target=''>查看服务使用信息</a>
+                                                                            </li>
+                                    
+                                </ul>
+                                                            </li>
+                                                                                                                                                                                                                                <li class="nav-item level2 ">
+                                <a title='常见问题' href='/usermanual-ais/zh-cn_topic_ais_faq.html' target='_self'>常见问题
+                                </a>
+                                								<i class='foldIcon'></i>
+                                <ul>
+                                                                        
+                                                                                                                                                                                                                                                            <li class="nav-item level3 ">
+                                        <a title='有哪些途径可以使用AIS的API？' href='/usermanual-ais/zh-cn_topic_ais_faq1.html' target=''>有哪些途径可以使用AIS的API？</a>
+                                                                            </li>
+                                    
+                                                                                                                                                                                                                                                            <li class="nav-item level3 ">
+                                        <a title='调用AIS的API失败时怎么处理？' href='/usermanual-ais/zh-cn_topic_ais_faq2.html' target=''>调用AIS的API失败时怎么处理？</a>
+                                                                            </li>
+                                    
+                                                                                                                                                                                                                                                            <li class="nav-item level3 ">
+                                        <a title='为什么实际调用次数与界面记录次数不一致？' href='/usermanual-ais/zh-cn_topic_ais_faq3.html' target=''>为什么实际调用次数与界面记录次数不一致？</a>
+                                                                            </li>
+                                    
+                                                                                                                                                                                                                                                            <li class="nav-item level3 ">
+                                        <a title='为什么有时单据识别的结果会不准确？' href='/usermanual-ais/zh-cn_topic_ais_faq4.html' target=''>为什么有时单据识别的结果会不准确？</a>
+                                                                            </li>
+                                    
+                                                                                                                                                                                                                                                            <li class="nav-item level3 ">
+                                        <a title='是否可以进一步提升图像去雾和低光照处理效果？' href='/usermanual-ais/zh-cn_topic_0071378751.html' target=''>是否可以进一步提升图像去雾和低光照处理效果？</a>
+                                                                            </li>
+                                    
+                                                                                                                                                                                                                                                            <li class="nav-item level3 ">
+                                        <a title='为什么有时报关遵从检测的结果会不准确？' href='/usermanual-ais/zh-cn_topic_0071378744.html' target=''>为什么有时报关遵从检测的结果会不准确？</a>
+                                                                            </li>
+                                    
+                                                                                                                                                                                                                                                            <li class="nav-item level3 ">
+                                        <a title='为什么智能装车效果较差？' href='/usermanual-ais/zh-cn_topic_0071378733.html' target=''>为什么智能装车效果较差？</a>
+                                                                            </li>
+                                    
+                                </ul>
+                                                            </li>
+                                                                                                                                                                                                                                <li class="nav-item level2 ">
+                                <a title='修订记录' href='/usermanual-ais/zh-cn_topic_0071378741.html' target=''>修订记录
+                                </a>
+                                                            </li>
+                            
+                        </ul>
+                                            </li>
+                                                                                                                                                                                    <li class="nav-item level1 active" >
+                        <a title='接口参考' href='/api-ais/zh-cn_topic_0071700274.html' target='_self'>接口参考</a>
+                        						<i class='foldIcon'></i>
+                        <ul>
+                                                                                                                                                                                                                                                            <li class="nav-item level2 active">
+                                <a title='接口调用方法' href='/api-ais/zh-cn_topic_0071700274.html' target='_self'>接口调用方法
+                                </a>
+                                								<i class='foldIcon'></i>
+                                <ul>
+                                                                        
+                                                                                                                                                                                                                                                            <li class="nav-item level3 ">
+                                        <a title='服务使用方法' href='/api-ais/zh-cn_topic_0071700258.html' target=''>服务使用方法</a>
+                                                                            </li>
+                                    
+                                                                                                                                                                                                                                                            <li class="nav-item level3 ">
+                                        <a title='请求方法' href='/api-ais/zh-cn_topic_0071700272.html' target=''>请求方法</a>
+                                                                            </li>
+                                    
+                                                                                                                                                                                                                                                            <li class="nav-item level3 selected">
+                                        <a title='请求认证方式' href='/api-ais/zh-cn_topic_0071700235.html' target=''>请求认证方式</a>
+                                                                            </li>
+                                    
+                                                                                                                                                                                                                                                            <li class="nav-item level3 ">
+                                        <a title='Token认证' href='/api-ais/zh-cn_topic_0071700266.html' target=''>Token认证</a>
+                                                                            </li>
+                                    
+                                                                                                                                                                                                                                                            <li class="nav-item level3 ">
+                                        <a title='AK/SK认证' href='/api-ais/zh-cn_topic_api1.html' target='_self'>AK/SK认证</a>
+                                        										<i class='foldIcon'></i>
+                                        <ul>
+                                                                                        
+                                                                                                                                                                                                                                                                                                                    <li class="nav-item level4 ">
+                                                <a title='生成AK、SK' href='/api-ais/zh-cn_topic_0071700256.html' target=''>生成AK、SK</a>
+                                                                                            </li>
+                                            
+                                                                                                                                                                                                                                                                                                                    <li class="nav-item level4 ">
+                                                <a title='请求签名流程' href='/api-ais/zh-cn_topic_0071700241.html' target=''>请求签名流程</a>
+                                                                                            </li>
+                                            
+                                                                                                                                                                                                                                                                                                                    <li class="nav-item level4 ">
+                                                <a title='示例代码' href='/api-ais/zh-cn_topic_0071700262.html' target=''>示例代码</a>
+                                                                                            </li>
+                                            
+                                        </ul>
+                                                                            </li>
+                                    
+                                                                                                                                                                                                                                                            <li class="nav-item level3 ">
+                                        <a title='获取项目编号' href='/api-ais/zh-cn_topic_0071700254.html' target=''>获取项目编号</a>
+                                                                            </li>
+                                    
+                                </ul>
+                                                            </li>
+                                                                                                                                                                                                                                <li class="nav-item level2 ">
+                                <a title='公共消息头' href='/api-ais/zh-cn_topic_0071700244.html' target='_self'>公共消息头
+                                </a>
+                                								<i class='foldIcon'></i>
+                                <ul>
+                                                                        
+                                                                                                                                                                                                                                                            <li class="nav-item level3 ">
+                                        <a title='公共请求消息头' href='/api-ais/zh-cn_topic_0071700273.html' target=''>公共请求消息头</a>
+                                                                            </li>
+                                    
+                                                                                                                                                                                                                                                            <li class="nav-item level3 ">
+                                        <a title='公共响应消息头' href='/api-ais/zh-cn_topic_0071700275.html' target=''>公共响应消息头</a>
+                                                                            </li>
+                                    
+                                </ul>
+                                                            </li>
+                                                                                                                                                                                                                                <li class="nav-item level2 ">
+                                <a title='人工智能服务接口信息' href='/api-ais/zh-cn_topic_0071700265.html' target='_self'>人工智能服务接口信息
+                                </a>
+                                								<i class='foldIcon'></i>
+                                <ul>
+                                                                        
+                                                                                                                                                                                                                                                            <li class="nav-item level3 ">
+                                        <a title='开通人工智能服务' href='/api-ais/zh-cn_topic_0071700243.html' target=''>开通人工智能服务</a>
+                                                                            </li>
+                                    
+                                                                                                                                                                                                                                                            <li class="nav-item level3 ">
+                                        <a title='查询服务开通状态' href='/api-ais/zh-cn_topic_0071700270.html' target=''>查询服务开通状态</a>
+                                                                            </li>
+                                    
+                                                                                                                                                                                                                                                            <li class="nav-item level3 ">
+                                        <a title='查询服务调用次数' href='/api-ais/zh-cn_topic_0071700253.html' target=''>查询服务调用次数</a>
+                                                                            </li>
+                                    
+                                                                                                                                                                                                                                                            <li class="nav-item level3 ">
+                                        <a title='文字识别服务' href='/api-ais/zh-cn_topic_0071700268.html' target='_self'>文字识别服务</a>
+                                        										<i class='foldIcon'></i>
+                                        <ul>
+                                                                                        
+                                                                                                                                                                                                                                                                                                                    <li class="nav-item level4 ">
+                                                <a title='开通文字识别服务' href='/api-ais/zh-cn_topic_0071700250.html' target=''>开通文字识别服务</a>
+                                                                                            </li>
+                                            
+                                                                                                                                                                                                                                                                                                                    <li class="nav-item level4 ">
+                                                <a title='查询文字识别服务开通状态' href='/api-ais/zh-cn_topic_0071700237.html' target=''>查询文字识别服务开通状态</a>
+                                                                                            </li>
+                                            
+                                                                                                                                                                                                                                                                                                                    <li class="nav-item level4 ">
+                                                <a title='查询文字识别服务调用次数' href='/api-ais/zh-cn_topic_0071700240.html' target=''>查询文字识别服务调用次数</a>
+                                                                                            </li>
+                                            
+                                                                                                                                                                                                                                                                                                                    <li class="nav-item level4 ">
+                                                <a title='调用单据识别服务' href='/api-ais/zh-cn_form_api.html' target=''>调用单据识别服务</a>
+                                                                                            </li>
+                                            
+                                        </ul>
+                                                                            </li>
+                                    
+                                                                                                                                                                                                                                                            <li class="nav-item level3 ">
+                                        <a title='智能物流服务' href='/api-ais/zh-cn_topic_0071700239.html' target='_self'>智能物流服务</a>
+                                        										<i class='foldIcon'></i>
+                                        <ul>
+                                                                                        
+                                                                                                                                                                                                                                                                                                                    <li class="nav-item level4 ">
+                                                <a title='智能装车服务' href='/api-ais/zh-cn_scl_api.html' target=''>智能装车服务</a>
+                                                                                            </li>
+                                            
+                                                                                                                                                                                                                                                                                                                    <li class="nav-item level4 ">
+                                                <a title='路径规划服务' href='/api-ais/zh-cn_lro_api.html' target=''>路径规划服务</a>
+                                                                                            </li>
+                                            
+                                                                                                                                                                                                                                                                                                                    <li class="nav-item level4 ">
+                                                <a title='报关遵从检测服务' href='/api-ais/zh-cn_cdra_api.html' target=''>报关遵从检测服务</a>
+                                                                                            </li>
+                                            
+                                        </ul>
+                                                                            </li>
+                                    
+                                                                                                                                                                                                                                                            <li class="nav-item level3 ">
+                                        <a title='模糊图像高清重建服务' href='/api-ais/zh-cn_topic_0071700260.html' target='_self'>模糊图像高清重建服务</a>
+                                        										<i class='foldIcon'></i>
+                                        <ul>
+                                                                                        
+                                                                                                                                                                                                                                                                                                                    <li class="nav-item level4 ">
+                                                <a title='低光照增强服务' href='/api-ais/zh-cn_lie_api.html' target=''>低光照增强服务</a>
+                                                                                            </li>
+                                            
+                                                                                                                                                                                                                                                                                                                    <li class="nav-item level4 ">
+                                                <a title='图像去雾服务' href='/api-ais/zh-cn_defog_api.html' target=''>图像去雾服务</a>
+                                                                                            </li>
+                                            
+                                                                                                                                                                                                                                                                                                                    <li class="nav-item level4 ">
+                                                <a title='超分图像重建服务' href='/api-ais/zh-cn_srir_api.html' target=''>超分图像重建服务</a>
+                                                                                            </li>
+                                            
+                                        </ul>
+                                                                            </li>
+                                    
+                                </ul>
+                                                            </li>
+                                                                                                                                                                                                                                <li class="nav-item level2 ">
+                                <a title='附录' href='/api-ais/zh-cn_topic_0071700271.html' target='_self'>附录
+                                </a>
+                                								<i class='foldIcon'></i>
+                                <ul>
+                                                                        
+                                                                                                                                                                                                                                                            <li class="nav-item level3 ">
+                                        <a title='错误码说明' href='/api-ais/zh-cn_topic_0071700248.html' target=''>错误码说明</a>
+                                                                            </li>
+                                    
+                                </ul>
+                                                            </li>
+                                                                                                                                                                                                                                <li class="nav-item level2 ">
+                                <a title='修订记录' href='/api-ais/zh-cn_topic_0071700269.html' target=''>修订记录
+                                </a>
+                                                            </li>
+                            
+                        </ul>
+                                            </li>
+                                                                                                                                                                                    <li class="nav-item level1 " >
+                        <a title='资料下载' href='/ais_dld/index.html' target='_self'>资料下载</a>
+                                            </li>
+                    
+                </ul>
+
+            </div>
+            <div class="help-main">
+                <div class="crumbs">
+                    <a class='link help-link' href='/index.html'>帮助中心</a>
+                                                                                                                                                                                                                                                &gt;
+                    <a class='link help-link' href='/ais_gls/index.html'>人工智能服务</a>
+                                                                                                    &gt;
+                    <a class='link help-link' href='/api-ais/zh-cn_topic_0071700274.html'>接口参考</a>
+                                                                                                    &gt;
+                    <a class='link help-link' href='/api-ais/zh-cn_topic_0071700274.html'>接口调用方法</a>
+                                        
+                                        &gt;
+                    <span class='text'>请求认证方式</span>
+                                    </div>
+                                                                                                                                                                                <div class="helpContent">
+
+                                                            <div class="help-details webhelp" style="">
+                        <script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("接口调用方法\n请求认证方式");
+addButton("show",BTN_TEXT,"显示","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("zh-cn_bookmap_0071700242.htm", "", ">", "Home", "zh-cn_topic_0071700274.html");
+document.write("<a href=\"zh-cn_topic_0071700274.html\">接口调用方法<\/a> > 请求认证方式<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("zh-cn_bookmap_0071700242.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script>
+<a name="ZH-CN_TOPIC_0071700235"></a>
+<a name="ZH-CN_TOPIC_0071700235"></a> 
+<h1 class="topictitle1">请求认证方式</h1> 
+<div id="body8662426">
+ <p id="ZH-CN_TOPIC_0071700235__zh-cn_topic_0024477803_p8060118">调用接口有如下两种认证方式，您可以任选其中一种进行认证鉴权。</p> 
+ <ul id="ZH-CN_TOPIC_0071700235__u135a3507be1348c6b9ec0015704caed5">
+  <li id="ZH-CN_TOPIC_0071700235__lc5beb091959e481599cfd8f0003b804e">Token认证：通过Token认证调用请求。</li>
+  <li id="ZH-CN_TOPIC_0071700235__l8fc9d4c8f0e343d7a2b80c0443431f25">AK/SK认证：通过AK(Access Key ID)/SK(Secret Access Key)加密调用请求。AK/SK认证安全性更高。</li>
+ </ul> 
+</div> 
+<div> 
+ <div class="familylinks"> 
+  <div class="parentlink">
+   <strong>父主题：</strong> 
+   <a href="zh-cn_topic_0071700274.html">接口调用方法</a>
+  </div> 
+ </div> 
+</div> 
+<script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+                    </div>
+                                                                            </div>
+                <div class="help-detail-feedback">
+                    <div class="action">
+                                                                                                                        <p class='prev'>
+                            <span class='label'>上一篇：</span>
+                            <a class='link help-link' href="/api-ais/zh-cn_topic_0071700272.html">请求方法</a>
+                        </p>
+                                                <p class='next'>
+                            <span class='label'>下一篇：</span>
+                            <a class='link help-link' href="/api-ais/zh-cn_topic_0071700266.html">Token认证</a>
+                        </p>
+                        
+                    </div>
+                    <div class="feedback-comment">
+    <p class="caption">以上内容是否对您有帮助？</p>
+    <div class="help-rating">
+        <select id="ratingBox" name="rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </div>
+    <input type="hidden" id="help_type" value="help_doc">
+    <input type="hidden" id="help_title" value="请求认证方式">
+    <p class="fb-hint">感谢您的<span class="num"></span>评分！若您有还有其他意见和建议，欢迎在评论区留言，我们会努力做得更好！</p>
+    <div class="comment-box">
+        <textarea name="helpContent" id="helpContent" class="txa" placeholder="其他想说的"></textarea>
+        <button class="button red disable" id="submitHelp" disabled>提交</button>
+        <!--<label for=""><input type="checkbox" name="nosing" value="0">匿名提交</label>-->
+    </div>
+</div>
+<script>
+
+var feedback_ajax_url = 'https://portal.huaweicloud.com/api/survey/help';
+
+</script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="register-area">
+    <a class="btn" href="https://auth.huaweicloud.com/authui/auth.html?locale=zh-cn#/register" mate_data_ts="support_v2_top_navigation.click.register" target="_blank" rel="nofollow">
+        <span>立即注册华为云</span>
+    </a>
+</div>
+</div>
+<div id="footer">
+    <div class="wrapper">
+    <div class="footer-top">
+        <div class="AGrid-row footer-content">
+            <div class="col-md-7 col-sm-12">
+                <div class="AGrid-row top-block">
+                    <div class="col-md-3 col-sm-3 col-mb-6">
+                        <dl class="sub-items">
+                            <dd>
+                                <h3 class="title">服务与支持</h3></dd>
+                            <dd><a class="link" href="http://www.huaweicloud.com/solution/" target="_blank" rel="nofollow" id="footerActivity">
+                                解决方案</a>
+                            </dd>
+                            <dd>
+                                <a class="link" href="https://app.huaweicloud.com/" target="_blank" rel="nofollow" id="footerMarketplace">云市场</a>
+                            </dd>
+                            <dd><a class="link" href="http://developer.huaweicloud.com" target="_blank" rel="nofollow" id="footerDeveloper">
+                                开发者中心</a>
+                            </dd>
+                            <dd><a class="link" href="http://www.huaweicloud.com/cases/cases_1.html" target="_blank" rel="nofollow" id="footerCases">客户案例</a>
+                            </dd>
+                            <dd><a class="link" href="https://portal.huaweicloud.com/feedback" target="_blank" rel="nofollow" id="footerFeedback">
+                                意见反馈</a>
+                            </dd>
+			                <dd><a class="link" href="https://portal.huaweicloud.com/consultation" target="_blank" rel="nofollow" id="footerConsultation">
+                                服务咨询</a>
+                            </dd>
+                            <dd><a class="link" href="http://www.huaweicloud.com/about/VIP_client.html" target="_blank" rel="nofollow" id="footerVIP">
+                                VIP专享服务</a>
+                            </dd>
+                            <dd><a class="link" href="http://support.huaweicloud.com" target="_blank" rel="nofollow" id="footerSupport">帮助中心</a>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-mb-6">
+                        <dl class="sub-items">
+                            <dd>
+                                <h3 class="title">账号与支付</h3></dd>
+                            <dd><a class="link" href="https://account.huaweicloud.com/usercenter/#/userindex/balanceRecharge" target="_blank" rel="nofollow" id="footerBalanceRecharge">充值/付款</a>
+                            </dd>
+                            <dd><a class="link" href="https://account.huaweicloud.com/usercenter/#/userindex/balanceRecharge" target="_blank" rel="nofollow" id="footerBalanceRecharge2">线下汇款/电汇</a>
+                            </dd>
+                            <dd><a class="link" href="https://account.huaweicloud.com/usercenter/?locale=zh-cn&amp;agencyId=1ed3f1041585452bb4770842b2d1dbb8&amp;region=cn-north-1#/userindex/contractApply" target="_blank" rel="nofollow" id="footerContractApply">合同申请</a>
+                            </dd>
+                            <dd><a class="link" href="https://account.huaweicloud.com/usercenter/#/userindex/invoiceCenter" target="_blank" rel="nofollow" id="footerInvoiceCenter">索取发票</a>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-mb-6">
+                        <dl class="sub-items">
+                            <dd>
+                                <h3 class="title">快速链接</h3></dd>
+                            <dd><a class="link" href="https://auth.huaweicloud.com/authui/public/custom/register.html?locale=zh-cn&service=http://www.huaweicloud.com/#/register" target="_blank" rel="nofollow" id="footerRegister">免费注册</a></dd>
+                            <dd><a class="link" href="https://console.huaweicloud.com/transfer/?locale=zh-cn#/home" target="_blank" rel="nofollow" id="footerConsole">管理控制台</a></dd>
+                            <dd><a class="link" href="http://support.huaweicloud.com/beian_index.html" target="_blank" rel="nofollow" id="footerBeian">备案中心</a></dd>
+                            <dd><a class="link" href="https://account.huaweicloud.com/usercenter/?locale=zh-cn#/userindex/myOrder" target="_blank" rel="nofollow" id="footerMyOrder">订单管理</a></dd>
+                            <dd><a class="link" href="https://account.huaweicloud.com/usercenter/?locale=zh-cn#/userindex/allview" target="_blank" rel="nofollow" id="footerUserCenter">用户中心</a></dd>
+                            <dd><a class="link" href="https://portal.huaweicloud.com/pricing" target="_blank" rel="nofollow" id="footerPricing">价格计算器</a></dd>
+                        </dl>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-mb-6">
+                        <dl class="sub-items">
+                            <dd>
+                                <h3 class="title">其他链接</h3></dd>
+                            <dd><a class="link" href="http://www.huawei.com" target="_blank" rel="nofollow" id="footerHuaweiSite">华为官网</a>
+                            </dd>
+                            <dd><a class="link" href="http://e.huawei.com/cn/" target="_blank" rel="nofollow" id="footerHuaweiCN">华为企业业务</a>
+                            </dd>
+                            <dd><a class="link" href="http://developer.huawei.com/cn/consumer" target="_blank" rel="nofollow" id="footerHuaweiDeveloper">华为开发者联盟</a>
+                            </dd>
+                            <dd><a class="link" href="http://www.huaweicloud.com/about/map.html" target="_blank" rel="nofollow" id="footerMap">网站地图</a>
+                            </dd>
+                            <!--<dd><a class="link" href="http://www.huaweicloud.com/recruitment/recruitment.html" target="_blank" rel="nofollow">人才招聘</a>-->
+                            <!--</dd>-->
+                            <dd><a class="link" href="http://www.huaweicloud.com/about/about_us.html" target="_blank" rel="nofollow" id="footerAbout">关于我们</a>
+                            </dd>
+                            <dd><a class="link" href="http://www.huaweicloud.com/about/contact.html" target="_blank" rel="nofollow" id="footerContact">联系我们</a>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 col-sm-12">
+                <div class="language mobile">
+                    <a href="http://www.huaweicloud.com/declaration/statement.html" target="_blank" id="footerStatementMobile">法律声明</a>
+                    <span class="line">|</span>
+                    <a href="http://www.huaweicloud.com/declaration/sa_prp.html" target="_blank" id="footerSaPrpMobile">隐私保护</a>
+                    <span class="line">|</span>
+                    <span class="on">中文版</span>
+                    <span class="line">|</span>
+                    <a class="change_lang_en" href="http://www.huaweicloud.com/en-us/" id="footerLanguageEnMobile">English</a>
+                </div>
+                <div class="AGrid-row">
+                    <div class="col-md-5 col-sm-3 col-pd-4 col-mb-6">
+                        <dl class="sub-items emails">
+                            <dd>
+                                <h3 class="title">联系我们</h3>
+                            </dd>
+                            <dd class="service-email">
+                                <a class="link" href="Mailto:hwclouds.ss@huawei.com" id="footerSSEmail" id="footerSSEmail"><i class="icon email"></i>售前邮箱</a>
+                                <div class="foot_email">
+                                    <p><a class="link" href="Mailto:hwclouds.ss@huawei.com" id="footerSSEmail1">hwclouds.ss@huawei.com</a></p>
+                                </div>
+                            </dd>
+                            <dd class="service-email"><a class="link" href="Mailto:hwclouds.cs@huawei.com" id="footerCSEmail"><i class="icon email"></i>售后邮箱</a>
+                                <div class="foot_email">
+                                    <p><a class="link" href="Mailto:hwclouds.cs@huawei.com" id="footerCSEmail1">hwclouds.cs@huawei.com</a></p>
+                                </div>
+                            </dd>
+                            <dd class="service-email"><a class="link" href="Mailto:hwclouds.ba@huawei.com" id="footerBAEmail"><i class="icon email"></i>备案服务邮箱</a>
+                                <div class="foot_email">
+                                    <p><a class="link" href="Mailto:hwclouds.ba@huawei.com" id="footerBAEmail1">hwclouds.ba@huawei.com</a></p>
+                                </div>
+                            </dd>
+                            <dd class="service-email">
+		                <a class="link" href="Mailto:hwclouds.cp@huawei.com" id="footerCPEmail"><i class="icon email"></i>云市场咨询邮箱</a>
+		                <div class="foot_email">
+		                  <p><a class="link" href="Mailto:hwclouds.cp@huawei.com" id="footerCPEmail1">hwclouds.cp@huawei.com</a></p>
+		                </div>
+		              </dd><dd>
+		                   <div class="language">
+                          <a href="javascript:;" class="on" id="footerLanguageOnCN">中文版</a>
+                          <span class="line">|</span>
+                          <a href=" http://support.huaweicloud.com/en-us/ " id="footerLanguageOnEN">English</a>
+                        </div>
+		              </dd>
+                            <dd class="serv_tel"><i class="icon call"></i>4000-955-988 </dd>
+                            <!--<div class="foot_email">
+                              <p><a class="link" href="Mailto:hwclouds.cp@huawei.com">hwclouds.cp@huawei.com</a></p>
+                            </div>-->
+                            
+                        </dl>
+                       
+                    </div>
+                    <div class="col-md-2 col-sm-3 col-pd-4 col-mb-5">
+
+                        <div class="sub-items code-2-layer">
+                            <div class="code-2-box show">
+                                <div class="img-code-2">
+                                    <span class="icons-2code weixin"></span>
+                                </div>
+                                <span class="code-name weixin" data-name="weixin">华为云微信</span>
+                            </div>
+                            <div class="code-2-box">
+                                <div class="img-code-2">
+                                    <a href="http://weibo.com/p/1006061930559805"  target="_blank" id="footerWeiboCode"><i class="icons-2code weibo"></i></a>
+                                </div>
+                                <a href="http://weibo.com/p/1006061930559805"  target="_blank" class="code-name weibo" data-name="weibo" id="footerWeibo">华为云微博</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-sm-6 col-pd-4 col-mb-7">
+
+                        <div class="footer-certificate">
+              <div class="footer-panel">
+                <p class="serv_tel"><i class="icon call"></i>4000-955-988 </p>
+                <a href="http://weibo.com/p/1006061930559805"  target="_blank" id="footerWeiboLink"><i class="icons-code-weibo"></i>新浪微博</a>
+                <a class="wechatCode" href="javascript:;" id="footerWeiXin"><i class="icons-code-wechat"></i>微信公众号</a>
+              </div>
+
+              <a href="http://www.huaweicloud.com/securecenter/overallsafety.html" target="_blank" class="cert-item link" id="footerOverAllSafety">
+                <span class="icons-certificate safecloud"></span>
+                <p>华为云安全</p>
+              </a>
+              <a href="http://www.huaweicloud.com/securecenter/safetycompliance.html" target="_blank" class="cert-item link" id="footerSafetyCompliance">
+                <span class="icons-certificate dependable"></span>
+                <p>可信合规</p>
+              </a>
+            </div>
+            <div class="wechat-pop-wrapper hide">
+              <div class="wechat-pop">
+                <img data-src="//static.huaweicloud.com/static/v2_resources/images/global/wechatCode.jpg">
+              </div>
+            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="AGrid-row footer-content">
+            <div class="col-md-6 col-mb-12">
+                <div class="col-box part-1">
+                    <span class="text">版权所有 © 华为软件技术有限公司 2017 </span><span class="text">保留一切权利</span>
+                    <span class="text"><a class="link" href="http://www.miitbeian.gov.cn" target="_blank" rel="nofollow" id="footerMiitbeian">苏ICP备17040376号-5</a></span>
+                    <span class="text">苏B2-20130048号</span>
+          <p><img src="//static.huaweicloud.com/static/v2_resources/images/global/a6.png" alt=""><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32011402010008" target="_blank" id="footerRegisterSystemInfo"><img src="//static.huaweicloud.com/static/v2_resources/images/global/a7.png" alt=""></a>苏公网安备 32011402010008号</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-mb-12">
+                <div class="col-box part-2">
+                    <ul class="inner-links">
+                        <li class="link-item"><a class="link" href="http://www.huaweicloud.com/declaration/statement.html" target="_blank" rel="nofollow" id="footerStatement">法律声明</a></li>
+                        <li class="link-item"><a class="link" href="http://www.huaweicloud.com/declaration/sa_prp.html" target="_blank" rel="nofollow" id="footerSaPrp">隐私保护</a></li>
+                        <li class="link-item"><a class="link" href="https://portal.huaweicloud.com/feedback?type=jubao" target="_blank" rel="nofollow" id="footerJuBao">举报不良信息</a></li>
+                        <li class="link-item"><a class="link" href="http://www.huaweicloud.com/declaration/sa_nisr.html" target="_blank" rel="nofollow" id="footerSaNisr">入网信息安全责任书</a></li>
+                        <li class="link-item"><a class="link" href="http://www.huaweicloud.com/declaration/sa_cua.html" target="_blank" rel="nofollow" id="footerSaCua">华为云用户协议</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div><script src="//img.huaweicloud.com/static/js/v2/global.js?20170817"></script>
+<script src="//img.huaweicloud.com/static/js/v1/jquery.base64.js"></script>
+<!--<script src="https://bi.huaweicloud.com/sdk/cloudbi.js"></script>-->
+<!--<script src="//img.huaweicloud.com/static/js/v1/bi.js?20170819"></script>-->
+<style type="text/css">
+    #videolist div div
+    {
+        text-align: center;
+        background-repeat: no-repeat;
+    }
+    #videolist div div img
+    {
+        margin-top: 25px;
+        cursor: pointer;
+    }
+</style>
+<div id="videoDiv" style="z-index:9999;display:none;position:relative;">
+    <div id="videobg" style="position:absolute;background:#000;opacity:0.3;filter: progid:DXImageTransform.Microsoft.Alpha(opacity=30);">
+    </div>
+    <div id="videoplayerDiv" style="position:absolute;overflow:hidden;">
+        <div id="videoContainer" style="width:700px;height:500px;background-color: black;">
+            <span id="closeBtn"><span style="position:absolute;right:0;cursor:pointer;z-index: 10000;"> <img src="//img.huaweicloud.com/static/images/v1/close_grey.png" alt="" height="22" width="22" onclick="closeVideo()" /> </span></span>
+            <div id="videoplayer" style="height:500px;width:700px;">
+            </div>
+        </div>
+    </div>
+</div>
+<script src="//img.huaweicloud.com/static/js/v1/swfobject.js"></script>
+<script type="text/javascript">
+    var videoDomain = '//video.huaweicloud.com';
+    var staticDomain = '//static.huaweicloud.com';
+    
+    var _videoProtocol = (("https:" == document.location.protocol) ? "https:" : "http:");
+    function play(video_url,video_desc,domain){
+        if(domain){
+            var tmp = _videoProtocol + domain + video_url;
+        }
+        else{
+            var tmp = _videoProtocol + videoDomain + video_url;
+        }
+        tmp = tmp.replace(/m3u8/, 'mp4');
+
+        //ga('send','event','video','click',video_desc);
+
+        var ua = navigator && navigator.userAgent;
+        if ((window.applicationCache) || ua.toLowerCase().indexOf('android') > -1 || (/iPad/i).test(ua) || (/iPhone/i).test(ua)) {
+            var win_width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            var obj = "#videoplayer";
+            if(win_width < 700)
+            {
+                $("#videoContainer").width(win_width).height(win_width*3/4);
+                $(obj).width(win_width).height(win_width*3/4);
+            }
+            var h = $(obj).height();
+            var w = $(obj).width();
+
+            $(obj).append('<video src="'+tmp+'"  height="'+h+'" width="'+w+'" autoplay="autoplay" controls="controls"></video>');
+        }
+        else
+        {
+            var parameters = {
+                src: tmp,
+                autoPlay: "true",
+                verbose: true,
+                controlBarAutoHide: "true",
+                controlBarPosition: "bottom",
+                hls_minbufferlength: -1,
+                hls_maxbufferlength: 10,
+                hls_lowbufferlength: 3,
+                hls_seekmode: "KEYFRAME",
+                hls_startfromlevel: -1,
+                hls_seekfromlevel: -1,
+                hls_live_flushurlcache: false,
+                hls_info: false,
+                hls_debug: false,
+                hls_debug2: false,
+                hls_warn: false,
+                hls_error: false,
+                hls_fragmentloadmaxretry : -1,
+                hls_manifestloadmaxretry : -1,
+                hls_capleveltostage : false,
+                hls_maxlevelcappingmode : "downscale"
+            };
+            swfobject.embedSWF(
+                _videoProtocol + staticDomain + "/static/swf/StrobeMediaPlayback.swf"
+                , "videoplayer"
+                , 700
+                , 500
+                , "10.1.0"
+                , "expressInstall.swf"
+                , parameters
+                , {
+                    allowFullScreen: "true"
+                }
+            );
+        }
+
+
+        var userAgent = navigator.userAgent;
+        var isOpera = userAgent.indexOf("Opera") > -1;
+        if (userAgent.indexOf("Firefox") > -1) {
+            $("#videoplayer").css("padding-top","30px");
+            $("#videoContainer").css("height","470px");
+        }
+        if (!!window.ActiveXObject || "ActiveXObject" in window){
+            $("#videoplayer").css("padding-top","30px");
+        }
+        var height = document.body.offsetHeight;
+        $("#videobg").css("width", $(window).width());
+        $("#videobg").css("height", height);
+        $("#videobg").css("top", -height);
+        $("#videobg").css("left", "0px");
+        $("#videoplayerDiv").css("left", ($(window).width() - $("#videoplayer").width()) / 2);
+        $("#videoplayerDiv").css("top", (($(window).height() - $("#videoplayer").height()) / 2 + $(window).scrollTop())-height);
+        $("#videoDiv").show();
+    }
+    
+    function closeVideo()
+    {
+        if (!!window.ActiveXObject || "ActiveXObject" in window){
+            $("#videoplayer").remove();
+            $("#closeBtn").append('<div id="videoplayer" style="height:500px;width:700px;">');
+
+        }else
+        {
+            $("#videoplayer").html("");
+        }
+        $("#videoDiv").hide();
+    }
+    
+</script>
+
+
+<div class="float-sidebar last">
+    <div class="span shown-btn"><span class="dot"></span></div>
+    <ul class="float-bar-nav">
+        <li class="item tel">
+          <span class="icons-float-bar f1"></span>
+          <div class="sub-nav-layer">
+            <div class="sub-nav-main">
+              <div class="sub-inner inner">
+                <a>
+                  <span class="icons-float-bar f3"></span>
+                  <p class="title">售前咨询 </p>
+                  <a class="info" href="tel:4000-955-988">4000-955-988 转 1</a>
+                </a>
+              </div>
+              <div class="sub-inner"><a mate_data_ts="#domain_pre#_v2_right_float_panel.click.minions" class="smartQA" href="https://portal.huaweicloud.com/minions" target="_blank"><span class="icons-float-bar f2"></span>
+                <p class="title">智能客服</p></a>
+              </div>
+              <div class="sub-inner"><a mate_data_ts="support_v2_right_float_panel.click.customer_service" href="http://chat.53kf.com/webCompany.php?arg=huawei1111&amp;style=1" target="_blank"><span class="icons-float-bar f4"></span>
+                <p class="title">人工客服</p></a>
+              </div>
+              <!--<div class="sub-inner"><a href="" target="_blank"><span class="icons-float-bar f5"></span> 
+                  <p class="title">意见反馈</p></a>
+              </div>-->
+            </div>
+          </div>
+        </li>
+        <li class="item to-top-btn">
+          <a href="#toTop"><span class="icons-float-bar to-top"></span></a>
+        </li>
+    </ul>
+</div>
+<link href="//img.huaweicloud.com/static/css/v1/minions/robot.css?t=" type="text/css" rel="stylesheet" />
+
+<script type="text/javascript">
+
+    $(".float-sidebar:not(.last)").each(function(index){
+        $(this).children(".float-bar-nav").children(".item").insertBefore($(".float-sidebar.last .float-bar-nav").children(".item").eq(0));
+        $(this).remove();
+    });
+    var robot ={};
+
+    robot.staticURL = '//static.huaweicloud.com';
+    robot.portalURL = 'https://portal.huaweicloud.com';
+</script><script>
+	var portalDomain = "https://portal.huaweicloud.com",
+		ssoDomain = "https://auth.huaweicloud.com";
+		 var isVerified=false;//定义实名认证变量
+    var isLogin = false; //定义登录变量
+		
+    jQuery(function() {
+        //登陆之后回到本页面
+        $("[data-login-href]").each(function(){
+            $(this).attr("href",$(this).data('login-href')+window.location.href);
+        });
+        $("[href='"+ssoDomain+"/authui/auth.html?locale=zh-cn#/register']").attr("href",
+            ssoDomain + "/authui/auth.html?locale=zh-cn&service="+window.location.href+"#/register");
+        $("[href='"+ssoDomain+"/authui/auth.html#/register']").attr("href",
+            ssoDomain+"/authui/auth.html?locale=zh-cn&service="+window.location.href+"#/register");
+        var login_check_url = portalDomain + "/index/islogin?callback=?";
+        window.raw_onerror = window.onerror;
+        window.onerror = function(errorMsg, url, lineNumber) {
+            return true;
+        }
+        jQuery.getJSON(login_check_url, function(data) {
+            if (data.flag == 1) {
+                var username = data.username;
+                isLogin = true;
+                $("#header").addClass('logined');
+                $(".user-info").find('.my-acct').text(username);
+                $(".user-info").find('.my-acct').attr("title",username);
+                getUserverified();
+            }
+        }).always(function() {
+            window.onerror = window.raw_onerror;
+        });
+    });
+    var ua = navigator && navigator.userAgent;
+    function getUserverified(){
+        var url = portalDomain + "/api/bss/userverified?callback=?";
+        jQuery.getJSON(url, function(data) {
+            if(data){
+                if(data.retCode == "0"){
+                    if(data.isVerified){
+                    isVerified = true;
+                        $(".phone-acct").find(".account-pic").show();
+                        $(".account-pic-no-ident").hide();
+                        $(".true-name-li").hide();
+                    }else{
+                        if(!data.isShow){
+                            if (ua.toLowerCase().indexOf('android') > -1 || (/iPad/i).test(ua) || (/iPhone/i).test(ua)) {
+                                $("body").removeClass("autShow");
+                            }else{
+                                $("body").addClass("autShow");
+                                over=setInterval(settime,1000);//1000毫秒
+
+                            };
+                        }else{
+                            $("body").removeClass("autShow");
+                        };
+                        $(".phone-acct").find(".account-pic").hide();
+                        $(".account-pic-no-ident").show();
+                        $(".true-name-li").show();
+                    }
+                }else{
+                    $(".phone-acct").find(".account-pic").show();
+                    $(".account-pic-no-ident").hide();
+                    $(".true-name-li").hide();
+                }
+
+            }else{
+                $(".phone-acct").find(".account-pic").show();
+                $(".account-pic-no-ident").hide();
+                $(".true-name-li").hide();
+            }
+        });
+    }
+    time = 10;
+    function settime(){
+        time--;
+        if(time==0){
+            clearInterval(over);
+            //倒计时结束
+            $("body").removeClass("autShow");
+        }
+    }
+
+    $(".Authentication").on('click', '.close', function(event) {
+        $("body").removeClass("autShow");
+    });
+    
+</script>
+    <script src="//static.huaweicloud.com/static/js/v2/jquery.barrating.js?20170812"></script>
+    <script src="//static.huaweicloud.com/static/js/v2/ucd-custom.js?20170812"></script>
+    <script src="//static.huaweicloud.com/static/js/v2/help.js?20170812"></script>
+    
+    
+</div>
+</body>
+</html>

@@ -1,0 +1,1 @@
+{"title": "什么是Anti-DDoS流量清洗？", "titlecontent": "\n Anti-DDoS流量清洗服务是对IP地址进行DDoS攻击防护的一种网络安全服务。 \n 通过对访问IP地址的数据流量进行实时监控，在网络出口对访问流量进行检测，及时发现进行DDoS攻击的异常流量。在不影响正常业务的前提下，根据用户配置的防护策略，清洗掉异常流量。同时为用户生成监控报表，清晰展示网络流量的安全状况。 \n", "link": "support.huaweicloud.com_antiddos_faq_zh-cn_topic_0027684311.html", "subject": ["帮助中心", "Anti-DDoS流量清洗", "常见问题", "什么是Anti-DDoS流量清洗？"]}
