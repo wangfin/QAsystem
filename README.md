@@ -97,7 +97,7 @@ bilibili视频地址：[视频网址](https://www.bilibili.com/video/av35481883)
 
 ### 数据库文件
 
-关于数据库文件的说明：
+关于数据库文件的说明
 
 数据库分为两个部分：MySQL与Elasticsearch
 
@@ -118,7 +118,7 @@ bilibili视频地址：[视频网址](https://www.bilibili.com/video/av35481883)
 - Elasticsearch的存储模块用于保存问答对，在安装与配置完Elasticsearch之后，可以使用QASystem\elas.py来创建存储表，表中的字段有：
   - question 问句
   - accuratequestion 准确的答案
-  - questionfh1 生成的相似问句1
+  - questionfh1 生成的相似问句1（问句泛化）
   - questionfh2 生成的相似问句2
   - answer 答案，这个与上面的accuratequestion 相同
   - link 问句生成的链接网页
@@ -126,7 +126,7 @@ bilibili视频地址：[视频网址](https://www.bilibili.com/video/av35481883)
 
 ### 存在的一些问题
 
-因为当时比赛的时间紧迫，目前这个代码中有些部分还存在一定的问题，例如问句生成模块并没有集成到整体的流程中（因为问句生成效果不佳且费时，目前使用的是一种简单的疑问词替换的方式）。
+因为当时比赛的时间紧迫，目前这个代码中有些部分还存在一定的问题，例如问句泛化模块并没有集成到整体的流程中（因为问句泛化效果不佳且费时，目前使用的是一种简单的疑问词替换的方式），按句子生成的问句的方式也没有集成进去，因为这样生成的问句太多，需要进行筛选。
 
 ---
 
