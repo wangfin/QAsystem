@@ -11,7 +11,7 @@ bilibili视频地址：[视频网址](https://www.bilibili.com/video/av35481883)
 
 ### 需求介绍
 
-题目要求：[中软杯赛题网址](http://www.cnsoftbei.com/bencandy.php?fid=151&aid=1612)
+题目要求：[中软杯赛题网址](http://www.cnsoftbei.com/plus/view.php?aid=321)
 
 简略概述要求：
 1. 构建一个完整的QA系统
@@ -45,6 +45,37 @@ bilibili视频地址：[视频网址](https://www.bilibili.com/video/av35481883)
 3. 算法：算法部分因为是设计的基于逻辑的QA对生成，所以没有用到Tensorflow，scikit-learn等深度学习、机器学习的工具，用到了Stanford的语言模块、哈工大的语言工具LTP，主要是使用的LTP了，里面的基于语义的分析，基于成分的分析效果还是挺好的，这个算法主要也是使用了LTP进行分析，然后就是使用很简单逻辑进行拼接生成QA，所以很制杖，效果一般。针对本赛题的数据集华为云帮助手册的效果还可以，但是使用其他数据集的话会大打折扣，主要是因为一是LTP对于简单的短句，逻辑较为简单句子分析的很清晰，但是长难句就不行了；另外也是设计的逻辑代码也很简单，考虑不全面，生成句子的逻辑不够好。
 4. 知识库：知识库就是使用的Elasticsearch，使用K-V来保存QA，搜索速度较快。
 
+### QA对生成
+
+这个QA对生成是本项目的核心算法，本项目采用的是简单的基于模板的传统方案（没有使用深度学习技术），目前的做法是通过一段陈述句，转换成疑问句。提问，总得有一段被提问的语句（通常都是陈述句），对这段、这句陈述句提问，就可以生成问句。
+
+有两种方式的问句生成：
+- 段落的问句生成，本项目对标题进行构造问句
+- 对段落中的每一个单句进行划分，对单句进行问句生成（没有集成到项目中，因为问句生成的太多，需要筛选）
+
+问句分类：
+问句种类 | 问句案例
+---|---
+人物类 | 谁可以操作云硬盘备份？
+地点类 | 在哪里可以登录华为云服务器？
+时间类 | 华为云服务器需要多久时间准备？
+原因类 | 为什么使用密钥文件无法正常登录Linux弹性云服务器？
+数量类 | 弹性云服务器有几种计费方式？
+方式类 | 忘记密码如何处理？
+定义类 | 什么是命名空间？
+描述类 | 区块链服务通道为节点提供了什么？
+列表类 | 备份裸金属服务器的操作步骤是哪些？
+是否类 | 是否可以进一步提升图像去雾和低光照处理效果？
+
+参考自论文：
+
+<img src="https://notes-pic.oss-cn-shanghai.aliyuncs.com/%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94%E7%B3%BB%E7%BB%9F/%E9%97%AE%E5%8F%A5%E5%88%86%E7%B1%BB.png" style="zoom:50%;" />
+
+<img src="https://notes-pic.oss-cn-shanghai.aliyuncs.com/%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94%E7%B3%BB%E7%BB%9F/%E9%97%AE%E5%8F%A5%E5%88%86%E7%B1%BB2.png" style="zoom:50%;" />
+
+<img src="https://notes-pic.oss-cn-shanghai.aliyuncs.com/%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94%E7%B3%BB%E7%BB%9F/%E9%97%AE%E5%8F%A5%E5%88%86%E7%B1%BB3.png" style="zoom: 50%;" />
+
+
 ### 系统流程
 1. 管理员上传文档，网页（两种文件格式，目前本系统主要是解析以**华为云帮助手册的网页**，其他网页需要更改网页解析程序），上传这些文件到服务器端
 2. 选择需要生成QA对的文件，调用QA对生成算法，生成QA对存入知识库中
@@ -57,11 +88,45 @@ bilibili视频地址：[视频网址](https://www.bilibili.com/video/av35481883)
 
 > 需要配置的模块：
 1. Django
-2. Elasticsearch
-3. Kibana
+2. Elasticsearch（需要安装，并配置，初始化数据表）
+3. Kibana（需要安装并配置）
 4. APScheduler
 5. LUIS（需要把配置写在view.py里面）
 6. 图灵机器人（需要把配置写在view.py里面）
+7. MySQL（需要初始化数据表）
+
+### 数据库文件
+
+关于数据库文件的说明：
+
+数据库分为两个部分：MySQL与Elasticsearch
+
+- MYSQL的部分用于保存User，QuestionCount，UserMining这三个数据文件，这三个文件可以通过QASystem\models.py 文件生成，这个是Django自动生成的。
+  - User表（提问记录表）：
+    - userquestion 用户提问的问题
+    - question_time 用户提问的时间
+  - QuestionCount表（热点问题统计表）：
+    - userquestion 统计的问题
+    - questioncount 问题被提问的次数
+  - UserMining表（用户统计表，用于后台的数据展示）：
+    - userip 用户ip
+    - userquestion 用户问题
+    - usersub 用户问题主题
+    - userattention 用户倾向（闲聊还是提问）
+    - userlike 用户是否喜欢这个回答以及喜欢程度
+    - times 用户提问时间
+- Elasticsearch的存储模块用于保存问答对，在安装与配置完Elasticsearch之后，可以使用QASystem\elas.py来创建存储表，表中的字段有：
+  - question 问句
+  - accuratequestion 准确的答案
+  - questionfh1 生成的相似问句1
+  - questionfh2 生成的相似问句2
+  - answer 答案，这个与上面的accuratequestion 相同
+  - link 问句生成的链接网页
+  - subject 主题
+
+### 存在的一些问题
+
+因为当时比赛的时间紧迫，目前这个代码中有些部分还存在一定的问题，例如问句生成模块并没有集成到整体的流程中（因为问句生成效果不佳且费时，目前使用的是一种简单的疑问词替换的方式）。
 
 ---
 

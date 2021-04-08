@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" host="192.168.159.129" id="c78a0d0b-5941-412e-a1eb-84029e49346b" port="22" customName="QASystem" nameFormat="CUSTOM">
+        <option name="customName" value="QASystem" />
+      </sshConfig>
+      <sshConfig authType="PASSWORD" host="47.97.209.48" id="fa2acdc0-e91b-4bc7-9a56-4a2672bc3c05" port="22" customName="阿里云" nameFormat="CUSTOM">
+        <option name="customName" value="阿里云" />
+      </sshConfig>
+    </configs>
+  </component>
+</project>
