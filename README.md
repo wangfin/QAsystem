@@ -3,6 +3,10 @@
 
 非常感谢杨大帅比和张小可爱为项目所付出的所有心血，最后一次虽有遗憾却不后悔的中软杯
 
+QAQ团队，和我们的logo
+
+<img src="https://notes-pic.oss-cn-shanghai.aliyuncs.com/%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94%E7%B3%BB%E7%BB%9F/QAlogo.png" style="zoom:50%;" />
+
 bilibili视频地址：[视频网址](https://www.bilibili.com/video/av35481883)
 
 视频里可以讲解的比较仔细，可以看看。实际上整个项目完成度还很欠缺，较多地方因时间原因未完成，或者只是仓促完成，导致有些部分逻辑很简单，所以效果也不是很好，各位也就当看个思路就好。
@@ -15,8 +19,8 @@ bilibili视频地址：[视频网址](https://www.bilibili.com/video/av35481883)
 
 简略概述要求：
 1. 构建一个完整的QA系统
-2. 整个系统由三部分构成：前台，后台，知识库
-3. 前台：请设计一个程序，实现QA对话界面，该界面可以基于用户提问，自动连接后台、并从知识库寻找答案，并呈现给用户
+2. 整个系统由三部分构成：前端，后台，知识库
+3. 前端：请设计一个程序，实现QA对话界面，该界面可以基于用户提问，自动连接后台、并从知识库寻找答案，并呈现给用户
 4. 后台：请设计一个程序从文档中提取尽可能多且质量高的问答对（QA对）
 5. 知识库：QA对存储管理的类似于数据库的东西
 
@@ -40,12 +44,27 @@ bilibili视频地址：[视频网址](https://www.bilibili.com/video/av35481883)
 4. 知识库：知识库目前使用Elasticsearch搜索引擎的存储模块
 
 > 使用的技术模块：
-1. 前端：大体上是使用的现成的网页进行了修改（毕竟UI设计不太行，感谢前端大佬），主要使用了Bootstarp，还有一些很多的前端插件，就不一一列举了
-2. 后台：后台主框架是基于Python的Django框架；里面的一些功能模块：比如用户聊天，使用的是图灵的聊天机器人API，可以将这个替换成seq2seq的对话生成（不过需要自己搭模型和训练）；用户意图判断和情感判断使用LUIS；后台数据图表展示使用的是Elasticsearch配套的Kibana；后台的上传模块；后台的APScheduler定时管理模块
+1. 前端：大体上是使用的现成的网页进行了修改（毕竟UI设计不太行，感谢前端大佬），主要使用了Bootstarp，还有一些很多的前端插件，就不一一列举了。
+2. 后台：后台主框架是基于Python的Django框架；里面的一些功能模块：比如用户聊天，使用的是图灵的聊天机器人API，可以将这个替换成seq2seq的对话生成（不过需要自己搭模型和训练）；用户意图判断和情感判断使用LUIS（判断是聊天还是提问）；问答系统中的自动补全，准确提问，相似问题是使用Elasticsearch进行查询后返回的；后台数据图表展示使用的是Elasticsearch配套的Kibana；后台的上传模块；后台的APScheduler定时管理模块（用于更新Elasticsearch）。
 3. 算法：算法部分因为是设计的基于逻辑的QA对生成，所以没有用到Tensorflow，scikit-learn等深度学习、机器学习的工具，用到了Stanford的语言模块、哈工大的语言工具LTP，主要是使用的LTP了，里面的基于语义的分析，基于成分的分析效果还是挺好的，这个算法主要也是使用了LTP进行分析，然后就是使用很简单逻辑进行拼接生成QA，所以很制杖，效果一般。针对本赛题的数据集华为云帮助手册的效果还可以，但是使用其他数据集的话会大打折扣，主要是因为一是LTP对于简单的短句，逻辑较为简单句子分析的很清晰，但是长难句就不行了；另外也是设计的逻辑代码也很简单，考虑不全面，生成句子的逻辑不够好。
 4. 知识库：知识库就是使用的Elasticsearch，使用K-V来保存QA，搜索速度较快。
 
-### QA对生成
+图例（图中有部分没有介绍）
+
+<img src="https://notes-pic.oss-cn-shanghai.aliyuncs.com/%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94%E7%B3%BB%E7%BB%9F/%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84.png" style="zoom:50%;" />
+
+### 功能介绍
+
+整个项目主要分成两个模块：
+
+- 用户段的问答系统：问答对话，兴趣推荐，热点问题，闲聊对话
+- 后台管理员端：文档录入，QA对生成，知识库管理，数据可视化
+
+<img src="https://notes-pic.oss-cn-shanghai.aliyuncs.com/%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD.png" style="zoom: 67%;" />
+
+详细功能介绍见视频
+
+### 算法部分（QA对生成）
 
 这个QA对生成是本项目的核心算法，本项目采用的是简单的基于模板的传统方案（没有使用深度学习技术），目前的做法是通过一段陈述句，转换成疑问句。提问，总得有一段被提问的语句（通常都是陈述句），对这段、这句陈述句提问，就可以生成问句。
 
@@ -127,6 +146,20 @@ bilibili视频地址：[视频网址](https://www.bilibili.com/video/av35481883)
 ### 存在的一些问题
 
 因为当时比赛的时间紧迫，目前这个代码中有些部分还存在一定的问题，例如问句泛化模块并没有集成到整体的流程中（因为问句泛化效果不佳且费时，目前使用的是一种简单的疑问词替换的方式），按句子生成的问句的方式也没有集成进去，因为这样生成的问句太多，需要进行筛选。
+
+### 好看的宣传册
+
+感谢张小可爱为项目制作了非常精美的宣传册，介绍了本项目
+
+<img src="https://notes-pic.oss-cn-shanghai.aliyuncs.com/%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94%E7%B3%BB%E7%BB%9F/%E5%B0%81%E9%9D%A2%2B%E8%83%8C%E9%9D%A2.jpg" style="zoom: 50%;" />
+
+<img src="https://notes-pic.oss-cn-shanghai.aliyuncs.com/%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94%E7%B3%BB%E7%BB%9F/%E9%A1%B9%E7%9B%AE%E7%AE%80%E4%BB%8B%2B%E7%AE%97%E6%B3%952.jpg" style="zoom:50%;" />
+
+<img src="https://notes-pic.oss-cn-shanghai.aliyuncs.com/%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94%E7%B3%BB%E7%BB%9F/%E5%8A%9F%E8%83%BD%E6%A6%82%E8%A6%81%2B%E7%89%B9%E8%89%B2%E5%8A%9F%E8%83%BD.jpg" style="zoom:50%;" />
+
+<img src="https://notes-pic.oss-cn-shanghai.aliyuncs.com/%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94%E7%B3%BB%E7%BB%9F/%E7%89%B9%E8%89%B2%E5%8A%9F%E8%83%BD%2B%E7%AE%97%E6%B3%95%E6%A1%86%E6%9E%B6.jpg" style="zoom:50%;" />
+
+<img src="https://notes-pic.oss-cn-shanghai.aliyuncs.com/%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94%E7%B3%BB%E7%BB%9F/%E7%AE%97%E6%B3%95%E5%8A%9F%E8%83%BD.jpg" style="zoom:50%;" />
 
 ---
 
