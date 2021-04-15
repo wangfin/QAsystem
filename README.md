@@ -53,7 +53,7 @@ bilibili视频地址：[视频网址](https://www.bilibili.com/video/av35481883)
 
 图例（图中有部分没有介绍）
 
-<img src="https://notes-pic.oss-cn-shanghai.aliyuncs.com/%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94%E7%B3%BB%E7%BB%9F/%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84.png" style="zoom:50%;" />
+<img src="https://github.com/wangfin/QAsystem/raw/master/pic/技术架构.png" style="zoom:50%;" />
 
 ## 功能介绍
 
@@ -62,7 +62,7 @@ bilibili视频地址：[视频网址](https://www.bilibili.com/video/av35481883)
 - 用户段的问答系统：问答对话，兴趣推荐，热点问题，闲聊对话
 - 后台管理员端：文档录入，QA对生成，知识库管理，数据可视化
 
-<img src="https://notes-pic.oss-cn-shanghai.aliyuncs.com/%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD.png" style="zoom: 67%;" />
+<img src="https://github.com/wangfin/QAsystem/raw/master/pic/系统功能.png" style="zoom: 67%;" />
 
 详细功能介绍见视频
 
@@ -172,15 +172,15 @@ bilibili视频地址：[视频网址](https://www.bilibili.com/video/av35481883)
 
 感谢张小可爱为项目制作了非常精美的宣传册，介绍了本项目
 
-<img src="https://notes-pic.oss-cn-shanghai.aliyuncs.com/%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94%E7%B3%BB%E7%BB%9F/%E5%B0%81%E9%9D%A2%2B%E8%83%8C%E9%9D%A2.jpg" style="zoom: 50%;" />
+<img src="https://github.com/wangfin/QAsystem/raw/master/pic/封面+背面.jpg" style="zoom: 50%;" />
 
-<img src="https://notes-pic.oss-cn-shanghai.aliyuncs.com/%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94%E7%B3%BB%E7%BB%9F/%E9%A1%B9%E7%9B%AE%E7%AE%80%E4%BB%8B%2B%E7%AE%97%E6%B3%952.jpg" style="zoom:50%;" />
+<img src="https://github.com/wangfin/QAsystem/raw/master/pic/项目简介+算法2.jpg" style="zoom:50%;" />
 
-<img src="https://notes-pic.oss-cn-shanghai.aliyuncs.com/%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94%E7%B3%BB%E7%BB%9F/%E5%8A%9F%E8%83%BD%E6%A6%82%E8%A6%81%2B%E7%89%B9%E8%89%B2%E5%8A%9F%E8%83%BD.jpg" style="zoom:50%;" />
+<img src="https://github.com/wangfin/QAsystem/raw/master/pic/功能概要+特色功能.jpg" style="zoom:50%;" />
 
-<img src="https://notes-pic.oss-cn-shanghai.aliyuncs.com/%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94%E7%B3%BB%E7%BB%9F/%E7%89%B9%E8%89%B2%E5%8A%9F%E8%83%BD%2B%E7%AE%97%E6%B3%95%E6%A1%86%E6%9E%B6.jpg" style="zoom:50%;" />
+<img src="https://github.com/wangfin/QAsystem/raw/master/pic/特色功能+算法框架.jpg" style="zoom:50%;" />
 
-<img src="https://notes-pic.oss-cn-shanghai.aliyuncs.com/%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94%E7%B3%BB%E7%BB%9F/%E7%AE%97%E6%B3%95%E5%8A%9F%E8%83%BD.jpg" style="zoom:50%;" />
+<img src="https://github.com/wangfin/QAsystem/raw/master/pic/算法功能.jpg" style="zoom:50%;" />
 
 ---
 
