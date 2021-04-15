@@ -95,11 +95,11 @@ bilibili视频地址：[视频网址](https://www.bilibili.com/video/av35481883)
 
 参考自论文：
 
-<img src="https://notes-pic.oss-cn-shanghai.aliyuncs.com/%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94%E7%B3%BB%E7%BB%9F/%E9%97%AE%E5%8F%A5%E5%88%86%E7%B1%BB.png" style="zoom:50%;" />
+<img src="https://github.com/wangfin/QAsystem/raw/master/pic/问句分类.png" style="zoom:50%;" />
 
-<img src="https://notes-pic.oss-cn-shanghai.aliyuncs.com/%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94%E7%B3%BB%E7%BB%9F/%E9%97%AE%E5%8F%A5%E5%88%86%E7%B1%BB2.png" style="zoom:50%;" />
+<img src="https://github.com/wangfin/QAsystem/raw/master/pic/问句分类2.png" style="zoom:50%;" />
 
-<img src="https://notes-pic.oss-cn-shanghai.aliyuncs.com/%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94%E7%B3%BB%E7%BB%9F/%E9%97%AE%E5%8F%A5%E5%88%86%E7%B1%BB3.png" style="zoom: 50%;" />
+<img src="https://github.com/wangfin/QAsystem/raw/master/pic/问句分类3.png" style="zoom:50%;" />
 
 ### 问句泛化
 
