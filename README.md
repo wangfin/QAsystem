@@ -6,7 +6,7 @@
 
 QAQ团队，和我们的logo
 
-<img src="https://github.com/wangfin/QAsystem/raw/master/pic/QAlogo.png"/>
+<img src="https://github.com/wangfin/QAsystem/raw/master/pic/QAlogo.png" style="zoom: 50%;"/>
 
 bilibili视频地址：[视频网址](https://www.bilibili.com/video/av35481883)
 
